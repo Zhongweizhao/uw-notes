@@ -1,0 +1,94 @@
+\lecture{Oct. 5}
+
+\begin{exmp}
+Find $\displaystyle \frac{3n^2+2n}{5n^2+2}$
+\end{exmp}
+
+\begin{solution}
+\begin{align*}
+    \lim_{n\to\infty} \frac{3n^2+2n}{5n^2+2}& = \lim_{n\to\infty} \frac{n^2}{n^2}\frac{3+\cfrac{2}{n}}{5+\cfrac{2}{n^2}}\\
+    & = \frac{\displaystyle\lim_{n\to\infty} 3 + \lim_{n\to\infty} \cfrac{2}{n}}{\displaystyle\lim_{n\to\infty} 5 + \lim_{n\to\infty} \cfrac{2}{n^2}}\\
+     & = \frac{3+0}{5+0} \\ 
+     & = \frac{3}{5}
+\end{align*}
+\end{solution}
+
+\begin{note}
+If $a_kb_j\neq 0$
+\begin{equation*}
+    \lim_{n\to\infty} \frac{a_0+a_1n+\dots + a_kn^k}{b_0+b_1n+\dots + b_jn^j} = 
+    \begin{cases}
+        \displaystyle \frac{a_k}{b_j}  &  \textit{ if } k = j\\
+        0 & \textit{ if } j>k\\
+        \infty & \textit{ if } j<k, a_kb_j>0 \\
+     -\infty & \textit{ if } j<k, a_kb_j<0 
+    \end{cases}
+\end{equation*}
+\end{note}
+
+\begin{exmp}
+Find \[
+\lim_{n\to\infty} \sqrt{n^2+n}-n\]
+\end{exmp}
+
+\begin{solution}
+\begin{align*}
+    \lim_{n\to\infty} \sqrt{n^2+n}-n &= 
+    \lim_{n\to\infty} (\sqrt{n^2+n}-n)\cdot \frac{\sqrt{n^2+n}+n}{\sqrt{n^2+n}+n}\\
+    & = \lim_{n\to\infty} \frac{n^2+n-n^2}{\sqrt{n^2+n}+n} \\
+    & = \lim_{n\to\infty} \frac{n}{\sqrt{1+\cfrac{1}{n}}+1} \\ 
+    & = \frac{n}{\sqrt{1+\displaystyle\lim_{n\to\infty}\frac{1}{n}}+1}\\
+    & = \frac{1}{2}
+\end{align*}
+\end{solution}
+
+\begin{exmp}
+$a_1 = 1$ and $\displaystyle a_{n+1} = \frac{1}{1+a_n}$. Suppose that $\{a_n\}$ converges, find $\lim_{n\to \infty} a_n$
+\end{exmp}
+
+\begin{prop}
+A sequence $\{a_n\}$ converges to $L$ if and only if every sub-sequence $\{a_{n_k}\}$ converges to L
+\end{prop}
+\begin{proof}
+Assume that $lim_{n\to \infty} a_n = L$. Let $\{a_{n_k}\}$ be a sub-sequence. Let $\epsilon > 0$, we can find a $N_0$ so that if $n\geq N_0$, then $\abs{a_n - L}<\epsilon$.
+
+Let $k_0 \geq N_0$, then $k\geq k_0 \Rightarrow n_k \geq n_{k_0}\geq N_0$
+
+Hence $\abs{a_{n_k} - L}<\epsilon$
+\end{proof}
+
+\begin{solution}
+If \[\lim_{n\to\infty} a_n = \lim_{n\to \infty} a_{n+1}\]
+
+Then,
+\begin{gather*}
+    L = \frac{1}{1+L} \\
+    L^2+L-1 = 0\\
+    L = \frac{-1 \pm \sqrt{5}}{2}
+\end{gather*}
+\end{solution}
+
+\begin{ques}
+Does $\{a_n\}$ converge?
+\end{ques}
+\begin{solution}
+Claim that for any k,
+\[a_{2k}<a_{2k+2}<a_{2k+1}<a_{2k-1}\]
+Proof by induction.
+
+$\{a_{2k-1}\}$ is decreasing and bounded below by 0
+
+$\{a_{2k}\}$ is increasing and bounded above by 1.
+
+Let $\lim_{n\to\infty} a_{2k} = M$ and $\lim_{n\to\infty} a_{2k-1} = L$.
+
+Since $M = \displaystyle \frac{-1 + \sqrt{5}}{2}$ and $L = \displaystyle \frac{-1 + \sqrt{5}}{2}$, $M = l$
+
+Thus, $\{a_n\}$ converges.
+\end{solution}
+\begin{exmp}
+FInd $$\lim_{n\to\infty} \frac{cos(n)}{n}$$
+\end{exmp}
+
+
+

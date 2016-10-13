@@ -1,0 +1,96 @@
+\lecture{Sept. 21}
+
+\topic{Recap}
+
+Symbol Set
+
+Term
+
+Formula
+
+\topic{First-Order Language}
+
+
+\begin{defn}
+In the language of first-order number theory, we allow us to use the following additional symbols:
+
+\[\{0,1,+,\times,<\}\]
+
+Unless otherwise stated, we do not allow ourselves to use any other additional symbols.
+\end{defn}
+
+\begin{exmp}
+Express each of the following statement as formulas in the language of first-order number theory.
+\begin{enumerate}
+\item[a)] x is a factor of y
+\item[b)] x is a prime number
+\item[c)] x is a power of 3
+\end{enumerate}
+
+\end{exmp}
+
+\begin{solution}
+
+We take he universal set to be \(\mathbb{Z}\).
+
+\begin{enumerate}
+\item[a)] \(\exists z\in \mathbb{Z}\enspace y=x\times z\)
+\item[b)] \(1<x\wedge \forall y (\exists z \enspace x=y\times z \to ((y=1\vee y=x)\vee(y+1=0\vee y+x=0) ))\) \\
+	\(1<x\wedge \forall y ((1<y\wedge \exists z \enspace x=z\times y)\to y=x)\)
+    
+\item[c)] \((0<x )\wedge\) the only prime factor of x is 3\\
+\(\iff (0<x) \wedge \forall y\in \mathbb{Z} ((\text{y is prime}\wedge \text{y is a factor of x})\to y=3)\)\\
+\(\iff (0<x) \wedge \forall y\in \mathbb{Z} ((1<y\wedge\exists z \enspace x=y\times z) \to \exists z\enspace y=((z+z)+z))\)
+
+\end{enumerate}
+\begin{align*}
+x=-y &\iff x+y=0\\
+x=y-z &\iff x+z=y
+\end{align*}
+
+
+\end{solution}
+
+\begin{rem}
+The two minus signs in the two equations above are different.
+\end{rem}
+
+
+
+\begin{exmp}
+Express the following statements about a function \(f\colon \mathbb{R}\to\mathbb{R}\) as formulas in first-order number theory after adding the function symbol \(f\) to the symbol set.
+\end{exmp}
+
+
+\begin{enumerate}
+\item[a)] \(f\) is surjective (or onto)
+\item[b)] \(f\) is bijective (or invertible)
+\item[c)] \(\lim_{x\to u} f(x) = v\)
+\end{enumerate}
+
+\begin{solution}
+
+\begin{enumerate}
+\item[a)] \(\forall y\in\mathbb{R}\enspace \exists x\in \mathbb{R}\enspace y=f(x)\)
+\item[b)] \(\forall y\in\mathbb{R}\enspace \exists! x\in \mathbb{R}\enspace y=f(x)\)\\
+\(\iff \forall y\in\mathbb{R}\enspace (\exists x\in \mathbb{R}(y=f(x)\wedge \forall z (y=f(z)\to z=x)))\)
+\item[c)] \(
+\forall \epsilon > 0 \enspace \exists  \delta > 0 \enspace \forall x\in \mathbb{R} (0<|x-v|<\delta \to |f(x)-v|<\epsilon)
+\)\\
+\(
+\iff 
+\forall \epsilon (0<\epsilon \to \exists \delta (0<\delta \wedge \forall x ((\neg x = u \wedge (u < x+\delta \wedge x<u+\delta)) \to (v<f(x) + \epsilon \wedge f(x)<v+\epsilon))))
+\)
+\end{enumerate}
+\end{solution}
+
+
+
+
+
+
+
+
+
+
+

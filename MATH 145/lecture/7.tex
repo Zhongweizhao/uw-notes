@@ -1,0 +1,152 @@
+\lecture{Sept. 20}
+
+\begin{exmp}
+
+Let $F$ and $G$ be formulas 
+
+Determine whether $$\{F\to G, F\vee G\}\vDash F\wedge G$$
+
+\end{exmp}
+
+\begin{solution}
+We make a truth table
+\begin{center}
+\begin{tabular}{c|c|c|c|c}
+    $F$ & $G$ & $F\to G$ & $F\vee G$ & $F\wedge G$ \\ \hline
+    1 & 1 & 1 & 1 & 1 \\\hline
+    1 & 0 & 0 & 1 & 0 \\\hline
+    0 & 1 & 1 & 1 & 0 \\\hline
+    0 & 0 & 1 & 0 & 0 \\
+\end{tabular}
+\end{center}
+
+\end{solution}
+
+\begin{rem}
+
+It appears from row 3 that the argument is not valid.
+
+But in fact, the argument may or may not be valid, depending on the formulas $F$ and $G$.
+
+For example, if $F$ is a tautology and $G$ is any formula, the argument is valid.
+
+Or if $F=G$ then the argument is valid.
+
+\end{rem}
+
+\topic{First-Order Language}
+
+\topic{Symbol Set}
+\begin{defn}
+A First-Order Language is determined by its symbol set. The symbol set includes symbols from the common symbol set $$\{\neg ,\wedge ,\vee ,\to,\leftrightarrow,=,\forall,\exists,(,),,\}$$
+along with some variable symbols such as $$x,y,z,u,v,w,\dots$$
+
+The symbol $=$ is read as "equals". The symbols $\forall$, $\exists$ are called quantifier symbols. The symbol $\forall$ is read as "for all" or "for every", and the symbol $\exists$ is read in "for some" or "there exists".
+
+The symbol set can also include some additional symbols which can include 
+\begin{enumerate}
+\item constant symbols $$a,b,c,\emptyset,0,i,e,\pi,\dots$$
+\item function symbols $$f,g,h,\cup,\cap,+,\times,\dots$$
+\item relation symbols $$P,Q,R,\in,\subset,\subseteq,<,>,=,\dots$$
+\end{enumerate}
+\end{defn}
+The variable and constant symbols are intended to represent elements in a certain set or class $u$ called the universal set or the universal class. The universal set or class is often understood from the context.
+
+
+\topic{Function}
+\begin{defn}
+A unary function $f$ from a set $u$ is a function $f\colon u\to U$ (for every $x\in u$ there is a unique element $y=f(x)\in U$)
+
+A binary function $g$ on $u$ is a function $g\colon u^2\to U$ where $u^2 = u\times u$ (for every $x,y\in u$ there is a unique element $z=g(x,y)\in U$)
+\end{defn}
+
+Some binary function symbols are used with infix notation, which means that we write $g(x,y)$ as $xgy$ or as $(xgy)$ 
+
+\begin{exmp}
+
+$+$ is a binary function on $\mathbb{N}$ written with infix notation. So we write $+(x,y)$ as $x+y$ or as $(x+y)$.
+\end{exmp}
+
+
+\topic{Relation}
+\begin{defn}
+A unary relation $P$ on a set $u$ is a subset $P\subseteq U$. For $x\in u$, we write $P(x)$ to indicate that $x\in P$
+
+A binary relation $R$ on $u$ is a subset of $U^2$. We write $R(x,y)$ to indicate that $(x,y)\in R$
+\end{defn}
+Sometimes a binary relation symbol $R$ is used with indix notation which means that we write $R(x,y)$ as $xRy$.
+
+
+\begin{exmp}
+
+$<$ is a binary relation on $\mathbb{N}$, which means that $<\subseteq \mathbb{N}^2$ and it is used with infix notation, So we write $<(x,y)$ as $x<y$
+
+Also, the symbol = is a binary relation symbol written with infix notation.
+
+\end{exmp}
+
+\begin{rem}
+$(P\wedge Q)$ can be written with infix notation as $\wedge PQ$, which is also called polish notation.
+\end{rem}
+
+\topic{Term}
+\begin{defn}
+In a first-order language, a term is a non-empty finite string of symbols from the symbol set which can be obtained by applying the following rules.
+\begin{enumerate}
+\item Every variable symbol is a term and every constant symbol is a term.
+\item if $f$ is a unary function symbol and $t$ is a term, then the string $f(t)$ is a term
+\item if $g$ is a binary function symbol and $s$ and $t$ are terms, the the string $g(s,t)$ (or the string $sgt$) is a term.
+\end{enumerate}
+\end{defn}
+
+\begin{exmp}
+
+The following strings are terms.
+\begin{itemize}
+\item $u$
+\item $u\cap v$
+\item $u\cap (v \cap \emptyset)$
+\item $x$
+\item $x+1$
+\item $g(x,f(y+1))$
+\end{itemize}
+
+Each term represents an element in the universal set or class $u$
+
+\end{exmp}
+
+\topic{Formula}
+\begin{defn}
+A formula is a non-empty finite string of symbols which can be obtained using the following rules.
+\end{defn}
+\begin{enumerate}
+\item if $P$ is a unary relation symbol and $t$ is a term then the string $P(t)$ is a formula. (in standard mathematical language we would write $P(t)$ as $t\in P$)
+\item if $R$ is a binary relation symbol and $s$ and $t$ are terms then the string $R(s,t)$ is a formula (or $sRt$)
+\item if $F$ is a formula, then so is the string $\neg F$
+\item if $F$ and $G$ are formulas then so is each of the strings $F\wedge G$, $F\vee G$, $F\to G$, $F\leftrightarrow G$
+\item if $F$ is a formula and $x$ is a variable symbol, then the string $\forall x F$ and $\exists x F$ are both formulas
+\end{enumerate}
+
+\textbf{Examples: }
+Each of the following strings is formula
+\begin{itemize}
+\item $u\subseteq R$
+\item $\forall u \enspace \emptyset \in u$
+\item $f(x)<x+1$
+\item $x=g(y,z+1)$
+\end{itemize}
+
+A formula is a formal way of expressing a mathematical statement about element in $u$, and about functions and relations on $u$.
+
+
+\begin{rem}
+In standard mathematical language, we continually to add new notations which we allow ourselves to use.
+\end{rem}
+
+\begin{exmp}
+
+$\displaystyle\frac{x+1}{y}$ could be written as $(x+1)/y$
+
+$\displaystyle\sum_{k=1}^n \frac{1}{k}$ could be written as .... (a very long formula)
+\end{exmp}
+

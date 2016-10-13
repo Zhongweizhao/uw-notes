@@ -1,0 +1,158 @@
+\lecture{Sept. 30}
+
+\begin{exmp}
+$$\{F\to (G\wedge H),(F\wedge G) \vee H\}\vDash H$$
+\end{exmp}
+
+\begin{proof}
+Proof by contradiction. Suppose $H$ is false
+\begin{align*}
+   & (F\wedge G)\vee H , \neg H \quad \therefore F\wedge G\\
+   & (F\wedge G) \quad \therefore F\\
+   & F\to (G\wedge H) , F \quad \therefore G\wedge H\\
+   & G\wedge H \quad \therefore H\\
+   & \neg H , H \quad \textit{gives the contradiction} \\
+   & \therefore H
+\end{align*}
+\end{proof}
+
+Here is a derivation for the valid argument
+
+\begin{tabular}{ll}
+    $S = \{F\to (G\wedge H),(F\wedge G) \vee H, \neg H\} \vDash F\to (G\wedge H)$  & $\textit{ by V1 }$\\
+    $S \vDash (F\wedge G) \vee H $ &$ \textit{ by V1 }$ \\
+   $ S \vDash \neg H$  & $\textit{ V1 } $\\
+    $S \vDash F\wedge G$  & $\textit{ V18 on line 2,3 }$ \\
+   $ S \vDash F $ & $\textit{ V11 on line 4 }$ \\
+   $ S \vDash G \wedge H $ & $\textit{ V23 on line 1,5 }$ \\
+   $ S \vDash H $ & $\textit{ by V12 on 6 }$ \\
+  $  \{F\to (G\wedge H),(F\wedge G) \vee H\} \vDash H$  & $\textit{ V5 on line 3,7 }$
+\end{tabular}
+
+Here is another proof 
+
+\begin{proof}
+
+Let $\alpha$ be an arbitrary assignment 
+
+Suppose that $F\to (G\wedge H)$ is true (under $\alpha$)
+
+Suppose that $(F\wedge G) \vee H$ is true
+
+Note that wither $F\wedge G$ is true or $H$ is true
+
+Case 1. Suppose $F\wedge G$ is true. [V14]
+
+Since $F\wedge G$ $\therefore F$  [V11]
+
+Since $F\to (G\wedge H)$ and $F$ $\therefore F$  [V23]
+
+Since $G\wedge H$ $\therefore H$ [V12]
+
+Case 2. Support that $H$ is true.  [V14]
+
+Then $H$ is true.  [V1]
+
+In either case, we have proven $H$ [V14]
+
+\end{proof}
+
+
+Here is a corresponding derivation of valid argument
+
+\begin{enumerate}
+    \item $S = \{F\to (G\wedge H),(F\wedge G)\} \vDash F \to (G\wedge H)$
+    \item $S \vDash F\wedge G$
+    \item $S\vDash F$
+    \item $S\vDash G\wedge H$
+    \item $S\vDash H$
+    \item $\{F\to (G\wedge H),H\} \vDash H$
+    \item $\{F\to (G\wedge H),(F\wedge G)\vee H\} \vDash H$
+\end{enumerate}
+
+
+\begin{exmp}
+Show that 
+\[
+\{(F\vee \neg G) \to H, F\leftrightarrow (G\wedge \neg H)\}\vDash \neg (H\to F)
+\]
+\end{exmp}
+
+\textbf{Solution: }We need to show that 
+
+for every assignment $\alpha$
+
+if $(F\vee \neg G) \to H$ is true under $\alpha$
+
+and $F\leftrightarrow (G\wedge \neg H)$ is true
+
+then $H\to F$ is false 
+
+\begin{proof}
+Let $\alpha$ be arbitrary assignment
+
+Suppose $(F\vee \neg G) \to H$ is true
+
+Suppose $F\leftrightarrow (G\wedge \neg H)$ is true.
+
+[We need to show that $H\to F$ is false. Notice that $\neg (H\to F) \equiv H \wedge \neg F$. So we need to show that $H$ is true and $F$ is false.]
+
+Suppose, for a contradiction, that $H$ is false.
+
+Since $(F\vee \neg G) \to H$ and $\neg H \quad \therefore \neg(F\vee \neg G)$
+
+Since $\neg (F\vee \neg G)\quad \therefore \neg F \wedge G$
+
+Since $F\leftrightarrow (G\wedge \neg H)$ and $\neg F \quad \therefore \neg(G\wedge \neg H)$
+
+Since $G$ and  $\neg H \quad \therefore G\wedge \neg H$
+
+Since $G\wedge \neg H$ and $\neg (G\wedge \neg H)$ we have a contradiction
+
+So $H$ is true.
+
+Since $H$ is true, then $\neg \neg H$
+
+Since $\neg \neg H$ we have $\neg G \vee \neg \neg H$
+
+Since $\neg G \vee \neg \neg H$ we have $\neg (G\wedge \neg H)$
+
+Since $F\leftrightarrow (G\wedge \neg H)$ and $\neg (G\wedge \neg H)$, we have $\neg F$
+
+Since $H$ and $\neg F$, we have $H\wedge \neg F$
+
+Since $H\wedge \neg F$ we have $\neg (H\to F)$
+
+
+\end{proof}
+
+
+\[
+\{(F\vee \neg G) \to H, F\leftrightarrow (G\wedge \neg H)\}\vDash \neg (H\to F)
+\]
+Here is a derivation
+
+\begin{proof}
+\begin{enumerate}
+    \item $S = \{(F\vee \neg G) \to H, F\leftrightarrow (G\wedge \neg H), \neg H\}\vDash \neg (H\to F)$  \hfill v1
+    \item $S\vDash F \leftrightarrow (G\wedge \neg H)$ \hfill v1
+    \item $S\vDash \neg H$ \hfill v1 
+    \item $S\vDash \neg (F\vee \neg G)$ \hfill v24
+    \item $S \vDash \neg F \wedge \neg \neg G$ \hfill v45,E8
+    \item $S \vDash \neg F \wedge G $\hfill v11 on 5
+    \item $S \vDash \neg F$ \hfill v31 on 2,6
+    \item $S\vDash \neg \neg G$ \hfill 12 on 5
+    \item $S\vDash G$ \hfill v45,e2 on 8
+    \item $S\vDash G\wedge \neg H$ \hfill v10 on 9,3
+    \item $T = \{(F\wedge \neg G)\to H,F\leftrightarrow(F\wedge\neg H)\} \vDash H$ \hfill v5 on 10,7
+    \item $T \vDash \neg \neg H$
+    \item $T \vDash \neg G \vee \neg \neg H$
+    \item $T \vDash \neg (G\wedge \neg H)$
+    \item $T \vDash F \leftrightarrow (G\wedge \neg H)$
+    \item $T \vDash  \neg F$
+    \item $T\vDash H\wedge \neg F$
+    \item $T \vDash \neg (H\to F)$
+\end{enumerate}
+\end{proof}
+
+

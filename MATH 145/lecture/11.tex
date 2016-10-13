@@ -1,0 +1,55 @@
+\lecture{Sept. 27}
+
+\begin{defn}
+\textbf{Interpretation} is a choice of a non-empty set u, and constant, functions and relations for each constant, function and relation symbol.
+
+An \textbf{Assignment} in u, $$\alpha \colon \{\text{variale symbols}\}\to u$$
+
+We write $\alpha (F) = 1$ when F is true in u under $\alpha$.
+
+We write $\alpha (F) = 0$ when F is false in u under $\alpha$.
+
+We say F is true in u when $\alpha (F) = 1$ for \textbf{every} assignment $\alpha \in u$
+\end{defn}
+
+\begin{exmp}
+the formula $x\times y = y \times x$ is true in $\mathbb{Z}$ but not true in $n\times n$ matrices.
+\end{exmp}
+
+\begin{defn}
+For formulas F and G and a set of formulas S, we say that F is a \textbf{tautology} and we write $\vDash F$, when for every interpretation u and every assignment $\alpha \in u$, $\alpha (F) = 1$
+\end{defn}
+
+\begin{defn}
+We say that F and G are \textbf{equivalent}, and we write $F\equiv G$, when for every interpretation u, for every assignment $\alpha \in u$, $\alpha (F) = \alpha (G)$, we say that the argument ``F there fore G" is valid, or that ``S induces G", or that ``G is a consequences of S", when for every interpretation u and for every assignment $\alpha \in u$, if $\alpha (F) = 1$ for every $F\in S$ then $\alpha (G) = 1$
+\end{defn}
+
+\begin{defn}
+Given a formula G and a set of formulas S, such that $S\vDash G$, a \textbf{derivation} for the valid argument $S\vDash G$ is a list of valid arguments
+$$S_1\vDash G_1,S_2\vDash G_2,S_3\vDash G_3,\dots$$
+where for some index k we have $S_k=S$ and $G_k = G$, such that each valid argument in the list is obtained from previous valid arguments in the list by applying one of the basic validity rules.
+\end{defn}
+
+\section{Basic Validity Rules}
+Each basic validity rule is a formal and precise way of describing standard method of mathematical proof.
+
+Rules V1, V2 and V3 are used in derivations because we make a careful distinction between \textbf{premises} and \textbf{conclusions}. In standard mathematical proofs we do not make a careful distinction.
+
+\begin{enumerate}
+\item[Premise V1.] If $F\in S$ then $S\vDash F$. In words, if we assume $F$, we can conclude $F$.
+\item[V2.] If $S\vDash F$ and $S\subseteq \mathcal{T}$ then $\mathcal{T}\vDash F$. In words, if we can prove $F$ without assuming $G$, then we can still prove $F$ if we assume $G$.
+\item[Chain Rule V3.] If $S\vDash F$ and $S\cup \{F\}\vDash G$ then $S\vDash G$. In words, if we can prove $F$, and by assuming $F$ we can prove $G$, then we can prove $G$ directly without assuming $F$.
+\item[Proof by Cases V4.] If $S\cup \{F\}\vDash G$ and $S\cup \{\neg F\}\vDash G$ then $S\vDash G$. In words, in either case $G$ is true.
+\item[Contradiction V5.] If $S\cup \{\neg F\} \vDash G$ and $S\cup \{\neg F\} \vDash \neg G$ then $S\vDash F$. In words, to prove F by contradiction, we suppose, for a contradiction, that F is false, we choose a formula G, then we prove that G is true and we prove that G is false.
+\item[V6.] If $S\cup \{ F\} \vDash G$ and $S\cup \{ F\} \vDash \neg G$ then $S\vDash \neg F$
+\item[V7.] If $S\vDash F$ and $S\vDash \neg F$ then $S\vDash G$
+\item[Conjunction V8.] $S\vDash F\wedge G \Longleftrightarrow (S\vDash F \text{ and } S\vDash G)$
+\item[V9.] If $S\cup \{F,G\} \vDash H$ then $S\cup \{F\wedge G\}\vDash H$
+\item[V10.] ...
+\item[V11.] ...
+\item[V12.] ...
+\item[Disjunction V13.] $S\vDash F\vee G \Longleftrightarrow S\cup \{\neg F\}\vDash \Longleftrightarrow S\cup \{\neg G\}\vDash F$
+\item[V14.] ...
+\end{enumerate}
+
+

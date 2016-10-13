@@ -1,0 +1,106 @@
+\lecture{Sept. 14}
+
+
+\topic{Class}
+
+
+\begin{defn}
+A class is a collection of sets of the form $$\{x\mid F(x) \text{ is true }\}$$
+Where $F(x)$ is a mathematical statement about an unknown set $x$.
+\end{defn}
+
+\begin{exmp}
+The collection of all sets is the class $\{x\mid x=x\}$
+\end{exmp}
+
+\begin{exmp}
+If A is a set then $A = \{x\mid x\in A\}$ which is also a class
+\end{exmp}
+
+
+\topic{Mathematical Statement}
+\begin{defn}
+In the languages of Propositional logic we use symbols from the symbol set
+$$\{\neg,\wedge,\vee,\to,\leftrightarrow ,(,)\}$$
+together with propositional variable symbols such as $P,Q,R,\dots$
+
+The variable symbols are intended to represent mathematical statements which are either true or false.
+
+
+In propositional logic, a formula is a non-empty, finite string of symbols (from the above set of symbols) which can be obtained by applying the following rules.
+
+\begin{enumerate}
+\item Every propositional variable is a formula.
+\item If $F$ is a formula, then so is the string $\neg F$.
+\item If $F$ and $G$ are formulas then so is each of the following strings
+    \begin{itemize}
+        \item $(F\vee G)$
+        \item $(F\wedge G)$
+        \item $(F\to G)$
+        \item $(F\leftrightarrow G)$
+    \end{itemize}
+\end{enumerate}
+
+A derivation for a formula $F$ is a list of formulas $$F_1,F_2,F_3,\dots$$ with $F=F_k$ for some index $k$ and for each index $l$, either $F_l$ is a propositional variable, or $F_l$ is equal to $F_l=\neg F_i$ for some $i<l$, or $F_l=(F_i \ast F_j)$ for some $i,j<l$ and for some symbol $\ast \in \{\wedge,\vee,\to,\leftrightarrow\}$
+
+\end{defn}
+
+\begin{exmp}
+ $$(\neg (\neg P \to Q)\leftrightarrow(R\vee \neg S))$$ is a formula and one possible derivation, with justification on each line, is as follows
+
+\begin{enumerate}
+\item $P$
+\item $Q$
+\item $R$
+\item $S$
+\item $\neg P$
+\item $(\neg P \to Q)$
+\item $\neg S$
+\item $R\vee \neg S$
+\item $\neg (\neg P \to Q)$
+\item $(\neg (\neg P \to Q)\leftrightarrow(R\vee \neg S))$
+\end{enumerate}
+
+\end{exmp}
+
+
+\begin{defn}
+An \textbf{assignment} of truth-values to the propositional variables is a function $\alpha \colon  \{P,Q,R\dots\} \to \{0,1\}$
+
+For a propositional variable $X$ when $\alpha (X)=1$ we say $X $is true under $\alpha$ and when $\alpha (X)=0$ we say $X$ is false under $\alpha$
+\end{defn}
+
+Given an assignment $\alpha \colon \{\text{propositional variables}\} \to {0,1}$
+we extend $\alpha$ to a function $\alpha \colon \{\text{formulas}\} \to {0,1}$
+by defining $\alpha (F)$ for all formulas $F$ recursively as follows:
+
+When $F=X$ where $X$ is a propositional variable symbol, the value of $\alpha (X)$is already known
+
+When $F=\neg G$ where $G$ is a formula, define $\alpha (F)$ according to the following table
+\begin{center}
+\begin{tabular}{ c | c }
+    $G$ & $\neg G$ \\
+    \hline
+    1 & 0 \\
+    0 & 1 
+\end{tabular}
+\end{center}
+
+
+When $F = (G\ast H)$
+where G and H are formulas and where $\ast \in \{\wedge,\vee,\to,\leftrightarrow\} $
+
+we define $\alpha (F)$ according to the following table 
+\begin{center}
+\begin{tabular}{c | c | c | c | c | c }
+    $G$ & $H$ & $G\wedge H$ & $G\vee H$ & $G\to H$ & $G\leftrightarrow H$ \\ \hline
+    1 & 1   &    1      &     1        &   1      &     1\\
+    1 & 0   &    0      &     1       &    0     &      0\\
+    0 & 1    &   0      &     1       &    1     &      0\\
+    0 & 0    &   0      &     0       &    1    &       1
+    
+\end{tabular}
+
+\end{center}
+
+

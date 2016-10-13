@@ -1,0 +1,64 @@
+\ProvidesPackage{MATH145coursenotes}[]
+
+
+\setlength{\oddsidemargin}{0 in}
+\setlength{\evensidemargin}{0 in}
+\setlength{\topmargin}{-0.6 in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{8.25 in}
+\setlength{\headsep}{0.75 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+
+\newcommand{\displaytitle}{
+\begin{titlepage}
+    \titlepagedecoration
+    \begin{center}
+        \vspace*{6cm}
+        {\Huge \text{MATH 145 Algebra (Advanced)}}\\
+        \vspace{1cm}
+        {\huge Lecture Notes}\\
+        \vspace{2.5cm}
+        {\LARGE Zhongwei Zhao}
+       \vfill
+    \end{center}
+\end{titlepage}
+}
+
+\newcommand{\listlecturename}{List of Lectures}
+\newlistof{lecture}{lec}{\listlecturename}
+\newcommand{\lecture}[1]{%
+   \refstepcounter{lecture}
+   \newpage\noindent{\Large Lecture \thelecture, #1}\par\vspace{0.2 in}
+   \addcontentsline{lec}{lecture}{Lecture \thelecture, #1}\par}
+
+
+
+\newcommand{\mybinom}[2]{\Bigl(\begin{array}{@{}c@{}}#1\\#2\end{array}\Bigr)}
+\newcommand{\abs}[1] {\left| #1 \right| }
+\newcommand{\topic}[1]{{ \textbf{#1}}}
+
+
+
+\swapnumbers
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[lecture]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{exmp}[thm]{Example}
+\newtheorem{axiom}[thm]{Axiom}
+\newtheorem{ques}[thm]{Question}
+\newtheorem{exer}[thm]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem*{note}{Note}
+\newtheorem*{nota}{Notation}
+\newtheorem*{rem}{Remark}
+\newtheorem*{claim}{Claim}
+\newtheorem*{solution}{Solution}
+

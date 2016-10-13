@@ -1,0 +1,75 @@
+\lecture{Sept. 26}
+
+\begin{exmp}
+\begin{align*}
+\exists x \ (F\to G) &\equiv \exists X \ (\neg F \vee G)\\
+&\equiv \exists x \ \neg F \vee \exists x \ G\\
+&\equiv \neg \forall x \ F \vee \exists x \ G\\
+&\equiv \forall x \ F \to \exists x \ G
+\end{align*}
+\end{exmp}
+
+\begin{defn}
+In a formula f, every occurrence of a variable symbol $x$ (Except when the occurrence of $x$ immediately follows a quantifier $\forall , \exists$) is either \textbf{free} or \textbf{bound}.
+
+In the formulas $\forall x \ F$ and $\exists x \ F$, every free occurrence of $x$ in $F$ becomes \textbf{bound} by the initial quantifier, and every bound occurrence of x in F remains bound (by the same quantifier which binds it in F).
+\end{defn}
+
+\begin{exmp}
+$$\forall y \ (x\times y = y\times x)$$
+
+Both occurrence of x are free, and both occurrence of y are bound by the initial quantifier.
+
+$$\forall x \ (\forall y \ (x\times y = y\times x) \to x\times a = a\times x)$$
+\end{exmp}
+
+\begin{defn}
+An \textbf{interpretation} in a first-order language consists of the following: a choice of the universal set u, and a choice of meaning for each constant, function and relation symbol.
+\end{defn}
+
+A formula is a meaningless string of symbols until we choose an interpretation. Once we choose an interpretation, a formula becomes a meaningful mathematical statement about its free variables.
+
+The truth or falsehood of a formula may still depend on the value in u which are assigned to the free variable symbols in F.
+
+An assignment (of values in u to the variable symbols) is a function $\alpha : \{\text{variable symbols}\}\to u$
+
+\begin{exmp}
+Consider the formula $$\forall y \ (x\times y = y\times x)$$
+
+when $u = \mathbb{R}$ (and $\times$ is multiplication) the formula becomes true (for any value assigned to x).
+
+when $u = \mathbb{R}^3$ annd $\times$ is cross-product, the formula is true iff $x=0$
+
+when $u$ is the set of all $n\times n$ matrices with entries in $\mathbb{R}$, and $\times$ denotes matrix multiplication, the formula is can be read as ``the matrix x commutes with every matrix", and it is true iff $x = cI$ for some $c\in \mathbb{R}$
+\end{exmp}
+
+
+\begin{nota}
+For a formula F, a variable symbol x and a term t, we write $[F]_{x\mapsto t}$ to denote the formula which is constructed from F by replacing x by t.
+
+In an interpretation, the formula $[F]_{x\mapsto t}$ has the same meaning about t that f has about x.
+
+Roughly speaking, $[F]_{x\mapsto t}$ is obtained from F by replacing each free occurrence of the symbol x by the term t. (but if a variable symbol in t would become bound by this replacement, we rename the variable first.)
+\end{nota}
+
+\begin{exmp}
+
+In $u=\mathbb{Z}$, $x\mid y$ means $\exists z \ y = x\times z$
+
+$|\exists z \ y = x\times z|_{y\mapsto u} = \exists z \ u = x\times z$ means $x\mid u$
+
+$|\exists z \ y = x\times z|_{y\mapsto x} = \exists z \ x = x\times z$ means $x\mid x$
+
+$|\exists z \ y = x\times z|_{y\mapsto z} \neq  \exists z \ z = x\times z$
+
+$|\exists z \ y = x\times z|_{y\mapsto z} = |\exists u \ y = x\times u|_{y\mapsto z} = \exists u \ z = x\times u$
+
+\end{exmp}
+
+Here are some more basic equivalences:
+
+E32 $\forall x \ F \equiv F$ if x is not free in F
+
+E34 $\forall x \ F \equiv \forall y \ [F]_{x\mapsto y}$ if y is not free in F
+
+

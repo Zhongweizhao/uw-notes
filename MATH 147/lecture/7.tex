@@ -1,0 +1,97 @@
+\lecture{Sept. 26}
+
+Writing Assignment 2 is due Friday Oct 14th.
+
+\topic{Convergence of Sequences}
+\begin{defn} \textbf{Heuristic definition I }
+We say that a sequence $\{a_n\}$ converges to a limit $L$ if as n gets larger and larger the $a_n$s get closer and closer to $L$.
+\end{defn}
+\begin{defn} \textbf{Heuristic definition II }
+We say that a sequence $\{a_n\}$ converges to a limit $L$ if for every positive tolerance $\epsilon > 0$, we have that the terms in $\{a_n\}$ approximate $L$ with an error at most $\epsilon$, provided that $n$ is large enough.
+\end{defn}
+
+\begin{defn}
+\textbf{Convergence of a Sequence} We say that $\{a_n\}$ converges to a limit $L$ if for every $\epsilon > 0$, there exists a cutoff $N_0\in \mathbb{N}$ such that if $n\geq N_0$, then $|a_n-L|<\epsilon$
+
+If no such $L$ exists, we say that $\{a_n\}$ \textbf{diverges}.
+\end{defn}
+
+
+
+\begin{exmp}
+Consider $\{(-1)^{n+1}\} = \{1,-1,1,-1,\dots\} $. Does this have a limit?
+\end{exmp} 
+
+\begin{proof}
+Let $\epsilon = 1$. Suppose $L = \lim_{n\to \infty} a_n$. Let $N_0$ be such that if $n\geq N_0$, then $|a-L|<1$
+
+Let $n_1 \geq N_0$ with $n_0$ even. Then
+\begin{align*}
+    |-1-L| &= |a_n - L| < 1\\
+\to L &\in (-2,0)
+\end{align*}
+
+Let $n_1 \geq N_0$ with $n_0$ odd. Then 
+\begin{align*}
+    |1-L| &= |a_n - L| < 1\\
+\to L &\in (0,2)
+\end{align*}
+
+So \begin{equation*}
+    L \in (-2,0) \cap (0,2)
+\end{equation*}
+which is impossible.
+
+Hence $\{a_n\}$ diverges.
+\end{proof}
+
+
+\begin{note}
+Suppose that $\lim_{n\to \infty} a_n = L$. Let $\epsilon > 0$. What can we say about the terms in $\{a_n\}$ that are in $(L-\epsilon ,L+\epsilon)$?
+
+For some $N_0$, if $n\geq N_0$, then $a_n \in (L-\epsilon ,L+\epsilon)$. ie) $(L-\epsilon ,L+\epsilon)$ contains a tail of the sequence.
+
+\end{note}
+
+\begin{prop}
+Let $\{a_n\}$ be a sequence. Then the following are equivalent.
+\begin{enumerate}
+\item $L = \lim_{n\to \infty} a_n$
+\item for every $ \epsilon > 0 ,\  (L-\epsilon ,L+\epsilon) $ contains a tail of $\{a_n\}$
+\item for every $\epsilon > 0 ,\ (L-\epsilon ,L+\epsilon) $ contains all but finitely many $a_n$
+\item for open interval $(a,b)$ with $L\in (a,b)$, we have $(a,b)$ contains a tail of $\{a_n\}$
+\item for open interval $(a,b)$ with $L\in (a,b)$, the interval $(a,b)$ contains all but finitely many $a_n$
+\end{enumerate}
+\end{prop}
+
+\begin{ques}
+Can $\{a_n\}$ have more than 1 limit?
+\end{ques}
+
+\begin{thm} \textbf{Uniqueness of Limit}
+Suppose that $\lim_{n\to \infty} a_n = L$ and $\lim_{n\to \infty} a_n = M$, then $L = M$
+\end{thm}
+\begin{proof}
+Assume that $L<M$. Let $\epsilon = \frac{M-L}{2}$.
+
+We can choose $N_1$ large enough so that if $n \geq N_1$, $a_n \in (L-\epsilon ,L+\epsilon)$
+
+We can also choose $N_2$ large enough so that if $n \geq N_2$, $a_n \in (M-\epsilon ,M+\epsilon)$
+
+Let $N_0 = max \{N_1, N_2\}$. Choose $n \geq N_0$. Then $a_n \in (L-\epsilon ,L+\epsilon) \cap (M-\epsilon ,M+\epsilon)$
+
+But $(L-\epsilon ,L+\epsilon) \cap (M-\epsilon ,M+\epsilon) = \emptyset$
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,127 @@
+\lecture{Oct. 5}
+
+\begin{defn}
+
+An \textbf{ordered n-tuple} with entries in a set A, is a function $a\colon \{1,2,3,\dots\}\to A$ where we write $a(k)$ as $a_k$.
+
+We write $a=(a_1,a_2,\dots)$ to indicate that $a=\{1,2,3,\dots\}\to A$ is given by $a(k)=a_k$ for $k\in\{1,2,3,\dots , n\}$
+
+The set of all such n-tuples is denoted by $A^n$
+
+\[A^n = \{(a_1,a_2,\dots )\mid \textit{ each } a_{\mathbb{Z}}\in A\}\]
+
+\end{defn}
+
+\begin{defn}
+
+A \textbf{sequence} with \textbf{entries} or \textbf{terms} in a set A is a function \[a\colon \{1,2,3,\dots\}\to A\]
+
+Where we write $a(k)= a_k$ or sometimes a function \[a\colon \{m,m+1,m+2,\dots\}\to A\] where $m\in \mathbb{Z}$.
+
+We write $a = (a_k)_{k\geq m} = (a_m,a_{m+1},\dots)$
+
+or we write $a = \{a_k\}_{k\geq m} = \{a_m,a_{m+1},\dots\}$
+
+to indicate that $a = \{m,m+1,\dots\}\to A$ is given by $a(k) = a_k$
+
+\end{defn}
+
+\begin{rem}
+For sets A and B we define $A^B$ to be the set of all functions \[f\colon B\to A\]
+
+Also the integer n is defined to be \[n = \{0,1,2,\dots,n-1\}\]
+
+So Actually \[A^n = A^{\{0,1,2,\dots,n-1\}} = \{a\colon \{0,1,\dots ,n-1\}\to A\}\]
+
+and we write elements in $A^n$ as $(a_0,a_1,\dots a_{n-1})$
+
+And the set of sequences with entries in A is the set $A^{\mathbb{N}}=\{a\colon \{0,1,2,\dots \}\to A\}$
+\end{rem} 
+
+\begin{defn}
+We say that a sequence is defined in \textbf{closed-form} when we are given a formula for $a_k$ in terms of k.
+
+We say that a sequence is defined \textbf{recursively} when we are given a formula for $a_n$ in terms of k and in terms of previous terms $a_i$ in the sequence.
+\end{defn}
+
+\begin{exmp}
+Fibonacci Sequence \[a_{n+2} = a_{n+1} + a_n\]
+\end{exmp}
+
+\begin{exmp}
+When we write \[S_n = \sum_{k=1}^n \frac{1}{k^2} = \frac{1}{1^2}+\frac{1}{2^2}+\frac{1}{3^2}+\dots\]
+
+we mean that $S_1 = 1$ and $\displaystyle S_n = S_{n-1} + \frac{1}{n^2}$
+\end{exmp}
+
+\begin{exmp}
+When we write \[P_n=\prod_{k=1}^n \frac{2k-1}{2k}\]
+
+We mean that $\displaystyle P_1 = \frac{1}{2}$ and $\displaystyle P_n = P_{n-1} \cdot \frac{2n-1}{2n}$
+\end{exmp}
+
+\begin{exmp}
+When we write $n!$, we mean that $0! = 1$ and $n! = (n-1)!\cdot n$ for $n\geq 1$
+\end{exmp}
+
+\begin{exmp}
+In Set Theory, we define addition on $\mathbb{N}$, recursively as follows
+\[0=\emptyset, 1 = \{0\}, x+1 = x\cup \{x\}\]
+
+For $n\in \mathbb{N}$, $n+0 = n$, $n+(m+1) = (n+m)+1  = (n+m)\cup \{(n+m)\}$
+\end{exmp}
+
+\begin{thm}
+\textbf{Mathematical Induction} Let $F(n)$ be a mathematical statement about an integer n. Let $m\in \mathbb{Z}$
+
+Suppose $F(m)$ is true. (that is $[F]_{n\mapsto m}$)
+
+Suppose that for all $k\geq m$, if $F(k)$ is true then $F(k+1)$ is true.
+
+Then $F(n)$ is true for all $n\geq m$.
+\end{thm}
+
+\begin{exmp}
+Define $a_n$ recursively by $a_1 = 1$ and $\displaystyle a_{n+1} = \frac{n}{n+1} \cdot a_n + 1$. Find a closed-form formula for $a_n$ 
+\end{exmp}
+
+\begin{solution}
+We have $a_1 = 1$, $a_2 = \displaystyle \frac{3}{2}$, $a_3 = \displaystyle \frac{4}{2}, \dots$
+
+It appears that $\displaystyle a_n = \frac{n+1}{2}$
+
+When $n=1$, $\cdots$
+
+Suppose $\displaystyle a_k = \frac{k+1}{2}$
+
+When $n = k+1$ we have 
+\begin{align*}
+   a_n = a_{k+1} &= \frac{k}{k+1}\cdot a_k +1\\
+    &= \frac{k}{k+1} \cdot \frac{k+1}{2} +1 \\
+    & = \frac{k+2}{2} \\
+    & = \frac{(k+1)+1}{2} \\
+    & =\frac{n+1}{2}
+\end{align*}
+
+By induction, $\displaystyle a_n = \frac{n+1}{2}$ forall $n\geq 1$
+
+
+\end{solution}
+
+\begin{exer}
+\leavevmode
+\begin{enumerate}
+\item 
+\[
+\sum_{k=1}^n k^3
+\]
+\item
+\[
+\prod_{k=1}^n (1-\frac{1}{k^2})
+\]
+\end{enumerate}
+
+\end{exer}
+
+
+

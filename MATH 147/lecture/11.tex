@@ -1,0 +1,147 @@
+\lecture{Oct. 3}
+
+WA2 now due Monday Oct. 17
+
+EA2 due today
+
+\begin{thm}
+\textbf{Arithmetic Rules for Sequences} Let $\{a_n\}$, $\{b_n\}$ be such that $\lim_{n\to\infty}a_n = L$, $\lim_{n\to\infty}b_n = M$.
+
+Then
+\begin{enumerate}
+\item[1)] $\lim_{n\to\infty} ca_n = cL$ for all $c\in \mathbb{R}$
+\item[2)] $\lim_{n\to\infty} a_n+b_n = L + M$
+\item[3)] $\lim_{n\to\infty} a_nb_n = LM$
+\item[4)] $\displaystyle\lim_{n\to \infty} \frac{1}{a_n} = \frac{1}{L}$ if $L\neq 0$
+\item[5)] $\displaystyle \lim_{n\to\infty} \frac{a_n}{b_n} = \frac{L}{M}$ if $M\neq 0$
+\item[6)] $\displaystyle \lim_{n\to\infty} \sqrt[k]{a_n} = \sqrt[k]{L}$ if $L\geq 0$
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+\leavevmode
+\begin{enumerate}
+\item[1)] If $c=0$ then $ca_n = 0$ for all n. Hence $\lim_{n\to\infty} ca_n =\lim_{n\to\infty} 0 = 0L = cL$
+Suppose $c\neq 0$, Let $\epsilon > 0$. We want $N$ so that if $n\geq N$, $\displaystyle |ca_n - cL| < \epsilon \Leftrightarrow |a_n-L|<\frac{\epsilon}{|c|}$
+
+Choose $N_0$ such that if $n\geq N_0$ we have $\displaystyle |a_n-L|<\frac{\epsilon}{|c|}$
+
+If $n\geq N_0$, $$|ca_n - cL|\leq |a_n - L||c|<\frac{\epsilon}{|c|}|c|=\epsilon$$
+
+\item[2)] Consider
+\begin{align*}
+    \left| (a_n+b_n) - (L+M) \right| = \left| a_n-L + b_n-M \right|\\
+    \leq \left| a_n - L \right| + \left| b_n - M\right| 
+\end{align*}
+Let $\epsilon > 0$. Choose $N_1 \in \mathbb{N}$ so that 
+\[
+n\geq N_1 \to \left| a_n - L \right| < \frac{\epsilon}{2}
+\]
+Choose $N_2 \in \mathbb{N}$ so that 
+\[
+n\geq N_2 \to \left| b_n - M \right| < \frac{\epsilon}{2}
+\]
+
+Let $N_0 = max \{N_1,N_2\}$. If $n\geq N_0 $
+\begin{align*}
+   \abs{(a_n+b_n) - (L+M)} & \leq \left|  a_n-L \right|  + \left| b_n - M \right| \\
+   & < \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+   & =\epsilon
+\end{align*}
+
+\item[3)] Consider $\left| a_nb_n - LM \right|$
+\begin{align*}
+  &  \left| a_nb_n - LM \right|\\
+    = &\left| a_nb_n - b_nL + b_nL - LM \right|\\
+    = &\left| (a_n-L)b_n + L(b_n-M)\right|\\
+    \leq & \left| (a_n-L)b_n \right| + \left| L(b_n-M) \right|
+\end{align*}
+
+
+By 1), we can find $N_1$ so that if $n\geq N_1$, \[\left| L  \right| \left| b_n - M \right| \leq \frac{\epsilon}{2} \]
+
+Since $\{b_n\}$ is convergent it is bounded. So there exists $c>0$ so that $\left| b_n \right| < c $
+
+Then $\left| b_n \right| \left| a_n-L \right| <c\left| a_n - L \right|  $
+
+Choose $N_2$ so that if $n\geq N_2$ \[\left| a_n - L \right| < \frac{\epsilon}{2c}\]
+
+If $N_0 = max\{N_1,N_2\}$ and $n\geq N_0$ then \[\left| a_nb_n - LM \right| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \]
+
+
+\item[4)] 
+\[
+\left| \frac{1}{a_n} - \frac{1}{L} \right| = \frac{\left| a_n-L \right| }{\left| a_n \right| \left| L \right|  } 
+\]
+
+Since $a_n \to L,L\neq 0$ we can find $N_1 \in \mathbb{N}$ so that if $n\geq N_1$, then
+
+\[
+\left| a_n - L \right|  < \frac{\left| L \right| }{2} \to \left| a_n \right| \geq \frac{\left| L  \right| }{2}
+\]
+
+If $n\geq N_1$ then 
+
+\[
+\left| \frac{1}{a_n} - \frac{1}{L} \right| = \frac{\left| a_n-L \right| }{\left| a_n \right| \left| L \right|} \leq \cfrac{\left| a_n - L \right| }{\cfrac{\left| L \right| }{2} \left| L \right|} = \cfrac{\left| a_n - L \right| }{\cfrac{\left| L \right| ^2}{2}}
+\]
+
+Let $\epsilon > 0$. Choose $N_2$ so that if $n\geq N_2$
+
+\[
+ \cfrac{\left| a_n - L \right| }{\cfrac{\left| L \right| ^2}{2}} < \epsilon
+\]
+
+Let $N_0 = max\{N_1,N_2\}$ if $n\geq N_0$
+\[
+\left| \frac{1}{a_n} - \frac{1}{L} \right| < \epsilon
+\]
+
+
+\item[5)] Follows from 3 and 4. 
+
+\item[6)] Homework
+\end{enumerate}
+\end{proof}
+
+
+\begin{note}
+If $\lim_{n\to\infty} a_n = L,\lim_{n\to\infty} n_n = M$
+
+\[
+\lim_{n\to\infty} \frac{a_n}{b_n}= \frac{L}{M} \textit{ if } M\neq 0
+\]
+
+What happens if $M = 0$?
+
+
+It depends on $a_n$.
+\end{note}
+
+\begin{exmp}
+$\displaystyle a_n = b_n = \frac{1}{n}$
+\end{exmp}
+
+\begin{exmp}
+$\displaystyle a_n = \frac{1}{n} , b_n = \frac{1}{n^2}$
+\end{exmp}
+
+\begin{prop}
+Assume that $\lim_{n\to\infty} \frac{a_n}{b_n}$ exists and that $\lim_{n\to\infty} b_n = 0$ then $\lim_{n\to\infty} a_n = 0$.
+\end{prop}
+\begin{proof}
+\begin{align*}
+    & a_n = (b_n)(\frac{a_n}{b_n})\\
+    =&  \lim_{n\to\infty} a_n \\
+    = & \lim_{n\to\infty} b_n \lim_{n\to\infty} \frac{a_n}{b_n} \\
+    =& 0 L\\
+    = & 0
+\end{align*}
+
+
+
+\end{proof}
+
+
+
+

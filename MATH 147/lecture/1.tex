@@ -1,0 +1,101 @@
+\lecture{Sept. 12}
+
+\topic{Mathematical tools}
+\LaTeX
+
+MikTex, Winshell
+
+\topic{Basics on Sets and Functions}
+\begin{defn}\topic{Basic Sets}
+\begin{itemize}
+\item $\mathbb{N} = $ Natural numbers  $=\{1,2,3,\dots\}$
+\item $\mathbb{Z} = $ Integers $ = \{\dots,-3,-2,-1,0,1,2,3,\dots \}$
+\item $\mathbb{Q} = \{\frac{m}{n} \mid n\in \mathbb{N}, m\in \mathbb{Z},gcd(n,|m|)=1\}$
+\item $\mathbb{R} = $ Real Numbers
+\item $\mathbb{R}\backslash \mathbb{Q} = \{x\in \mathbb{R}  \mid  x\text{ is not in } \mathbb{Q}\}$
+\end{itemize}
+\end{defn}
+
+\begin{nota}
+\leavevmode
+
+$S \subset X \to S \text{ is a subset of } X $
+
+If $S, T \subset X$ then $S\cup T = \{x\in X\mid x\in S \text{ or } x\in T\}$
+
+If $S, T \subset X$ then $S\cap T = \{x\in X\mid x\in S \text{ and } x\in T\}$
+
+Given a collection $\{A_\alpha\}_{\alpha \in I}$ of subsets of $X$
+
+$$\bigcup_{\alpha \in I} A_\alpha = \{x\in X \mid x\in A_\alpha \text{ for some } \alpha\in I\}$$
+$$\bigcap_{\alpha \in I} A_\alpha = \{x\in X \mid x\in A_\alpha \text{ for all } \alpha\in I\}$$
+
+$\emptyset=$ empty set, $\emptyset \subset X$
+
+What if $I = \emptyset$, what is $\displaystyle \bigcup_{\alpha \in \emptyset}A_\alpha $
+
+Define
+$$\bigcup_{\alpha \in \emptyset} A_\alpha = \emptyset$$
+
+Then 
+$$\bigcap_{\alpha \in \emptyset} A_\alpha = ??$$
+
+Given $S,T\subset X$ we define
+
+$$S\backslash T = \{x\in X \mid x\in S , x \text{ does not belong to } T\}$$
+
+We denote $X\backslash T$ by $T^c$ = compliment of $T$ in $X$ =   $ \{x\in X \mid x \text{ does not belong to } T\}$
+
+\end{nota}
+
+\begin{note}
+
+$$(S\cup T)^c = S^c\cap T^c$$
+
+\end{note}
+
+
+\topic{De Morgans Law}
+
+\begin{thm}
+$$(\bigcup_{\alpha \in I}A_\alpha)^c = \bigcap_{\alpha \in I} A_\alpha^c$$
+\end{thm}
+\begin{proof}
+\begin{align*}
+x\in (\bigcup_{\alpha \in I}A_\alpha)^c & \iff x \text{ is not a member of } \bigcup_{\alpha \in I}A_\alpha\\
+&\iff x \text{ is not in } A_\alpha \quad \forall \alpha \in I\\
+&\iff x\in A_\alpha^c \quad \forall \alpha \in I\\
+&\iff x\in \bigcap_{\alpha \in I} A_\alpha^c
+\end{align*}
+\end{proof}
+
+\begin{note}
+From this we really should have 
+
+\begin{align*}
+    \bigcap_{\alpha \in \emptyset} A_\alpha &= (\bigcup_{\alpha \in \emptyset} A_\alpha^c)^c \\ 
+    & = \emptyset ^ c \\
+    & = X
+\end{align*}
+\end{note}
+
+
+\topic{Power Set}
+\begin{defn}
+Given $X$, the Power Set of $X$ is the set of all subset of $X$
+\end{defn}
+
+\begin{nota}
+\begin{align*}
+    P(X) & = \text{ power set of } X\\
+    & = \{S \mid S\subset X\}\\
+\end{align*}
+\end{nota}
+
+\begin{note}
+
+We can observe that
+    $$\emptyset ,X \in P(X)$$
+    
+\end{note}
+

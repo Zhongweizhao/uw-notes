@@ -1,0 +1,123 @@
+\lecture{Sept. 19}
+
+\topic{Least Upper Bound Property}
+
+\topic{Upper Bound}
+
+\begin{thm}
+Let $S\subset \mathbb{R}$ then $\alpha \in \mathbb{R}$ is an upper bound for $S$ if $x\leq \alpha$ for all $x\in S$. We say that $S$ is bounded above if $S$ has an upper bound.
+
+We say that $\beta$ is a lower bound for $S$ if $\beta \leq x$ for all $x\in S$. We say that $S$ is bounded below if $S$ has a lower bound.
+
+We say that $S$ is bounded if it is bounded above and below.
+\end{thm}
+
+\begin{exmp} Let $S=\{x_1,x_2,\dots ,x_n\}$ be finite.
+
+By relabeling, if necessary we can assume that \[x_1<x_2<\dots <x_n\]
+
+Then $\beta = x_1$, $\beta$ is a lower bound and $\alpha = x_n$ is an upper bound.
+
+\end{exmp}
+
+\begin{thm}
+Every finite set is bounded.
+\end{thm}
+
+\begin{exmp}
+Let $S=[0,1)=\{x\in \mathbb{R} \mid 0\leq x < 1\}$ (finite interval)
+
+5 is an upper bound. -1 is a lower bound.
+
+1 is also an upper bound. Moreover if $\gamma$ is any upper bound of $S$, then $1 \leq \gamma$
+\end{exmp}
+
+\topic{Least Upper Bound}
+
+
+\begin{thm}
+We say that $\alpha$ is the least upper bound of a set $S\subset \mathbb{R}$ if 
+\begin{enumerate}
+\item[1)] $\alpha$ is an uppper bound of $S$
+\item[2)] if $\gamma$ is an upper bound of $S$, then $\alpha \leq \gamma$
+\end{enumerate}
+ 
+We write $$\alpha = lub(S)$$
+
+(Sometimes $\alpha$ os called the supremum of $S$ and is denoted by $\alpha = sup(S)$)
+\end{thm}
+
+Back to the example $S=[0,1)$. 0 is a lower bound and if $\gamma$ is any lower bound, then $\gamma \leq 0$
+
+
+
+\topic{Greatest Upper Bound}
+\begin{thm}
+We say that $\beta$ is the greatest lower bound of a set $S\subset \mathbb{R}$ if 
+\begin{enumerate}
+\item[1)] $\beta$ is an lower bound of $S$
+\item[2)] if $\gamma$ is an lower bound of $S$, then $\gamma \leq \beta$
+\end{enumerate}
+ 
+We write $$\beta = glb(S)$$
+
+(Sometimes $\beta$ os called the infimum of $S$ and is denoted by $\beta = inf(S)$)
+\end{thm}
+
+\begin{exmp}
+if $S = [0,1)$, $lub(S)=1$, $glb(S)=0$.
+\end{exmp}
+
+
+\begin{note}
+Is $\emptyset$ bounded (above or below)?
+
+Note: 6 is an upper bound for $\emptyset$. If not, there exists an element in $\emptyset$ that is greater than 6. Similarly, 6 is a lower bound.
+
+In fact, if $\gamma \in \mathbb{R}$ then $\gamma$ is both an upper and a lower bound of $\emptyset$. $\emptyset$ is a bounded set.
+\end{note}
+
+\begin{exmp}
+Let $S=\{x\in \mathbb{Q} \mid x^2<2 \} \subset \mathbb{R}$
+
+$\sqrt{2}$ is an upper bound and $-\sqrt{2}$ is a lower bound. And $lub(S) = \sqrt{2}$, $glb(S) = -\sqrt{2}$
+\end{exmp}
+
+\begin{exmp}
+
+Let $S=\{x\in \mathbb{Q} \mid x^2<2 \} \subset \mathbb{Q}$
+
+S does not have a least upper bound or a greatest lower bound.
+
+\end{exmp}
+
+\begin{ques}
+If $S\subset R$ is bounded above, does it always have a least upper bound?
+\end{ques} 
+
+\topic{Least Upper Bound Property}
+
+
+\begin{thm}
+If $S\subset R$ is non-empty and bounded above, then $S$ has a least upper bound.
+\end{thm}
+
+\topic{Observation}
+\begin{enumerate}
+\item[1)] $\emptyset$ does not have a $lub$
+\item[2)] If we only have rational numbers in the world, then $S=\{x\mid x^2<2\}$ does not have a lub. In other words, Least Upper Bound Property fails for $\mathbb{Q}$
+\end{enumerate}
+
+
+\begin{ques}
+is $\mathbb{N}$ bounded?
+\end{ques}
+
+\begin{enumerate}
+\item[1)] $\mathbb{N}$ is bounded below, $glb(S) = 1$
+\end{enumerate}
+
+
+
+
+

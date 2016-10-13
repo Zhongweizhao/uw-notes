@@ -1,0 +1,126 @@
+\lecture{Sept. 23}
+
+
+
+\begin{defn}
+In the language of \textbf{first-order set theory}, we only use the one additional symbol $$\in$$
+(the membership or "is an element of" symbol), which is a binary relation symbol used with infix notation.
+
+\end{defn}
+
+All mathematical statement can be expressed in \textbf{this language}
+
+When we use this language, we normally take the universal class to be the class of all sets.
+
+\textbf{Example: }Express each of the following statements about sets as formulas in \textbf{first-order set theory}
+
+\begin{enumerate}
+\item $u=v\backslash (x\cap y)$
+\item $u\subseteq P(v\cup w)$
+\item $u = 2$
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+\item For sets $u,v,x,y$
+\begin{align*}
+u=v\backslash (x\cap y) & \iff \forall t (t\in u \leftrightarrow t\in v\backslash (x\cap y))\\
+& \iff \forall t (t\in u \leftrightarrow (t\in v \wedge \neg t\in(x\cap y)))\\
+& \iff \forall t (t\in u \leftrightarrow (t\in v \wedge \neg (t\in x \wedge t\in y)))
+\end{align*}
+\item 
+\begin{align*}
+u\subseteq P(v\cup w) & \iff \forall x\ (x\in u \to x\in P(v\cup w) )\\
+& \iff \forall x\ (x\in u \to \forall y\ (y\in x \to y\in (v\cup w)))\\
+& \iff \forall x\ (x\in u \to \forall y\ (y\in x \to (y\in v \vee y\in w)))
+\end{align*}
+
+\item 
+\begin{align*}
+    u=2 &\iff  u = \{\emptyset, \{\emptyset\}\}  \\
+    & \iff \forall x\ ( x\in u \leftrightarrow x\in \{\emptyset, \{\emptyset\}\})\\
+    & \iff \forall x\ (x\in u \leftrightarrow (x=\emptyset \vee x=\{\emptyset\}))\\
+    & \iff \forall x\ (x\in u \leftrightarrow (\forall y \ \neg y \in x \vee \forall y\ y\in x \leftrightarrow y=\emptyset))\\
+    & \iff \forall x\ (x\in u \leftrightarrow (\forall y \ \neg y \in x \vee \forall y\ y\in x \leftrightarrow (\forall z\, \neg z \in y)))
+\end{align*}
+\end{enumerate}
+\end{solution}
+
+
+
+The ZFC axioms can all be expressed as formulas in first order set theory.
+\begin{enumerate}
+\item Equality Axiom:
+$$\forall u\, \forall v\ (u=v \leftrightarrow \forall x\ (x\in u \leftrightarrow x\in u))$$
+\item Empty Set Axiom:
+$$\exists u\, \forall x\ \neg x \in u$$
+\item Pair Axiom:
+$$\forall u\, \forall v\, \exists w\, \forall x\ (x\in w \leftrightarrow (x=u \vee x=v))$$
+\item Union Axiom:
+$$\forall u\, \exists w\, \forall x\ (x\in w \leftrightarrow \exists v\ (v\in u \cup x\in v))$$
+\end{enumerate}
+
+
+\begin{proof} When we do mathematical proofs, one of the things we allow ourselves to do is make use of some equivalences.
+
+When $F,G,H$ are formulas, $s,t$ are terms, and $x,y$ are variables, the following are equivalences which we call \textbf{basic equivalence}
+\begin{enumerate}
+\item $F\equiv F$
+\item $\neg \neg F\equiv F$
+\item $F\wedge F \equiv F$
+\item $F\vee F \equiv F$
+\item $F\wedge G \equiv G\wedge G$
+\item $F\vee G \equiv G\vee F$
+\item $(F\wedge G)\vee H \equiv F\wedge (G\vee H)$
+\item $(F\vee G)\wedge H \equiv F\vee (G\wedge H)$
+\item $F\wedge (G\vee H) \equiv (F\wedge G) \vee (F\wedge H)$
+\item $F\vee (G\wedge H) \equiv (F\vee G) \wedge (F\vee H)$
+\item $\neg (F\wedge G) \equiv \neg F \vee \neg G$
+\item $\neg (F\vee G) \equiv \neg F \wedge \neg G$
+\item $F\to G \equiv \neg G\to \neg F$
+\item $F\to G \equiv \neg F\vee G$
+\item $\neg(F\to G) \equiv F\wedge \neg G$
+\item $F\leftrightarrow G \equiv (F\to G)\wedge (G\to F)$
+\item $F\leftrightarrow G \equiv (\neg F\vee G) \wedge (\neg G \vee F)$\
+\item $F\leftrightarrow G \equiv ( F\wedge G) \vee (\neg F \wedge G)$\
+\item $F\wedge (G\vee \neq G) \equiv F$
+\item $F\vee (G\vee \neq G) \equiv (G\vee \neq G)$
+\item $F\wedge (G\wedge \neg G) \equiv G\wedge \neg G$
+\item $F\vee (G\wedge \neg G)\equiv F$
+\end{enumerate}
+\end{proof}
+
+\begin{note}
+We can use basic equivalences one at a time, to derive other equivalences.
+\end{note}
+
+\begin{exmp}
+Derive the equivalence: $$(F\vee G)\to H \equiv (F\to H) \wedge (G\to H)$$
+\end{exmp}
+
+\begin{solution}
+\begin{align*}
+    (F\vee G)\to H & \equiv \neg (F\vee G) \vee H  \text{ (by the equivalence)}\\
+    & \equiv (\neg F \wedge \neg G) \vee H  \text{ (by the de Morgan's)}\\
+    & \equiv H \vee (\neg F \wedge \neg G)  \text{ (by the Commutativity)}\\
+    & \equiv (H\vee \neg F) \wedge (H\vee \neg G)  \text{ (by the Distributivity)}\\
+    & \equiv (\neg F \vee H) \wedge (\neg G \vee H)  \text{ (by the Commutativity)}\\
+    & \equiv (F\to H) \wedge (G\to H)  \text{ (by the equivalence)}
+\end{align*}
+\end{solution}
+
+\begin{defn}
+Here are some more basic equivalences.
+\begin{enumerate}
+\item $s=t \equiv t=s$
+\item $\forall x\, \forall y\ F\equiv \forall y\, \forall x\ F$
+\item $\exists x\, \exists y\ F\equiv \exists y\, \exists x\ F$
+\item $\neg \forall x\ F \equiv \exists x\ \neg F$
+\item $\neg \exists x\ F \equiv \forall x\ \neg F$
+\item $\forall x\ (F\wedge G) \equiv \forall x\ F \wedge \forall x\ G$
+\item $\exists x\ (F\vee G) \equiv \exists x\ F\vee \exists x\ G$
+\end{enumerate}
+\end{defn}
+
+
+

@@ -1,0 +1,60 @@
+\lecture{Sept. 16}
+
+\topic{Mathematical Statement}
+Given a formula $F$ and an assignment $\alpha$, (that is give the values of $\alpha (P), \alpha (Q), \alpha (R),\dots$), we can calculate $\alpha (F)$ by making a derivation $F_1,F_2,F_3,\dots ,F_l$ for $F$ then calculate the values $\alpha (F_1), \alpha (F_2) ,\dots$ one at a time.
+
+\begin{exmp}
+Let $F$ be the formula $F = (\neg (P\leftrightarrow R)\vee (Q\to \neg R))$ and let $\alpha$ be an assignment then with $\alpha (P) = 0$, $\alpha (Q) = 1$ and $\alpha (R)=0$. Find $\alpha (F)$.
+
+We make a derivation $F_1,F_2,F_3,\dots ,F_l$ for $F$ and calculate the values $\alpha (F_k)$
+
+\begin{center}
+\begin{tabular}{c|c|c|c|c|c|c|c}
+    $P$ & $Q$ & $R$ & $P\leftrightarrow R$ & $\neg (P\leftrightarrow R)$ & $\neg R$ & $Q\to \neg R$ & $F$ \\ \hline
+    0 & 1 & 0 & 1 & 0 & 1 & 1 & 0 \\
+\end{tabular}
+\end{center}
+\end{exmp}
+
+\topic{Truth Table}
+\begin{defn}
+For variable symbols $P_1,P_2,\dots ,P_n$, an assignment on $(P_1,P_2,\dots ,P_n)$ is a function $$\alpha \colon \{P_1,P_2,\dots ,P_n\}\to \{0,1\}$$
+
+For a formula $F$ which only involves the variable symbols in $\{P_1,P_2,\dots ,P_n\}$, a truth table for $F$ on $(P_1,P_2,\dots ,P_n)$ is a table whose top header row is a derivation $F_1,F_2,F_3,\dots ,F_l$ for $F$ with $F_i=P_i$ for $1\leq i \leq n $, and under the header row there are $2^n$ rows which correspond to the $2^n$ assignments on $(P_1,P_2,\dots ,P_n)$. For each assignment $\alpha \colon \{P_1,P_2,\dots ,P_n\}\to \{0,1\}$ there is a row of the form $\alpha (F_1),\alpha (F_2),\dots ,\alpha (F_n)$ and the rows are listed in order such that in the first $n$ columns, the rows $\alpha (F_1),\alpha (F_2),\dots ,\alpha (F_n)$ (that is $\alpha (P_1),\alpha (P_2),\dots ,\alpha (P_n)$) list the $2^n$ binary numbers from $111\dots 1$ at the top, in order, down to $000\dots 0$ at the bottom.
+
+\end{defn}
+
+\begin{exmp}
+Make a truth table for the formula $$F = P \leftrightarrow (Q\wedge \neg (R\to P))$$
+
+\begin{center}
+\begin{tabular}{c|c|c|c|c|c|c}
+     $P$ & $Q$ & $R$ & $R\to $P & $\neg (R\to P)$ & $Q\wedge \neg (R\to P)$ & $F$ \\ \hline
+     1 & 1 & 1 & 1 & 0 & 0 & 0\\ \hline
+     1 & 1 & 0 & 1 & 0 & 0 & 0 \\ \hline
+     1 & 0 & 1 & 1 & 0 & 0 & 0  \\ \hline
+     1 & 0 & 0 & 1 & 0 & 0 & 0  \\ \hline
+     0 & 1 & 1 & 0 & 1 & 1 & 0 \\ \hline
+     0 & 1 & 0 & 1 & 0 & 0 & 1 \\ \hline
+     0 & 0 & 1 & 0 & 1 & 0 & 1\\ \hline
+     0 & 0 & 0 & 1 & 0 & 0 & 1\\
+\end{tabular}
+\end{center}
+\end{exmp}
+
+\topic{Tautology}
+Let $F$ and $G$ be formula and let $S$ be a set of formulas 
+\begin{defn}
+We say that $F$ is a tautology, and we write $\vDash F$, when $\alpha (F) =1$ for every assignment $\alpha$
+
+
+
+We say that F is a contradiction when $\alpha (F) = 0$ for every assignment $\alpha$, or equivalently when $\vDash \neg F$
+
+We say that $F$ is equivalent to $G$, and we write $F\equiv G$ when $\alpha (F) = \alpha (G)$ for every assignment $\alpha$
+
+We say that argument "S therefore G" is valid, or that "S induces G" or that "G is a consequence of S", when for every assignment $\alpha$ for which $\alpha (F) = 1$ for every $F\in S$ we have $\alpha (G) = 1$. 
+
+When $S = \{F_1, F_2,\dots ,F_n\}$ we have $S\vDash G$ is equivalent to $\{((F_1\wedge F_2)\wedge \dots \wedge F_n)\} \vDash G$ which is equivalent to $\vDash (((F_1\wedge F_2)\wedge \dots \wedge F_n)\to G)$
+\end{defn}
+

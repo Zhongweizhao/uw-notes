@@ -1,0 +1,71 @@
+\lecture{Sept.28}
+
+
+\begin{enumerate}
+\item[V13.] How to prove an or statement
+\item[V14.] $S\cup F \vDash H \text{ and } S\cup G\vDash H \Longleftrightarrow S\cup (F\vee G)\vDash H$
+\item[V15.] In words, from $F$ we can conclude $F\vee G$
+\item[V16.] 
+\item[V17.] In words, from $F\vee G$ and $\neg F$ we can conclude $G$
+\item[V18.]
+\item[$\dots$]
+\item[V25.] In words, to prove $F\iff G$ we suppose $F$ then prove $G$, and we suppose $G$ and prove $F$
+\item[V26.] $(F\iff G) \equiv (F\wedge G) \vee (\neg F \wedge \neg G)$
+\item[$\dots$]
+\item[V33.] $S\vDash t=t$. In words, we can always conclude that $t=t$ is true under any assumptions.
+\item[V34.] From $s=t$ we can conclude $t=s$
+\item[V35.] From $r=s$ and $s=t$ we can conclude $r=t$
+\item[V36.] If $S\vDash s=t$ then $(S\vDash[F]_{x\mapsto t} \iff S\vDash[F]_{x\mapsto s})$. In words, if $\vDash s=t$, we can always replace any occurrence of the term s by the term t.
+\item[V37.] If $S\vDash [F]_{x\mapsto y}$ and y is not free in $S\cup \{\forall x \ F\}$ then $S\vDash \forall x \ F$
+
+If have not made any assumptions about x (earlier in out proof) then to prove $\forall x \ F$ we write ``let x be arbitrary" then we prove F.
+
+If we have not made any assumptions about y, then to prove $\forall x \ F$, we write ``let y be arbitrary" then prove $[F]_{x\mapsto y}$
+
+(This is related to the equivalence $$\forall x \ F \equiv \forall y \ [F]_{x\mapsto y}$$)
+
+\item[V38.] If $S\vDash\forall x \ F$, then $S\vDash[F]_{x\mapsto t}$
+\item[V39.]
+\item[V40.] If $S\cup \{[F]_{x\mapsto t}\}\vDash G$ then $S\vDash \exists X \ F$. In words, to prove $\exists x \ F$  we choose any term t, and prove $[F]_{x\mapsto t}$.
+\item[V41.] If y is not free in $S\cup \{\exists x \ F , G\}$ and if $S\cup [F]_{x\mapsto y}\vDash G$ then $S\cup \exists x \ F \vDash G$. In words, to prove that $\exists x \ F $ implies G, choose a variable y which we have not made assumptions about and which does not occur in G, we write ``choose y so that $[F]_{x\mapsto y}$ is true", then prove G.
+
+\end{enumerate}
+
+\begin{note}
+In standard mathematical language, $$\forall x \ \in A  \ F$$ means $$\forall x \ (x\in a \to F)$$
+
+
+To prove $\forall x \ (x\in a \to F)$ we write ``let x be arbitrary", then prove $x\in a \to F$ which we do by writing ``suppose $x\in A$" then prove F.
+
+Usually, instead of writing ``let x be arbitrary" and ``suppose $x\in A$ " we write ``let $x\in A$ be arbitrary" or simply ``let $x\in A$".
+
+So to prove $\forall x \in A \ F$ we write ``let $x\in A$" then prove F. Alternatively, write ``let $y\in A$" then prove $[F]_{x\mapsto y}$.
+
+\end{note}
+
+\begin{exmp}
+Prove that $$\{F\to (G\wedge H),(F\wedge G) \vee H\}\vDash H$$
+\end{exmp}
+
+For all assignment $\alpha \colon \{P,Q,R,\dots \} \to \{0,1\}$, if  $\alpha (F\to (G\wedge H)) = 1$ and  $\alpha ((F\wedge G) \vee H) = 1$ then $\alpha (H) = 1$
+\begin{proof}
+Let $\alpha$ be an arbitrary assignment. Suppose that $F\to (G\wedge H)$ is true (under $\alpha$), and  $(F\wedge G) \vee H$ is true (under $\alpha$).
+
+Suppose, for a contradiction, that $H$ is false.
+\begin{align*}
+   & (F\wedge G)\vee H , \neg H \quad \therefore F\wedge G\\
+   & (F\wedge G) \quad \therefore F\\
+   & F\to (G\wedge H) , F \quad \therefore G\wedge H\\
+   & G\wedge H \quad \therefore H\\
+   & \neg H , H \quad \textit{gives the contradiction} \\
+   & \therefore H
+\end{align*}
+
+
+
+
+
+\end{proof}
+
+
+

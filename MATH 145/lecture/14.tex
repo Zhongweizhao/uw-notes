@@ -1,0 +1,112 @@
+\lecture{Oct. 5}
+
+
+\begin{exmp}
+\[\vDash \forall x \ (\exists y \ \neg xRy \vee \exists y \ yRx)\]
+\end{exmp}
+
+\begin{solution}
+
+\begin{align*}
+    &\forall x \ (\exists y \ \neg xRy \vee \exists y \ yRx) \\
+    [E28]\equiv & \forall x \ (\neg \forall y \ xRy \vee \exists y \ yRx) \\
+    [E20]\equiv & \forall x \ (\forall y \ xRy \to \exists y \ yRx)\\
+\end{align*}
+\end{solution}
+
+\begin{proof}
+Let u be an arbitrary non-empty set. Let R be an arbitrary binary relation on u (that is $R\subseteq u^2$)
+
+Let $x\in u$ be arbitrary. 
+
+Suppose that $\forall y \ xRy$.
+
+Then in particular we have $xRx$. [V38]
+
+Since $xRx$ it follows that $\exists y \ yRx$. [V40]
+
+We have proven that $\forall y \ xRy \to \exists y \ yRx$. [V19]
+
+Since x was arbitrary, we have proven that $\forall x \ (\forall y \ xRy \to \exists y \ yRx)$. [V37]
+
+Since u and R are arbitrary, we have proven that $\vDash \forall x \ (\forall y \ xRy \to \exists y \ yRx)$. [V37, V19]
+
+Since equivalence, we have proven that $\vDash \forall x \ (\exists y \ \neg xRy \vee \exists y \ yRx)$.
+
+\end{proof}
+
+Here is a derivation
+\begin{tabular}{rll}
+    1  & $\{\forall y \ xRy\} \vDash \forall y \ xRy$ & V1 \\
+    2  & $\{\forall y \ xRy\} \vDash xRx$ & V38 on 1 \\
+    3  & $\{\forall y \ xRy\} \vDash \exists y \ yRx$ & V40 on 2 \\
+    4  & $\vDash (\exists y \ xRy\to \exists y \ yRx)$ & V19 on 3 \\
+    5  & $\vDash (\neg \forall y \ xRy \vee \exists y \ yRx)$ & V45, E20 \\
+    6  & $\vDash (\exists y \ \neg xRy \vee \exists y \ yRx)$ & V45, E28 \\
+    7  & $\forall x \ (\exists y \ \neg xRy \vee \exists y \ yRx)$ & V37 on 6 \\
+\end{tabular}
+
+\begin{exmp}
+For $a,b,c \in \mathbb{Z}$, show that if $a\mid b$ and $b\mid c$ then $a\mid c$ 
+
+(We say a divides b, or a is a factor of b, of b is a multiple of a, and we write $a\mid b$, when $\exists x \ b=a\cdot x$)
+\end{exmp}
+
+Here is a proof in standard mathematical language.
+
+\begin{proof}
+Let $a,b,c\in \mathbb{Z}$ be arbitrary.
+
+Suppose that $a\mid b$ and $b\mid c$.
+
+Since $a\mid b$, choose $u\in \mathbb{Z}$ so that $b=a\cdot u$
+
+Since $a\mid b$, choose $v\in \mathbb{Z}$ so that $c=b\cdot v$
+
+Since $b=a\cdot u$ and $c = b\cdot v$
+
+We have $c = (a\cdot u) \cdot v = a\cdot (u\cdot v)$
+
+Thus $a\mid c$ (we have $\exists x \ c=a\cdot x$ choose $x=u\cdot v$)
+
+\end{proof}
+
+Here is a step-by-step proof to show that 
+\[
+\{\exists x \ b = a\times x, \exists x \ c=b\times x,\forall x \, \forall y \, \forall z \ ((x\times y)\times z) = (x\times (y\times z))\} \vDash \exists x \ c=a\times x
+\]
+
+\begin{proof}
+[V37, v19] Let U be a non-empty set,
+
+[V37, v19] Let $\times$ be a binary function on U.
+
+[V9] Suppose $\exists x \ b = a\times x$,
+
+[V9] Suppose $\exists x \ c=b\times x$,
+
+[V9] Suppose $\forall x \, \forall y \, \forall z \ ((x\times y)\times z) = (x\times (y\times z))$
+
+
+
+[V41] Since $\exists x \ b = a\times x$, we can choose $u\in U$ so that $b = a\times u$
+
+[V41] Since $\exists x \ c = b\times x$, we can choose $v\in U$ so that $c = b\times v$
+
+[V36 ]Since $b = a\times u$ and $c = b\times v$, we have $c= (a\times u) \times v$
+
+[V38] Since $\forall x \, \forall y \, \forall z \ ((x\times y)\times z) = (x\times (y\times z))$ we have $\forall y \, \forall z \ ((a\times y)\times z) = (a\times (y\times z))$
+
+[V38] Since $\forall y \, \forall z \ ((a\times y)\times z) = (a\times (y\times z))$ we have $\forall z \ ((a\times u)\times z) = (a\times (u\times z))$
+
+[V38] Since $\forall z \ ((a\times u)\times z) = (a\times (u\times z))$ we have $ ((a\times u)\times v) = (a\times (u\times v))$.
+
+[V35] Since $c = (a\times u) \times v$ and $ ((a\times u)\times v) = (a\times (u\times v))$, we have $c = a\times (u\times v)$
+
+[V40] Since $c = a\times (u\times v)$ we have proven that $\exists x \ c = a \times x$
+
+\end{proof}
+
+
+
+

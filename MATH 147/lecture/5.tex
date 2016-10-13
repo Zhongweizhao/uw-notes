@@ -1,0 +1,123 @@
+\lecture{Sept. 21}
+
+\begin{enumerate}
+\item[1)] No office hours this afternoon
+\item[2)] WA1\(\to\) Due 2:30 PM Monday, Sept. 26. Submit in dropbox outside Math Tutorial Center.
+\end{enumerate}
+
+\topic{Least Upper Bound Property}
+If \(S\subset \mathbb{R}\) is non-empty and bounded above, then \(S\) has a least upper bound.
+
+\topic{Archimedean Property I}
+\begin{thm}
+\(\mathbb{N}\) is not bounded above.
+\end{thm}
+
+\begin{proof}
+Suppose that \(\mathbb{N}\) was bounded above. Then \(\mathbb{N}\) has a least upper bound \(\alpha\). 
+
+Note that \(\alpha - \frac{1}{2} < \alpha \). Hence \(\alpha -\frac{1}{2}\) is not an upper bound for \(\mathbb{N}\). Then there exists \(n\in \mathbb{N}\) with \(\alpha - \frac{1}{2}<n\leq \alpha\). But then \(n+1\in \mathbb{N}\) and \(n+1>\alpha\) which is impossible.
+
+Therefore \(\mathbb{N}\) must not be bounded above.
+
+\end{proof}
+
+
+\begin{note}
+ Let \(S\neq \emptyset\subset\mathbb{R}\) be bounded above.
+Let \(\alpha = lub(S)\). if \(\epsilon > 0\) then there exist \(x_0\in S\) with \(\alpha - \epsilon < x_0 \leq \alpha\).
+\end{note}
+
+
+\topic{Archimedean Property II}
+\begin{cor}
+Let \(\epsilon > 0 \), Then there exists \(n\in \mathbb{N}\) such that \[0<\frac{1}{n}<\epsilon\]
+\end{cor}
+
+\begin{proof}
+Take \(\alpha=\frac{1}{\epsilon}\) in Archimedean Property I.
+\end{proof}
+
+\topic{Density of \(\mathbb{R}\)}
+\begin{defn}
+A subset \(S\subset\mathbb{R}\) is said to be dense if for every \(\epsilon > 0\) and \(x\in \mathbb{R}\), \[S\cap (x-\epsilon,x+\epsilon)\neq \emptyset\]
+
+or equivalently if 
+\(\displaystyle S\cap (a,b)\neq \emptyset\) for all \(a<b \text{ in } \mathbb{R}\)
+\end{defn}
+
+\begin{prop}
+\(\mathbb{Q}\) and \(\mathbb{R}\backslash \mathbb{Q}=\mathbb{Q}^c\) are dense in \(\mathbb{R}\)
+\end{prop}
+
+\topic{Absolute Values}
+\begin{defn}
+\begin{equation*}
+f(x)=\begin{cases}
+	x & x\geq 0\\
+    -x & x<0
+\end{cases}
+\end{equation*}
+\end{defn}
+
+\begin{exmp}
+\[g(x) = \frac{|x|}{x}\]
+Domain \(= \{x\in \mathbb{R} \mid x\neq 0\}\)
+
+\begin{equation*}
+g(x) = \begin{cases}
+	1 & x> 0 \\
+    -1 & x<0
+\end{cases}
+\end{equation*}
+\end{exmp}
+
+\topic{Geometric Interpretation of \(|x|\)}
+\begin{itemize}
+\item \(|x|\) represents the distance from \(x\) to 0.
+\item \(|x-a|\) represents the distance from \(x\) to \(a\).
+\end{itemize}
+
+\begin{note}
+Distance between \((0,0)\) and \((x,y)\)
+\[\sqrt{x^2+y^2}\]
+\end{note}
+ 
+\topic{Properties of \(|x|\)}
+\begin{enumerate}
+\item[1)] \(|x|\geq 0\) and \(|x| = 0 \iff x=0\)
+\item[2)] \(|ax|=|a||x|\) for all \(a\in \mathbb{R}, x\in \mathbb{R}\)
+\item[3)] Triangle Inequality
+	\[|x-z|+|z-y|\geq |x-y|\]
+\end{enumerate}
+
+
+\begin{thm}
+\textbf{Triangle Inequality} If \(x,y,z\in \mathbb{R}\), then	\[|x-z|+|z-y|\geq |x-y|\]
+\end{thm}
+
+\begin{proof}
+Use Geometric Interpretation. % add graph
+\end{proof}
+
+\begin{thm}\textbf{Variants I}
+For all \(x,y\in \mathbb{R}\),
+\[|x+y|\leq |x|+|y|\]
+\end{thm}
+
+\begin{thm}\textbf{Variants II}
+For all \(x,y\in \mathbb{R}\),
+\[||x|-|y||\leq |x-y|\]
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+

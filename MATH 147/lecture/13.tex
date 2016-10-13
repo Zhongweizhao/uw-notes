@@ -1,0 +1,124 @@
+\lecture{Oct. 6}
+
+\topic{Squeeze Theorem}
+
+\begin{exmp}
+Find $$\lim_{n\to\infty} \frac{cos(n)}{n}$$
+\end{exmp}
+\textbf{Observation: } 
+\[\abs{cos(n)} \leq 1\]
+\[\frac{-1}{n} \leq \frac{cos(n)}{n}\leq \frac{1}{n}\]
+
+%graph y=1/n y=-1/n
+
+\begin{thm}\textbf{Squeeze Theorem}
+If $\{a_n\}$, $\{b_n\}$, $\{c_n\}$ are such that $a_n\leq b_n\leq c_n$ with $\lim_{n\to\infty} a_n = L = \lim_{n\to\infty} c_n$, then $\lim_{n\to\infty} b_n = L$
+\end{thm}
+
+\begin{proof}
+Let $\epsilon > 0$, then exists $N_0\in\mathbb{N}$ so that if $n\geq N_0$ then $a_n \in (L-\epsilon,L+\epsilon)$ and $c_n \in (L-\epsilon,L+\epsilon)$
+
+If $n\geq N_0$, \[L-\epsilon < a_n \leq b_n \geq c_n < L+\epsilon\]
+\[\abs{b_n - L} < \epsilon\]
+\end{proof}
+
+\begin{solution}
+
+We know that \[\frac{-1}{n} \leq \frac{cos(n)}{n}\leq \frac{1}{n}\]
+
+since $\abs{cos(n)} \leq 1$
+
+Since $\lim_{n\to\infty} -\frac{1}{n} = 0 = \lim_{n\to \infty} \frac{1}{n}$
+
+Then 
+\[\lim_{n\to\infty} \frac{cos(n)}{n} = 0\]
+
+
+\end{solution}
+
+\begin{exmp}
+\[
+\lim_{n\to\infty} (1+\frac{1}{n})^n = e
+\]
+\end{exmp}
+
+\begin{note}
+If $\{a_n\}$ is bounded, then 
+\[
+\lim_{n\to\infty} \frac{a_n}{n} = 0
+\]
+\end{note}
+
+\topic{Bolzano-Weierstrass Theorem}
+
+\begin{note}
+We know that convergent sequences are bounded. But bounded sequences do not have to converge.
+
+Does every bounded sequences have a convergent sub-sequence?
+
+
+
+\textbf{Strategy} Bounded + monotonic $\Rightarrow$ convergent
+
+Does every sequence have a monotonic sub-sequence
+
+\end{note}
+
+\begin{defn}
+Given $\{a_n\}$ we call an index $n_0$ a \textbf{peak point} for $\{a_n\}$ if $a_n < a_{n_0}$ for all $n\geq n_0$
+\end{defn}
+
+\begin{lem} \textbf{Peak Point Lemma}
+Every sequence $\{a_n\}$ has a monotonic sub-sequence.
+\end{lem}
+
+\begin{proof}
+Let $P = \{n \in\mathbb{N} \mid \textit{n is a peak point of } \{a_n\}\}$ 
+
+Case 1. P is infinite.
+
+Let $n_1 = $ least element of $P$
+
+Let $n_2 = $ least element of $P \\ \{n_1\}$
+
+$\cdots$
+
+This gives us a sequence recursively
+\[n_1<n_2<\dots < n_k < \dots \in P\]
+
+Since these are peak points, 
+\[a_{n_k} > a_{n_{k+1}}\]
+
+Thus $\{a_{n_k}\}$ is decreasing.
+
+Case 2. Let $n_1$ be the least index that is not a peak point. Since $n_1$ is not a peak point, we can choose $n_2>n_1$ so that $$a_{n_1}\leq a_{n_2}$$
+
+Since $n_@$ is not a peak point, then we can choose $n_3>n_2$ so that $$a_{n_2}\leq a_{n_3}$$
+
+We can proceed recursively, to find that 
+\[
+n_1 < n_2 < \dots < n_k < \dots
+\]
+
+Where $a_{n_k}\leq a_{n_{k+1}}$
+
+Thus $\{a_{n_k}\}$ is non-decreasing.
+
+In either case we have a monotonic sub-sequence.
+\end{proof}
+
+
+\begin{thm} \textbf{Bolzano-Weierstrass Theorem}
+Every bounded sequences has a convergent sub-sequence.
+\end{thm}
+
+\begin{proof}
+Give $\{a_n\}$, by the Peak Point Lemma $\{a_n\}$ has a monotinic subsequence $\{a_{n_k}\}$, which is also bounded. Bu the MCT, $\{a_{n_k}\}$ is convergent.
+\end{proof}
+
+\begin{note}
+BWT is equivalent to MCT which is equivalent to the LUBP.
+\end{note}
+
+
+

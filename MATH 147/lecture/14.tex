@@ -1,0 +1,162 @@
+\lecture{Oct. 7}
+
+\begin{thm} \textbf{Bolzano-Weierstrass Theorem}
+Every bounded sequences has a convergent sub-sequence.
+\end{thm}
+
+\begin{defn}
+We say that $\alpha \in \mathbb{R}$ is a \textbf{limit point} of $\{a_n\}$ if there exists a sub-sequence $\{a_{n_k}\}$ with $\lim_{n\to\infty}a_{n_k} = \alpha$
+\end{defn}
+
+LET $LIM(\{a_n\}) = \{\alpha\in\mathbb{R} \mid \alpha \text{ is a limit point of } \{a_n\}$
+
+\begin{exmp}
+$a_n = (-1)^{n+1} \to \{1,-1,1,-1,\dots\}$
+
+$LIM(\{a_n\}) = \{1,-1\}$
+\end{exmp}
+
+\begin{exmp}
+$a_n = n \to \{1,2,3,\dots\}$
+
+$LIM(\{a_n\}) = \emptyset$
+\end{exmp}
+
+\textbf{Fact} If $\{a_n\}$ converges with $\lim_{n\to\infty} a_n = L$, then $LIM(\{a_n\}) = \{L\}$
+
+\begin{ques}
+If $\{a_n\}$ is such that $LIM(\{a_n\})$ contains only one value $\alpha$, does $\{a_n\}$ converges to $\alpha$?
+\end{ques}
+
+No. Counterexample:
+
+\[
+\{a_n\} = \{1,\frac{1}{2},3,\frac{1}{4},5,\dots\}
+\]
+
+
+\begin{prop}
+$\alpha$ is a limit point of $\{a_n\}$ if for every $(\alpha - \epsilon, \alpha + \epsilon )$ contains infinite many terms of the sequence.
+\end{prop}
+
+Assume $\alpha$ is a limit point of $\{a_n\}$, then there exists a sub-squence $\{a_{n_k}\}$ with $a_{n_k} \to \alpha$. There exists $K_0 \in \mathbb{N}$ so that $k\geq K_0 \to \abs{a_{n_k} - \alpha} < \epsilon \to a_{n_k}\in (\alpha - \epsilon, \alpha + \epsilon )$
+
+\begin{proof}
+
+Assume that $\forall \epsilon > 0$, $(\alpha - \epsilon, \alpha + \epsilon )$ contains infinitely many terms of $\{a_b\}$
+
+For $\epsilon = 1$ we can find $n_1$ so that $a_{n_1} \in (\alpha - 1, \alpha + 1 )$
+
+$a_{n_2} \in (\alpha - \frac{1}{2}, \alpha + \frac{1}{2} )$
+
+Suppose we have $n_1<n_2<n_3<\dots <n_k$ with
+\[
+a_{n_j} \in (\alpha - \frac{1}{j} ,\alpha + \frac{1}{j})
+\]
+
+Since $(\alpha - \frac{1}{k+1} ,\alpha + \frac{1}{k+1})$ contains infinitely many $a_ns$. there is $n_{k+1}>n_k$ with $a_{n_{k+1}} \in (\alpha - \frac{1}{k+1} ,\alpha + \frac{1}{k+1})$
+
+We proceed recursively to get a sub-sequence $\{a_{n_k}\}$ with 
+\[
+a_{n_k} = (\alpha - \frac{1}{k} ,\alpha + \frac{1}{k})
+\]
+
+\[
+\alpha - \frac{1}{k} < a_{n_k} < \alpha + \frac{1}{k}
+\]
+
+By the squeeze theorem, $a_{n_k} \to \alpha$
+
+\end{proof}{}
+
+
+\begin{ques}
+\leavevmode
+\begin{enumerate}
+    \item Suppose $\{a_n\}$ is bounded and $LIM(\{a_n\}) = \{L\}$, does $\lim_{n\to\infty} L$?
+    \item Does there exists $\{a_n\}$ with $LIM(\{a_n\}) = \{R\}$
+    \item For which subsets S of R does there exists $\{a_n\}$ with $LIM(\{a_n\}) = S$?
+\end{enumerate}
+\end{ques}
+
+\topic{Cauchy Sequence}
+\begin{ques}
+Is there an intrinsic way to characterize a convergent sequence?
+\end{ques}
+
+\begin{note}
+If $\lim_{n\to\infty} a_n = L$ and if $\epsilon > 0$ then we can find $N_0$ so that if $n\geq N_0$m
+\[
+\abs{a_n - L} < \frac{\epsilon}{2}
+\]
+
+If $n,m\geq N_0$, then
+\begin{align*}
+    \abs{a_n - a_m} & = \abs{(a_n - L) + (L - a_m)} \\
+    & \leq \abs{a_n - L} + \abs{L-a_m} \\
+    & < \frac{\epsilon}{2}+\frac{\epsilon}{2} \\
+    = \epsilon
+\end{align*}
+
+\end{note}
+
+\begin{defn}
+A sequence $\{a_n\}$ is \textbf{Cauchy} is for every $\epsilon > 0$, then there exists $N_0 \in \mathbb{N}$ so that if $n,m \geq N_0$, then 
+\[
+\abs{a_n - a_m} < \epsilon
+\]
+\end{defn}
+
+\begin{prop}
+Every convergent sequence is Cauchy
+\end{prop}
+
+\begin{ques}
+Does every Cauchy sequence Converges?
+\end{ques}
+
+\begin{lem}
+Every Cauchy Sequence is bounded.
+\end{lem}
+
+\begin{proof}
+Let $\epsilon = 1$ and choose $N_0$ so that if $n,m \geq N_0$, then $\abs{a_n - a_m} < \epsilon$
+
+Hence, if $n\geq N_0$ then 
+\[
+\abs{a_n - a_{N_0}} < 1 \to \abs{a_n} \leq \abs{a_{N_0} } + 1
+\]
+\end{proof}
+
+Let $M = max\{\abs{a_1},\abs{a_q},\dots , \abs{a_{N_0 - 1}},\abs{a_{N_0}}+1\}$
+
+\begin{lem}
+Let $\{a_n\}$ be Cauchy. Assume that $\{a_{n_k}\}$ is such that $\lim_{k\to\infty} a_{n_k} = L$, then 
+\[
+\lim_{n\to\infty} a_n = L
+\]
+\end{lem}
+
+\begin{proof}
+Let $\epsilon > 0$. We can find a $N_0$ so that if $n,m\geq N_0$, then
+\[
+\abs{a_n - a_m } < \frac{\epsilon}{2}
+\]
+Let $n\geq N_0 $
+\begin{align*}
+    \abs{a_n - L} & = \abs{(a_n - a_{n_k}) + (a_{n_k} - L)}\\
+    & \leq \abs{a_n - a_{n_k}} + \abs{a_{n_k} - L}\\
+    & < \frac{\epsilon}{2 } + \frac{\epsilon}{2}\\
+    & = \epsilon
+\end{align*}
+\end{proof}
+
+\begin{thm} \textbf{Completeness Property for $\mathbb{R}$}
+Every Cauchy Sequence Converges. 
+\end{thm}
+
+\begin{proof}
+If $a_n$ is Cauchy, then $a_n$ is bounded. By BWT, $a_n$ has a convergent sub-sequence $\{a_{n_k}\}$. Hence $a_n$ converges. (by Lemma 2.)
+\end{proof}
+
+

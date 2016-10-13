@@ -1,0 +1,89 @@
+\lecture{Sept. 13}
+
+\topic{Women in Math}
+Tue Sept. 13\\
+4:30-6:00\\
+DC 1301
+
+
+\topic{ZFC Axioms}
+\begin{itemize}
+    \item Empty Set: there exist a set, denoted by $\emptyset$, with no elements.
+    \item Equality: two sets are equal when they have the same elements. $A = B$ when for every set $x$, $x\in A \iff x\in B$
+    \item Pair Axiom: if $A$ and $B$ are sets then so is $\{A,B\}$. In particular, taking $A=B$ shows that $\{A\}$ is a set.
+    \item Union Axiom: if $S$ is a set of sets then $\cup_{S} = \bigcup_{A\in S} A= \{x\mid x\in A$ for some $A\in S\} $. If $A$ and $B$ are sets, then so is $\{A,B\}$ hence so is $A\cup B = \cup_{\{A,B\}}$
+    \item Power Set Axiom: if $A$ is a set, then so is its Power Set $P(A)$. $P(A) = \{X\mid X\subseteq A\}$. In particular, $\emptyset \subseteq X$, $X\subseteq X$
+    \item Axiom of Infinity: if we define
+        \begin{align*}
+            0 & = \emptyset \\
+            1 & = \{0\} = \{\emptyset\} \\
+            2 & = \{0,1\} = \{\emptyset,\{\emptyset\}\}\\
+            3 & = \{0,1,2\} = \{\emptyset, \{\emptyset,\{\emptyset\}\}\}\\
+            \vdots&\\
+            n+1 & = n \cup \{n\}
+        \end{align*}
+        
+        Then $\mathbb{N}=\{0,1,2,3,\dots\}$ is a set (called the set of natural numbers)
+    \item Specification Axioms: if $A$ is a set, and $F(x)$ is a mathematical statement about an unknown set $x$, then $\{x\in A \mid F(x)\text{ is true }\}$ is a set.
+    
+    Examples:
+    $$\{x\in\mathbb{N}\mid x\text{ is even }\} = \{0,2,4,6,\dots\}$$
+    $$A \cap B = \{x\in A\cup B \mid x\in A \text{ and } x\in B\}$$
+    \item Replacement Axioms: if $A$ is a set and $F(x,y)$ is a mathematical statement about unknown sets $x$ and $y$ with the property that for every $x\in A$ there is a unique set $y$ such that the statement is true, and if we denote this unique set $y$ by $y=F(x)$, then $\{F(x) \mid x\in A\}$ is a set.
+    
+    \item Axiom of Choice: if $S$ is a set of non-empty sets then there exists a function $F\colon S\to U_S$ which is called a choice function for $S$ such that $$F(A)\in A \quad \forall A\in S$$
+
+\end{itemize}
+
+\topic{Things that are sets}
+
+\begin{exmp}
+$$A \cup B = \{x\mid x\in A \text{ or }x\in B\}$$
+$$A \cap B = \{x\in A\cup B \mid x\in A \text{ and } x\in B\}$$
+$$A \backslash B = \{x\in A\mid x\notin B\}$$
+$$A\times B = \{(x,y)\mid x\in A,x\in B\}$$
+$$A^2=A\times A$$
+\end{exmp}
+
+\topic{One way to define ordered pairs}
+$$(x,y) = \left\{\{x\},\{x,y\}\right\}$$
+$$x\in A, y\in B \therefore x,y\in A\cup B$$
+$$\{x\},\{x,y\}\in P(A\cup B)$$
+$$(x,y) = \{\{x\},\{x,y\}\} \subseteq P(A\cup B)$$
+$$(x,y) \in P(P(A\cup B))$$
+$$\therefore A\times B = \{(x,y) \in P(P(A\cup B)) \mid x\in A \text{ and } y\in B\}$$
+
+
+\topic{function}
+When $A$ and $B$ are sets, a function from $A$ yo $B$ is a subset $F \subseteq A\times B$ with  the property that for every $x\in A$ there exists a unique $y\in B$ such that $(x,y)\in F$
+
+When $F$ is a function from $A$ to $B$ we write $$F\colon A\to B$$
+
+and for $x\in A$ and $y\in B$ we write $y=F(x)$ to indicate that $(x,y) \in F\subseteq A\times B$
+
+\topic{Sequence}
+A sequence $a_0,a_1,a_2,\dots$ of natural numbers is a function $a\colon \mathbb{N}\to\mathbb{N}$ and we write $a(k)$ as $a_k$
+
+\topic{Less than}
+the relation $<$ on $\mathbb{Z}$ is a subset $< \subseteq \mathbb{Z}^2$ and we write $x<y$ when $(x,y)\in <$
+
+
+\topic{}
+We can use the ZFC Axioms to define and construct 
+\begin{itemize}
+
+\item $\mathbb{Z}$: the set of integers
+\item $\mathbb{Q}$: the set of rationals
+\item $\mathbb{R}$: the set of real numbers 
+\item $+,\times$: operations
+\item $<,>$: relations
+\end{itemize}
+
+
+
+
+
+
+
+
+

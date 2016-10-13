@@ -1,0 +1,163 @@
+\lecture{Sept. 19}
+
+\topic{Tautology}
+
+Let $F$ and $G$ be formula and let $S$ be a set of formulas 
+
+\begin{nota}
+We say that $F$ is a tautology, and we write $\vDash F$, when $\alpha (F) =1$ for every assignment $\alpha$
+
+
+
+We say that F is a contradiction when $\alpha (F) = 0$ for every assignment $\alpha$, or equivalently when $\vDash \neg F$
+
+We say that $F$ is equivalent to $G$, and we write $F\equiv G$ when $\alpha (F) = \alpha (G)$ for every assignment $\alpha$
+
+We say that argument "S therefore G" is valid, or that "S induces G" or that "G is a consequence of S", when for every assignment $\alpha$ for which $\alpha (F) = 1$ for every $F\in S$ we have $\alpha (G) = 1$. 
+
+When $S = \{F_1, F_2,\dots ,F_n\}$ we have $S\vDash G$ is equivalent to $\{((F_1\wedge F_2)\wedge \dots \wedge F_n)\} \vDash G$ which is equivalent to $\vDash (((F_1\wedge F_2)\wedge \dots \wedge F_n)\to G)$
+\end{nota}
+
+When we consider an argument "$S$ therefore $G$", the formula in $S$ are called the premises for the hypothesis or the assumption and the formula $G$ is called the conclusion of the argument.
+
+Here are some examples of tautology.
+
+\begin{enumerate}
+\item $\vDash F \vee \neg F$
+\item $\vDash P \to P$
+\item $\vDash P \leftrightarrow P$
+\item $\vDash \neg (P\wedge \neg P)$
+\item $\vDash \neg P \to (P \to Q)$
+\item $\vDash Q\to (P\to Q)$
+\end{enumerate}
+
+Here are some truth equivalences
+
+\begin{enumerate}
+\item $P\equiv P$
+\item $P\equiv \neg \neg P$
+\item $P\vee Q \equiv Q \vee P$
+\item $P\wedge Q \equiv Q\wedge P $
+\item $P\leftrightarrow Q \equiv Q\leftrightarrow P$
+\item $(P\wedge Q) \wedge R \equiv P\wedge (Q\wedge R)$
+\item $(P\vee Q) \vee R \equiv P\vee (Q\vee R)$
+\item $P\wedge (Q \vee R) \equiv (P\wedge Q)\vee (P \wedge R)$
+\item $P\vee (Q \wedge R) \equiv (P\vee Q)\wedge (P \vee R)$
+\end{enumerate}
+
+Here are some valid argument 
+
+\begin{enumerate}
+\item $\{P\} \vDash P$
+\item $\{P\wedge Q \} \vDash P$
+\item $\{P\wedge Q \} \vDash Q$
+\item $P \vDash \{P\wedge Q \}$
+\item $Q \vDash \{P\wedge Q \}$
+\item $\{\neg P\}\vDash P\to Q$
+\item $\{Q\}\vDash P\to Q$
+\item $\{P,Q\}\vDash P\leftrightarrow Q$
+\item $\{\neg P,\neg Q\}\vDash P\leftrightarrow Q$
+\item $\{P, P\to Q\}\vDash Q$
+\end{enumerate}
+
+
+\begin{exmp}
+Determine whether $$\vDash (P\to (Q\to R))\to ((P\to Q) \to (P\to R))$$
+\end{exmp}
+
+\begin{solution}
+We make a truth table for $$F = (P\to (Q\to R))\to ((P\to Q) \to (P\to R))$$
+
+\begin{center}
+\begin{tabular}{c|c|c|c|c}
+     $P$ & $Q$ & $R$ & $(P\to (Q\to R))$ &  $((P\to Q) \to (P\to R))$\\\hline
+     1 & 1 & 1 & 1 & 1 \\\hline
+     1 & 1 & 0 & 0 & 0 \\\hline
+     1 & 0 & 1 & 1 & 1 \\\hline
+     1 & 0 & 0 & 1 & 1 \\\hline
+     0 & 1 & 1 & 1 & 1 \\\hline
+     0 & 1 & 0 & 1 & 1 \\\hline
+     0 & 0 & 1 & 1 & 1 \\\hline
+     0 & 0 & 0 & 1 & 1 
+     
+\end{tabular}
+\end{center}
+\end{solution}
+
+Here are some relationships between tautologies, equivalences and validity.
+
+\begin{align*}
+    F\equiv G &\Leftrightarrow  \vDash (F\leftrightarrow G)\\
+    &\Leftrightarrow  \vDash ((F\to G)\wedge (G\to F)) \\
+    &\Leftrightarrow  \{F\} \vDash G \text{ and }\{G\} \vDash F \\
+\end{align*}
+
+
+When $S = \{F_1,F_2,\dots , F_n\} $,
+\begin{align*}
+S \vDash G &\Leftrightarrow \{F_1,F_2,\dots , F_n\} \vDash G\\
+&\Leftrightarrow (((F_1\wedge F_2)\wedge \dots \wedge F_n) \vDash G\\
+&\Leftrightarrow \vDash (((F_1\wedge F_2)\wedge \dots \wedge F_n) \to G\\
+\end{align*}
+
+Also $$\vDash F \Leftrightarrow \emptyset \vDash F$$
+
+$\vDash F$ means for all assignment $\alpha$, $\alpha (F) = 1 $
+
+$\emptyset \vDash F$ means for all assignment $\alpha$, if (for every $G \in \emptyset, \alpha (G) = 1$ ) then $\alpha (F) = 1$
+
+
+\begin{nota}
+For a set $A$ and a statement or formula $F$
+$$\forall x\in A \enspace F \text{ means } \forall x (x\in A \to F)$$
+and 
+$$\exists x\in A \enspace F \text{ means } \forall x (x\in A \wedge F)$$
+\end{nota}
+
+So (for every $G \in \emptyset, \alpha (G) = 1$ ) is always true. This proves that $\vDash F \Leftrightarrow \emptyset \vDash F$.
+
+\begin{exmp}
+ Determine whether $$(P \vee Q)\to R \equiv (P\to R)\wedge (Q\to R)$$
+\end{exmp}
+\begin{solution}
+\begin{center}
+\begin{tabular}{c|c|c|c|c}
+     $P$ & $Q$ & $R$ & $(P \vee Q)\to R$ &  $(P\to R)\wedge (Q\to R)$\\\hline
+     1 & 1 & 1 & 1 & 1 \\\hline
+     1 & 1 & 0 & 0 & 0 \\\hline
+     1 & 0 & 1 & 1 & 1 \\\hline
+     1 & 0 & 0 & 0 & 0 \\\hline
+     0 & 1 & 1 & 1 & 1 \\\hline
+     0 & 1 & 0 & 0 & 0 \\\hline
+     0 & 0 & 1 & 1 & 1 \\\hline
+     0 & 0 & 0 & 1 & 1 
+\end{tabular}
+\end{center}
+
+\end{solution}
+
+\begin{exmp}
+Determine whether $$\{P\to (Q\vee \neg R),Q\to \neg P\}\vDash R\to \neg P$$
+\end{exmp} 
+
+\begin{solution}
+
+\begin{center}
+\begin{tabular}{c|c|c|c|c|c|c|c|c}
+    $P$ & $Q$ & $R$ & $\neg R$ & $Q\vee\neg R$ & $\neg P$ & $P\to (Q\vee\neg R)$ & $Q\to\neg P$ & $R\to\neg P$\\ \hline
+    1 & 1 & 1 & 0 & 1 & 0 & 1 & 0 & 0 \\\hline
+    1 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 1 \\\hline
+    1 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 \\\hline
+    1 & 0 & 0 & 1 & 1 & 0 & 1 & 1 & 1 \\\hline
+    0 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 1 \\\hline
+    0 & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \\\hline
+    0 & 0 & 1 & 0 & 0 & 1 & 1 & 1 & 1 \\\hline
+    0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \\
+\end{tabular}
+\end{center}
+\end{solution}
+
+
+
+
+

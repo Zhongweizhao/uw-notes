@@ -1,0 +1,144 @@
+\lecture{Oct. 7}
+
+
+\topic{Binomial Theorem}
+
+
+
+\begin{defn}
+For $n,k\in\mathbb{N}$ with $0\leq k\leq n$
+\[
+\mybinom{n}{k} = \frac{n!}{k!(n-k)!} = \frac{n(n-1)(n-2)\dots (n-k+1)}{k!}
+\]
+
+\end{defn}
+
+
+The number of ways to choose k of n objects,
+
+\begin{enumerate}
+
+\item If we choose the k objects with replacement (or with repetition), and if order matters, is $n^k$
+
+\item If we choose the k objects without replacement, and if order matters, is $\displaystyle \frac{n!}{(n-k)!}$. (In particular the number of ways to arrange n objects is $n!$)
+
+\item If we choose the k objects without replacement, and if order does not matters (so we form a k-element set), is $\displaystyle \mybinom{n}{k} = \frac{n!}{k!(n-k)!}$
+
+\end{enumerate}
+
+
+\begin{note}
+For $n,k\in\mathbb{N}$ with $0\leq k \leq n$, $\mybinom{n}{0} = 1$, $\mybinom{n}{n} = 1$, $\mybinom{n}{k} = \mybinom{n}{n-k}$, $\mybinom{n}{k} + \mybinom{n}{k+1} = \mybinom{n+1}{k+1}$
+\end{note}
+
+\begin{proof}
+\begin{align*}
+    \mybinom{n}{k} + \mybinom{n}{k+1} & = \frac{n!}{k!(n-k)!} + \frac{n!}{(k+1)!(n-k-1)!} \\
+    & = \frac{n!(k+1)}{(k+1)!(n-k)!} + \frac{n!(n-k)!}{(k+1)!(n-k)!}\\
+    & = \frac{n!(k+1+n-k)}{(k+1)!(n-k)!} \\
+    & = \frac{(n+1)!}{(k+1)!(n+1 - k - 1)!} \\
+    & = \mybinom{n+1}{k+1}
+\end{align*}
+\end{proof}
+
+\topic{Pascal Triangle} 
+
+\begin{exmp}
+\[
+(a+b)^5 = a^5 + 5 a^4b + 10 a^3b^2 + 10 a^2b^3 + 5 ab^4 + b^5
+\]
+\end{exmp}
+
+
+\begin{thm}
+\textbf{Binomial Theorem}
+For $a,b\in\mathbb{R}$ and $n\in\mathbb{N}$ we have the following formula
+\[
+(a+b)^n= \sum_{k=0}^{n} \mybinom{n}{k} a^kb^{n-k} = \sum_{k=0}^{n} \mybinom{n}{k} a^{n-k}b^k
+\]
+\end{thm}
+
+\begin{proof}
+When $n=0$,
+\[
+(a+b)^0 = 1
+\]
+\[
+\sum_{k=0}^{n} \mybinom{n}{k} a^kb^{n-k} = \mybinom{0}{0} a^0b^0 = 1
+\]
+When $n=1$,
+\[
+(a+b)^1 = a+b
+\]
+\[
+\sum_{k=0}^{n} \mybinom{n}{k} a^kb^{n-k} = \mybinom{1}{0} a^1b^0 + \mybinom{1}{1} a^0b^1 = a+b
+\]
+
+Let $n\geq 1$ be arbitrary.
+
+Suppose, inductively, that 
+\[
+(a+b)^n= \mybinom{n}{0} a^n + \mybinom{n}{1} a^{n-1}b + \mybinom{n}{2} a^{n-2}b^2 + \dots  + \mybinom{n}{n-1} a^1b^{n-1} + \mybinom{n}{n} b^n
+\]
+
+
+Then
+\begin{align*}
+(a+b)^{n+1} & = (a+b)(a+b)^n \\
+ & = (a+b) (\mybinom{n}{0} a^n + \mybinom{n}{1} a^{n-1}b + \dots  + \mybinom{n}{n-1} a^1b^{n-1} + \mybinom{n}{n} b^n) \\
+ & = \mybinom{n}{0} a^{n+1} + \mybinom{n}{1} a^{n}b + \dots  + \mybinom{n}{n-1} a^2b^{n-1} + \mybinom{n}{n} ab^n  \\
+ & \qquad \qquad \quad \ + \mybinom{n}{0} a^nb + \mybinom{n}{1} a^{n-1}b^2 + \dots  + \mybinom{n}{n-1} a^1b^{n} + \mybinom{n}{n} b^{n+1}\\
+ & = \mybinom{n+1}{0} a^{n+1} + \mybinom{n+1}{1} a^{n}b + \dots   + \mybinom{n+1}{n} ab^n + \mybinom{n+1}{n+1} b^{n+1}  \\
+ & = \sum_{k=0}^{n+1} \mybinom{n}{k} a^kb^{n-k}
+\end{align*}
+
+By induction, it follows that $(a+b)^n= \sum_{k=0}^{n} \mybinom{n}{k} a^kb^{n-k}$ for all $n\geq 0$
+\end{proof}
+
+\begin{exmp}
+\begin{align*}
+    (x+2)^6 = x^6+12 x^5+60 x^4+160 x^3+240 x^2+192 x+64
+\end{align*}
+\end{exmp}
+
+\begin{exmp}
+Find the coefficient of $x^8$ in the expansion of 
+\[
+(5x^3-\frac{2}{x^2})^{11}
+\]
+\end{exmp}
+
+\begin{solution}
+
+\begin{align*}
+(5x^3-\frac{2}{x^2})^{11} &= \sum_{k = 0} ^{11} \mybinom{11}{k} (5x^3)^{11-k} (-\frac{2}{x^2})^{11} \\
+& = \sum_{k = 0} ^{11} (-1)^k \mybinom{11}{k} 5^{11-k} 2^k x^{3(11-k)-2k}
+\end{align*}
+
+To get ${3(11-k)-2k} = 8$ that is $k=5$
+
+So that the coefficient of $x^8$ is $(-1)^5 \mybinom{11}{5} 5^{11-5} 2^5 = -231000000$
+
+
+\end{solution}
+
+\begin{exmp}
+Find \[\sum_{k=0}^n \mybinom{2n}{2k} \frac{1}{2^k}\]
+\end{exmp}
+
+\begin{solution}
+\[
+(1+\frac{1}{2})^{2n} = \mybinom{2n}{0} + \mybinom{2n}{1} \frac{1}{2} + \dots  
+\]
+
+\[
+(1-\frac{1}{2})^{2n} = \mybinom{2n}{0} - \mybinom{2n}{1} \frac{1}{2} + \dots  
+\]
+
+And replace 2 by $\sqrt{2}$
+
+\end{solution}
+
+
+
+

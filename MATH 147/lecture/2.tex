@@ -1,0 +1,94 @@
+\lecture{Sept. 14}
+
+\topic{New Section}
+12:30-1:20 CPH 3604\\
+Tutorial Moved to DC 1350 Th 4:30-5:20
+
+\topic{Greek Letters}
+\begin{itemize}
+    \item $\alpha$ - alpha
+    \item $\beta$ - beta
+    \item $\delta$ - delta
+    \item $\epsilon$ - epsilon
+    \item $\gamma$ - gamma
+\end{itemize}
+
+\topic{Properties of $\mathbb{N}$}
+$$\mathbb{N} = \{1,2,3,4,\dots\}$$
+
+
+
+\topic{Mathematical Induction}
+\newtheorem{mathinduct}{Axiom}
+
+\begin{axiom}
+Assume $S\in \mathbb{N}$ such that 
+\begin{enumerate}
+\item $1\in S$
+\item If $k\in S$, then $k+1 \in S$
+\end{enumerate}
+Then $S=\mathbb{N}$
+\end{axiom}
+
+\topic{Proof by Induction}
+\begin{enumerate}
+\item Establish for each $n\in \mathbb{N}$ a statement $P(n)$ to be proved.
+
+Example. Let $P(n)$ be the statement that $\sum_{i=1}^n i = \frac{n(n+1)}{2}$, show this is true for all $n\in \mathbb{N}$.
+
+
+    Let $S = \{n\in \mathbb{N}  \mid P(n) \text{ is true}\}$, show $S=\mathbb{N}$
+
+\item Base Case: show that $P(1)$ is true. ie): $1\in S$
+\item Inductive Step: Assume that $P(k)$ is true for some $k$ (Inductive Hypothesis). Use this to show that $P(k+1)$ is also true. ie): $k\in S \Rightarrow k+1\in S$
+
+\end{enumerate}
+By the Principle of Mathematical Induction, $S=\mathbb{N}$
+
+\begin{exmp}
+Prove that $\displaystyle\sum_{i=1}^ni=\frac{n(n+1)}{2}$
+\end{exmp}
+\begin{proof}
+
+Step.1 Let $P(n)$ be the statement that $\displaystyle\sum_{i=1}^ni=\frac{n(n+1)}{2}$
+
+Step.2 Let $n=1$ then $P(1) = 1 = \frac{1(1+1}{2}$. Hence $P(1)$ is true.
+
+Step.3 Assume that $P(k)$ is rue for some $k$
+$$P(k) \frac{k(k+1}{2}$$
+
+Step.4 
+\begin{align*}
+    \sum_{i=1}^{k+1} i & = \sum_{i=1}^k i + (k+1) \\
+    & = \frac{k(k+1)}{2}+(k+1)\\
+    & = \frac{(k+1)(k+2)}{2}
+\end{align*}
+Hence $P(k+1)$ is true
+
+Step.5 By Principle of Mathematical Induction, $P(n)$ is true for all $n\in \mathbb{N}$
+\end{proof}
+
+\begin{exmp}
+Prove that $3^n+4^n$ is divisible by $7$ for every odd $n$
+\end{exmp}
+
+\begin{proof}
+Let $P(k)$ be the statement that $3^{2k-1}+4^{2k-1}$ is divisible by 7.
+
+Base case: $k=1$, $P(1)$ is true.
+
+Inductive Step: Assume $P(j)$ is true.
+
+\begin{align*}
+    &3^{2(j+1)-1}+ 4^{2(j+1)-1}\\
+    =& 9(3^{2j-1})+16(4^{2j-1})\\
+    =& 9(3^{2j-1}+4^{2j-1}) + 7(4^{2j-1})
+\end{align*}
+Hence $P(j+1)$ is true.
+
+By Principle of Mathematical Induction, $P(k)$ is true for all $n$
+
+\end{proof}
+
+
+
