@@ -13,6 +13,8 @@
 \coordinate (aux2) at ([yshift=-410pt]current page.north east);
 \coordinate (aux3) at ([xshift=-4.5cm]current page.north east);
 \coordinate (aux4) at ([yshift=-150pt]current page.north east);
+\coordinate (aux5) at ([yshift=40pt]current page.south west);
+\coordinate (aux6) at ([xshift=70pt]current page.south west);
 
 \begin{scope}[titlepagecolor!40,line width=12pt,rounded corners=12pt]
 \draw
@@ -45,6 +47,22 @@
   ++(-45:2.5) coordinate[pos=0.3] (d);   
 \draw 
   (d) -- +(45:1);
+\end{scope}
+
+\begin{scope}[titlepagecolor!70,line width=6pt,rounded corners=8pt]
+\draw[titlepagecolor!40,line width=12pt,rounded corners=12pt, shorten <= -10pt]
+  (aux5) --
+  ++(45:3) coordinate (e) --
+  ++(45:2) --
+  ++(135:5) --
+  ++(45:2) coordinate (f) --
+  ++(135:2);
+\draw[titlepagecolor!40,line width=12pt,rounded corners=12pt, shorten <= -10pt]
+  (aux5) --
+  (e) --
+  ++(315:8);
+\draw[shorten <= -10pt]
+  (aux6) -- ++(45:0.8) -- ++(315:0.8);
 \end{scope}
 \end{tikzpicture}%
 }
