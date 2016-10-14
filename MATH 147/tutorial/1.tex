@@ -1,0 +1,48 @@
+\tutorial{Sept. 15}
+
+\vspace{0.2 in}
+
+\topic{Office Hours}
+M 9:30-10:45\\
+W 1:45-2:30\\
+Th 2:30-4:00\\
+F 9:30-10:45
+
+\topic{Functions}
+
+\begin{defn}
+A function is a rule that assigns to each element $x$ in a set $X$ a single value $y$ in a set $Y$.
+\end{defn}
+
+\begin{nota}
+$$f\colon X\to Y$$
+
+where $X$ is the domain of $f$ and $Y$ -is the codomain of $f$.
+\end{nota}
+
+\begin{exmp}
+ $X=\mathbb{R}$ and $Y=\mathbb{R}$, $$y = f(x) = x^2$$
+\end{exmp}
+
+
+\begin{defn}
+Given $f\colon X\to Y$, the range of $f$ is $$ran(f) = \{y\in Y\mid y = f(x) \text{ for some }x\in X \}$$
+\end{defn}
+
+We say that $f\colon X\to Y$ is onto if $ran(f)=codomain(f)$.
+
+\begin{exmp}
+$f(x)=x^3$, $f\colon \mathbb{R}\to \mathbb{R}$. $f$ is onto.
+\end{exmp} 
+
+$f\colon X\to Y$ is 1-1 if whenever $x_1,x_2\in X$ with $x_1\neq x_2$, then $f(x_1)\neq f(x_2)$
+
+If $f$ is 1-1 and onto, for each $y\in Y$ we define $$g(y)=x \iff y = f(x)$$
+
+This gives us a function $g\colon Y\to X$ which is called the inverse of $f$ and denoted by $f^{-1}$
+
+
+\topic{Properties}
+Suppose $f\colon X\to Y$, $g\colon Y\to Z$, we get $$g\circ f = g(f(x))$$ and $$g\circ f \colon X\to Z$$
+
+Suppose that $f\colon X\to Y$ is 1-1 and onto with inverse $g$, $$g\circ f(x)= x$$

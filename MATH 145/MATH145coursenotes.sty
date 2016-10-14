@@ -10,6 +10,7 @@
 \setlength{\parindent}{0 in}
 \setlength{\parskip}{0.1 in}
 
+%define title page
 \newcommand{\displaytitle}{
 \begin{titlepage}
     \titlepagedecoration
@@ -25,6 +26,7 @@
 \end{titlepage}
 }
 
+%define lecture
 \newcommand{\listlecturename}{List of Lectures}
 \newlistof{lecture}{lec}{\listlecturename}
 \newcommand{\lecture}[1]{%
@@ -32,14 +34,13 @@
    \newpage\noindent{\Large Lecture \thelecture, #1}\par\vspace{0.2 in}
    \addcontentsline{lec}{lecture}{Lecture \thelecture, #1}\par}
 
-
-
+%define binomial, absolute value, topic
 \newcommand{\mybinom}[2]{\Bigl(\begin{array}{@{}c@{}}#1\\#2\end{array}\Bigr)}
 \newcommand{\abs}[1] {\left| #1 \right| }
 \newcommand{\topic}[1]{{ \textbf{#1}}}
 
 
-
+%define theorem style
 \swapnumbers
 
 \theoremstyle{plain}
