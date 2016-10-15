@@ -16,7 +16,7 @@
     \titlepagedecoration
     \begin{center}
         \vspace*{6cm}
-        {\Huge \text{MATH 145 Algebra (Advanced)}}\\
+        {\Huge \text{MATH 145 Calculus (Advanced)}}\\
         \vspace{1cm}
         {\huge Lecture Notes}\\
         \vspace{2.5cm}
@@ -26,13 +26,15 @@
 \end{titlepage}
 }
 
-%define lecture
+
+%define \lecture
 \newcommand{\listlecturename}{List of Lectures}
 \newlistof{lecture}{lec}{\listlecturename}
 \newcommand{\lecture}[1]{%
    \refstepcounter{lecture}
    \newpage\noindent{\Large Lecture \thelecture, #1}\par\vspace{0.2 in}
    \addcontentsline{lec}{lecture}{Lecture \thelecture, #1}\par}
+
 
 %define binomial, absolute value, topic
 \newcommand{\mybinom}[2]{\Bigl(\begin{array}{@{}c@{}}#1\\#2\end{array}\Bigr)}

@@ -39,6 +39,7 @@
 \newcommand{\listtutorialname}{List of Tutorials}
 \newlistof{tutorial}{tut}{\listtutorialname}
 \newcommand{\tutorial}[1]{%
+   \refstepcounter{lecture}
    \refstepcounter{tutorial}
    \newpage\noindent{\Large Tutorial \thetutorial, #1}\par\vspace{0.2 in}
    \addcontentsline{tut}{tutorial}{Tutorial \thetutorial, #1}\par}
