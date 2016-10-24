@@ -1,0 +1,105 @@
+\lecture{Oct. 17}
+Women in Pure Math/Math Finance
+
+Lunch/Workshop
+
+Tuesday, Oct.25
+
+12:30-1:20
+
+MC 5417
+
+\topic{Limits of Functions}
+\begin{exmp}
+\[f(x) = \frac{x^2-1}{x-1}\]
+$domain(f) = \{x\in\mathbb{R} \mid x\neq 1\}.$
+\end{exmp}
+\begin{note}
+\[f(x) = \frac{(x+1)(x-1)}{x-1} = (x+1) \text{ if } x\neq 1.\]
+\end{note}
+
+What can we say about the values of $f(x)$ as x approaches 1? As $x$ gets closer and closer to 1, $f(x)$ gets closer and closer to 2. We want to say that 2 is the limit of $f(x)$ as x approaches 1.
+
+\begin{defn}
+\textbf{Heuristic Definition of Limit I} If $f(x)$ is defined on an open interval around $x = a$, except possibly at $x=a$, then we say that $L$ is the limit of $f(x)$ as $x$ approaches $a$ if as $x$ gets closer and closer to $a$, f(x) gets closer and closer to $L$
+\end{defn}
+
+\begin{defn}
+\textbf{Heuristic Definition of Limit II} We say that $L$ is the limit of $f(x)$ as $x$ approaches $a$, if for every positive tolerance $\epsilon > 0$, $f(x)$ approximates $L$ with an error less than $\epsilon$ provided that $x$ is close enough to $a$, and not equal to $a$.
+\end{defn}
+
+\begin{defn}
+\textbf{Formal Definition for a Limit of a Function} We say that $L$ is the limit of $f(x)$ as $x$ approaches $a$, if for every $\epsilon > 0$, there exists $\delta > 0$ such that if $0<\abs{x-a} < \delta$, then \[\abs{f(x) - L} < \epsilon.\]
+In this case we write \[\lim_{x\to a} f(x) = L.\]
+\end{defn}
+
+\begin{exmp}
+Show that \[\lim_{x\to 2}3x + 1 = 7.\]
+\end{exmp}
+\begin{solution}
+Let $\epsilon > 0$
+    \[\abs{3x+1 -7} = \abs{3x - 6} = 3\abs{x-2}.\]
+We want $\abs{3x+1 -7} < \epsilon$. We can make this happen if $\abs{x-2} < \epsilon / 3$
+
+Hence if $\delta = \epsilon / 3$, then 
+\[0 < \abs{x-2} < \delta = \epsilon / 3 \Rightarrow \abs{3x+1-7} = 3 \abs{x-2} < 3 \epsilon / 3 = \epsilon\]
+\end{solution}
+
+\begin{exmp}
+$f(x) = mx + b, m\neq 0$
+\[\lim_{x\to a} f(x) = ma + b\]
+\end{exmp}
+\begin{solution}
+Given $\epsilon > 0$, chooose $\delta = \epsilon / \abs{m}$
+\end{solution}
+
+\begin{exmp}
+Show that \[\lim_{x\to 3} x^2 = 9\]
+\end{exmp}
+\begin{solution}
+\[\abs{x^2-9} = \abs{x+3}\abs{x-3}\]
+Let $\epsilon > 0$. We can assume $\delta < 1$.
+
+If $0<\abs{x-3}<1 \Rightarrow x\in (2,4)$.
+
+Hence $\abs{x+3} < 7$.
+
+Hence for any $\delta < 1$, \[0 < \abs{x-3} < 1 \Rightarrow \abs{x^2-9} < 7\abs{x-3}.\]
+
+Let $\delta = min\{1,\epsilon / 7\}$
+
+If $0 < \abs{x-3} < \delta \Rightarrow \abs{x^2-9} \leq 7\abs{x-3} = \epsilon$
+\end{solution}
+
+\begin{exmp}
+Show that \[\lim_{x\to 1} x^7+4x^5-3x+2 = 1\]
+\end{exmp}
+\begin{solution}
+Don't want to do this by $\epsilon - \delta$.
+\end{solution}
+
+\begin{exmp}
+\begin{equation*}
+    f(x) = \frac{\abs{x}}{x} = \begin{cases}
+     1 & \text{ if } x > 0 \\
+     -1 & \text{ if } x < 0
+    \end{cases}
+\end{equation*}
+What is \[\lim_{x\to 0} f(x)\]
+\end{exmp}
+\begin{solution}
+$\lim_{x\to 0} f(x)$ does not existst.
+
+Assume $\lim_{x\to 0} f(x) = L$. Let $\epsilon = 1/2$. Suppose that $\delta > 0$ is such that $0 < \abs{x-0} < \delta \Rightarrow \abs{f(x) - L} < \epsilon = 1/2$
+
+Let $x = \delta / 2$. Then $L\in (1/2, 3/2)$. Let $x = - \delta / 2$. Then $L\in (-3/2,-1/2)$.
+\[L\in (1/2, 3/2)\cap (-3/2,-1/2) = \emptyset  \]
+\end{solution}
+
+\begin{thm}
+If $\lim_{x\to a} f(x) = L$ and $\lim_{x\to a} f(x) = M$, then $L = M$.
+\end{thm}
+
+\begin{thm}
+$\lim_{x\to a} f(x) = L$ if and only if whenever $\{x_n\}$ is a sequence with $x_n\to a;\ x_n\neq a$ we have that $f(x_n) \to L$
+\end{thm}

@@ -1,0 +1,68 @@
+\lecture{Oct. 21}
+
+\topic{Order Properties in $\mathbb{Z}$, $\mathbb{Q}$ and $\mathbb{R}$}
+
+\begin{thm}\textbf{The Completeness Property in $\mathbb{R}$}
+Every non-empty set $S\subseteq \mathbb{R}$ which is bounded above has a \textbf{supremum} (or least upper bound) in $\mathbb{R}$. Every non-empty set $S\subseteq \mathbb{R}$ which is bounded below has a \textbf{infimum} (or greatest lower bound) in $\mathbb{R}$
+
+In $S \subseteq R$, we say $S$ is bounded above in $\mathbb{R}$ when there exists $b\in \mathbb{R}$ such that $b\geq x$ for every $x\in S$. Such a number $b$ is called an \textbf{upper bound} for $S$ in $\mathbb{R}$. A \textbf{Supremum} for $S$ is a number $b\in \mathbb{R}$ such that $b\geq x$ for every $x\in S$ and for all $c\in \mathbb{R}$, if $c\geq x$ for every $x\in \S$, then $b\leq c$.
+\end{thm}
+
+\begin{thm}
+\textbf{Density of $\mathbb{Q}$ in $\mathbb{R}$} For all $a,b\in\mathbb{R}$, if $a<b$ then there exists $c\in \mathbb{Q}$ such that $a<c<B$.
+\end{thm}
+
+\begin{thm}\textbf{Order Properties in $\mathbb{Z}$}
+\begin{enumerate}
+    \item \textbf{Natural numbers are non-negative}. $\mathbb{N} = \{x\in \mathbb{Z} \mid x\geq 0\}$
+    \item \textbf{Discreteness} for all $k,n\in \mathbb{Z}$, $k\leq n \leftrightarrow k<n+1$
+    \item \textbf{Well Ordering Property of $\mathbb{Z}$ in $\mathbb{R}$}. Every nonempty set $S\subseteq \mathbb{Z}$ which is bounded above in $\mathbb{R}$ has a maximum element in $S$. Every nonempty set $S\subseteq \mathbb{Z}$ which is bounded below in $\mathbb{R}$ has a minimum element in $S$. In particular, every nonempty set $S\subseteq \mathbb{N}$ has a minimum number.
+    \item For every $x\in \mathbb{R}$, there exists $a\in \mathbb{Z}$ such that $a\leq x$. For every $x\in \mathbb{R}$, there exists $b\in \mathbb{Z}$ such that $x\leq b$.
+    \item \textbf{Floor and Ceiling Property} For every $x\in\mathbb{R}$ there exists a unique $n\in\mathbb{Z}$ which we denoted by $n=\lfloor x\rfloor$, such that $n\leq x$ and $n+1 >x$. For every $x\in\mathbb{R}$ there exists a unique $m\in\mathbb{Z}$ which we denoted by $n=\lceil x\rceil$, such that $x\leq m$ and $x > m-1$
+    \item \textbf{Monotone Sequence Property of $\mathbb{Z}$} Let $m\in\mathbb{Z}$ and let $(x_n)_{n\geq m}$ be a sequence of integers (so each $x_n\in\mathbb{Z}$). If $x_{n+1} > x_n$ for all $n\geq m$, then for all $b\in \mathbb{R}$, there exists $n\geq m$ such that $x_n > b$. If $x_{n+1} < x_n$ for all $n\geq m$, then for all $b\in \mathbb{R}$, there exists $n\geq m$ such that $x_n < b$.
+\end{enumerate}
+\end{thm}
+
+\begin{rem}
+If $N$ has a total ordering $\leq$ and $N$ has the property that every nonempty set $S\subseteq N$ has a minimum element, then we say that $N$ is a well ordering set.
+\end{rem}
+
+\begin{exer}
+\begin{enumerate}
+    \item Show that for all $a\in \mathbb{Z}$, if $a\neq 0$ then $\abs{a} \geq 1$
+    \item Show that the only units in $\mathbb{Z}$ are $\pm 1$. Indeed show that for all $a,b\in\mathbb{Z}$, if $ab=1$ then ($a=b=1$ or $a=b=-1$)
+\end{enumerate}
+\end{exer}
+
+
+
+\topic{Here ends Chapter 2: Rings Fields, Orders and Induction}
+
+\topic{Chapter 3: Factorization in $\mathbb{Z}$}
+
+\begin{defn}
+For $a,b\in\mathbb{Z}$, we say a \textbf{divides} b, or a is a \textbf{factor} of b, or b is a \textbf{multiple} of a, and we write $a\mid b$, when \[b=ak \text{ for some } k\in \mathbb{z}\]
+\end{defn}
+
+\begin{thm}
+\leavevmode
+\begin{enumerate}
+    \item $1\mid a$ for all $a\in\mathbb{Z}$
+    \item $a\mid 1 \leftrightarrow a=\pm 1$
+    \item $0\mid a \leftrightarrow a=0$
+    \item $a\mid 0$ for all $a\in\mathbb{Z}$
+    \item $a\mid b \leftrightarrow \abs{a} \mid \abs{b}$
+    \item if $b\neq 0$ and $a\mid b$ then $\abs{a} \leq \abs{b}$
+    \item $a\mid a$
+    \item if $a\mid b$ and $b\mid a$ then $a=b$
+    \item if $a\mid b$ and $b\mid c$ then $a\mid c$
+    \item if $a\mid b$ and $a\mid c$ then \[\forall x,y\in \mathbb{Z} \ a\mid (bx+cy)\]
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+\leavevmode
+\begin{enumerate}
+    \item[6.] Suppose $b\neq 0$ and $a\mid b$. Choose $k\in\mathbb{Z}$ so that $b=ak$. If $k=0$, then $b=ak=a0=0$. But $b\neq 0$, so $k\neq 0$. Since $k\neq 0$ we have $\abs{k}\geq 1$. Since $b=ak$, we have $\abs{b} = \abs{ak} = \abs{a} \abs{k} \geq \abs{a}1 = \abs{a}$
+\end{enumerate}
+\end{proof}

@@ -1,0 +1,135 @@
+\lecture{Oct. 19}
+
+\begin{defn}
+A \textbf{total order} on a set $S$ is a binary relation $\leq$ on $S$ such that 
+\begin{enumerate}
+\item Totality: for all $a,b\in S$, either $a\leq b$ or $b\leq a$
+\item Antisymmetry: for all $a,b\in S$, if $a\leq b$ and $b\leq a$, then $a=b$
+\item Transitivity; for all $a,b,c\in S$, if $a\leq b$ and $b\leq c$ then $a\leq c$
+\end{enumerate}
+\end{defn}
+
+\begin{exmp}
+The usual order $\leq$ is a total order on each of the sets: $\mathbb{N},\mathbb{Z},\mathbb{Q},\mathbb{R}$, and indeed on any subset of $\mathbb{R}$.
+
+$\subseteq$ is a partial order on $P(S)$. If we define $a\leq b$ for $a,b\in\mathbb{N}$ to mean $a\mid b$ then $\leq$ is a partial order on $\mathbb{N}$
+\end{exmp}
+
+\begin{defn}
+Given a total order $\leq$ on $S$, for $a,b\in S$, we define $a<b$ to mean ($a\leq b$ and $a\neq b$), $a\geq b$ to mean $b\leq a$, $a>b$ to mean $b<a$.
+\end{defn}
+
+\begin{rem}
+We could also define a total order on $S$ to be a binary relation $<$ such that 
+\begin{enumerate}
+\item for all $a,b\in S$ exactly one of the following holds: \[a<b, a=b, b<a\]
+\item for all $a,b,c\in S$ if $a<b$ and $b<c$ then $a<c$.
+\end{enumerate}
+\end{rem}
+
+\begin{defn}
+A \textbf{ordered field} is a field $F$ with a total order $<$ such that
+\begin{enumerate}
+\item $<$ is compatible with $+$: for all $a,b,c\in F$ \[a<b \to a+c < b+c\]
+\item $<$ is compatible with $\times$: for all $a,b\in F$, \[0<a\wedge 0<b \to 0<ab\]
+\end{enumerate}
+\end{defn}
+
+\begin{exmp}
+$\mathbb{Q}$ and $\mathbb{R}$ are ordered fields. Also $\mathbb{Q}[\sqrt{2}]$ is an ordered field.
+\end{exmp}
+
+\begin{thm}\textbf{Properties of Ordered Fields}
+Let $F$ be an ordered fields, and let $a,b,c\in F$.
+\begin{enumerate}
+\item If $a>0$ then $-a<0$ and if $a<0$ then $-a>0$
+\item If $a>0$ and $b < c$ then $ab<ac$
+\item If $a<0$ and $b < c$ then $ab<ac$
+\item If $a\neq 0$ then $a^2 > 0$. In particular, $1>0$
+\item if $0<a<b$, then $0<1/b<1/a$
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+\leavevmode
+\begin{enumerate}
+\item Suppose $a>0$, then
+\begin{align*}
+    0 &< a \\
+    0 + (-a) & < a + (-a) \text{ since $<$ is compatible with $+$}\\
+    -a & < 0.
+\end{align*}
+
+Suppose $a<0$, then...
+
+\item Suppose $a>0$ and $b < c$, then
+\begin{align*}
+    b & < c \\
+    b + (-b) & < c+ (-b) \text{ since $<$ is compatible with $+$}\\
+    0 &< c-b \\
+    0 & < a(c-b) \text{ since $<$ is compatible with $\times $} \\
+    0 & < ac - ab \\
+    0+ab & < (ac-ab)+ab \text{ since $<$ is compatible with $+$} \\
+    0+ab & < ac + (-ab+ab) \\
+    0+ab & < ac + (ab - ab)\\
+    0+ab & < ac + 0\\
+    ab & < ac\\
+\end{align*}
+\end{enumerate}
+\end{proof}
+
+\begin{exmp}
+When $p$ is a prime numer we shall see that $\mathbb{Z}_p$ is a field. It is not possible to define an order which makes $\mathbb{Z}_p$ into an ordered field.
+\end{exmp}
+\begin{proof}
+If $<$ was such an order then we would have
+\begin{align*}
+    1 & > 0\\
+    -1 & < 0 \\
+    -1 = p-1 = 1+ 1+\cdots + 1 &> 0\\
+\end{align*}
+By contradiction, such order does not exist.
+\end{proof}
+
+Similarly, it is not possible to define an order $<$ on $\mathbb{C}$ which makes $\mathbb{C}$ into an ordered field.
+\begin{align*}
+    1 & > 0\\
+    -1 & < 0 \\
+    -1 = i^2 & > 0 \text{ by Property 21.6.4 }\\
+\end{align*}
+
+\begin{defn}
+Let $F$ be an ordered field. For $a\in F$ we define the \textbf{absolute value} of a to be \begin{equation*}
+    \abs{a} = \begin{cases}
+            a & \text{ if } a\geq 0\\
+            -a & \text{ if } a\leq 0
+            \end{cases}
+\end{equation*}
+\end{defn}
+
+\begin{thm}\textbf{Properties of Absolute Value}
+Let $F$ be an ordered field. Let $a,b\in F$. Then
+\begin{enumerate}
+\item Positive Definiteness \[\abs{a} \geq 0 \wedge (\abs{a} = 0 \leftrightarrow a=0)\]
+\item Symmetry \[\abs{a-b} = \abs{b-a}\]
+\item Multiplicative \[\abs{ab} = \abs{a}\abs{b}\]
+\item Triangle Inequality \[\abs{\abs{a} - \abs{b}} \leq \abs{a-b} \leq \abs{a} + \abs{b}\]
+\item Approximation: for $b\geq 0$ and $x\in F$ \[\abs{x-a} < b \leftrightarrow a-b < x < a+b\]
+\end{enumerate}
+\end{thm}
+
+\topic{Order Properties in $\mathbb{Z}, \mathbb{Q},\mathbb{R}$}
+
+\begin{thm}
+In $\mathbb{Z}$,
+\begin{enumerate}
+\item for all $n\in\mathbb{Z}$ \[n\in\mathbb{N} \leftrightarrow n\geq 0\]
+\item Discreteness: for all $n,k in \mathbb{Z}$, \[n\leq k \leftrightarrow n<k+1\]
+\item Well Ordering Property: for every non-empty subset $S\subseteq \mathbb{Z}$, if $S$ is bounded above in $\mathbb{Z}$, then S has a maximum element.
+\item Well Ordering Property: for every non-empty subset $S\subseteq \mathbb{Z}$, if $S$ is bounded below in $\mathbb{Z}$, then S has a minimum element.
+\end{enumerate}
+\end{thm}
+
+\begin{rem}
+Well-Ordering is related to Induction.
+\end{rem}

@@ -1,0 +1,42 @@
+\lecture{Oct. 20}
+
+
+\topic{Seq Characteriation of Limits}
+\begin{thm}
+Let $f(x)$ be defined in an open interval I containing $a$, except possibly at $x=a$. Then the following are equivalent.
+\begin{enumerate}
+\item \(\displaystyle\lim_{x\to a} f(x) = L\)
+\item Whenever $\{x_n\}$ is such that $x_n\to a$ ($x_n\neq a$) we have $f(x)\to L$
+\end{enumerate}
+\end{thm}
+
+\begin{exmp}
+$\displaystyle \lim_{x\to 0} \sin (\frac{1}{x})$ does not exist.
+\end{exmp}
+
+\begin{exmp}
+\[g(x) = \begin{cases}
+    x\sin(\frac{1}{x}) & \text{ if } x\neq 0\\
+    0 & \text{ if } x= 0
+\end{cases}\]
+
+$\displaystyle\lim_{x\to 0} g(x) = 0$. In other words, the limit exists (by using squeeze theorem.)
+\end{exmp}
+
+\begin{exmp}
+\[\lim_{x\to 0} x^2\sin (\frac{1}{x})= 0\]
+\end{exmp}
+
+\begin{exmp}
+\[f(x) = \begin{cases}
+0 & \text{ if } x\in \mathbb{R}\backslash\mathbb{Q} \\
+1 & \text{ if } x= 0 \\
+\frac{1}{m} & \text{ if } x = \frac{k}{m} \in \mathbb{Q} \text{ with } gcd(k,m) = 1
+\end{cases}\]
+Suppose $\lim_{x\to a} f(x)$ exists. Then the limit is $0$ (because for every irrational sequence that approaches $a$, all element in the irrational sequence is $0$.)
+\end{exmp}
+
+\begin{defn}
+We say that $L$ is the limit of $f(x)$ from above (from the right) if for every $\epsilon > 0$ there exists $\delta > 0$ such that if $0<x-a<\delta$, then $\abs{f(x) - L}<\epsilon$. We write \[\lim_{x\to a^+} f(x) = L\]
+We say that $L$ is the limit of $f(x)$ from below (from the left) if for every $\epsilon > 0$ there exists $\delta > 0$ such that if $-\delta<x-a<0$, then $\abs{f(x) - L}<\epsilon$. We write \[\lim_{x\to a^-} f(x) = L\]
+\end{defn}

@@ -1,0 +1,150 @@
+\lecture{Oct. 18}
+
+\begin{axiom}\label{axm1}
+\[\forall x \,\forall y\,\forall z \ (x+y) + z = x + (y+z)\]
+\end{axiom}
+\begin{axiom}\label{axm2}
+\[\forall x \,\forall y \ x+y = y+x\]
+\end{axiom}
+\begin{axiom}\label{axm3}
+\[\forall x \ x+0 = x\]
+\end{axiom}
+\begin{axiom}\label{axm4}
+\[\forall x \,\exists y \ x+ y= 0\]
+\end{axiom}
+\begin{axiom}\label{axm5}
+\[\forall x \,\forall y\,\forall z \ (xy)z = x(yz)\]
+\end{axiom}
+\begin{axiom}\label{axm6}
+\[\forall x  \ 1 x= x 1 = x\]
+\end{axiom}
+\begin{axiom}\label{axm7}
+\[\forall x \,\forall y\,\forall z \ x(y+z) = xy+xz \wedge (x+y)z = xz + yz\]
+\end{axiom}
+
+R is commutative when
+\begin{axiom}\label{axm8}
+\[\forall x \,\forall y \ xy=yx\]
+\end{axiom}
+
+R is a field when
+\begin{axiom}\label{axm9}
+\[\forall x \ (\neg x = 0 \to \exists y \ (xy=1\wedge yx = 1))\]
+\end{axiom}
+
+
+\begin{defn}
+Let $R$ be a ring. Let $a,b\in R$. If $ab = 1$ we sat that $a$ is a \textbf{left inverse} of $b$ and $b$ is a \textbf{right inverse} of $a$
+\end{defn}
+
+If $ab = ba =1$, then we say that $a$ and $b$ are (2-sided) inverses of each other. We say that $a\in R$ is \textbf{invertible} or that a is a \textbf{unit} when a has a (2-sided) inverse $b$.
+
+If $a\neq 0$ and $b\neq 0$ and $ab=0$ then $a$ and $b$ are called \textbf{zero divisors}.
+
+\begin{thm}
+\textbf{Uniqueness of Identities and Inverses.} Let R be a ring.
+
+\begin{enumerate}
+\item The zero element is unique:
+
+for all $e\in R$, if for all $x\in R$, $x+e = x$, then $e=0$
+
+\item For all $a\in R$ the additive inverse of a is unique (which we denote by $-a$):
+
+for all $a\in R$, for all $b,c\in R$, if $a+b= 0$ and $a+c = 0$ then $b=c$
+
+\item The identity element is unique.
+
+for all $u\in R$, if for all $x\in R$ we have $x\cdot u = x$ and $u\cdot x = x$ then $u=1$
+
+\item For every invertible $a\in R$, the multiplicative inverse of $a$ is unique:
+
+for all $a\in R$, for all $b,c\in R$, if $ab =ba = 1$ and $ac=ca=1$, then $b=c$
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+\begin{enumerate}
+\item[1.] Let $e\in R$ be arbitrary. Suppose that for all $x\in R$, $x+e = x$. Then, in particular, $0+e = 0$. Thus \begin{align*}
+    e = & e + 0 \text{ by \ref{axm3} }\\
+    = & 0 + e \text{ by \ref{axm2} } \\
+    = & 0 \text{ as shown above }
+\end{align*}
+\end{enumerate}
+
+
+\end{proof}
+
+\begin{exer}
+Make a derivation to show that \[\{20.2, 20.3\} \vDash \forall e \ (\forall x \  x+e = x \to e = 0)\]
+\end{exer}
+
+\begin{thm}
+\textbf{Some Additive Cancellation Properties.} Let $R$ be a ring. Let $a,b,c\in R$ Then
+\begin{enumerate}
+\item if $a+b = a+c$ then $b=c$
+\item if $a+b = a$ then $b=0$
+\item if $a+b = 0$ then $b = -a$
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+\begin{enumerate}
+\item Suppose that $a+b = b+c$. Choose $d\in R$ so that $a+d = 0$ (by 20.4). Then
+\begin{align*}
+    b = & b+0 \text{ by \ref{axm3} } \\
+    = & b + (a + d) \text{ since } a+d = 0 \\
+    =&  (b + a) + d \text{ by \ref{axm1} }\\
+    = & (a + b) + d \text{ by \ref{axm2} }\\
+    = & (a + c) + d \text{ since } a+b = a+c\\
+    = & (c + a) + d \text{ by \ref{axm2} }\\
+    = & c + (a + d) \text{ by \ref{axm1} }\\
+    = & c + 0 \text{ since } a+d=0\\
+    = & c\text{ by \ref{axm3} }
+\end{align*}
+\end{enumerate}
+\end{proof}
+
+\begin{exer}
+Make a derivation
+\end{exer}
+
+\begin{thm} \textbf{Some More basic Properties}
+Let $R$ be a ring. Let $a,b \in R$ then,
+\begin{enumerate}
+\item $0\cdot a = 0$
+\item $- (-a) = a$
+\item $(-a) b = -(ab) = a(-b)$
+\item $(-a)(-b) = ab$
+\item $(-1)a = -a$
+\item $a(b-c) = ab-ac$ and $(a-b)c = ac-bc$ where $x-y = x + (-y)$
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+\begin{enumerate}
+\item Choose \(b\in R\) so that \(0a + b = 0\)
+
+\begin{align*}
+    0a = & (0+0)a \text{ by \ref{axm3} }\\
+    = & 0a + 0a \text{ by \ref{axm3} }\\ 
+    \\
+    0a + b = & (0a + 0a)+b \text{ as shown above } \\
+    = & 0a + (0a + b) \text{ by \ref{axm1}} \\
+    \\
+    0 =& 0a + 0 \text{ since } 0a+b=0\\
+    = & 0a \text{ by \ref{axm3}}
+\end{align*}
+\end{enumerate}
+\end{proof}
+
+\begin{thm}\textbf{Multiplicative Cancellation}
+Let $R$ be a ring. Let $a,b,c\in R$. Then if $ab = ac$ (or if $ba = ca$) then $a=o$ \underline{or} $a$ is a zero-divisor \underline{or} $b=c$.
+\end{thm}
+\begin{proof}
+Suppose $ab = ac$
+
+Then $ab -ac = 0$, then $a(b-c) = 0$.
+
+So either $a=0$ or $b-c = 0$ or ($a\neq 0$ and $b-c\neq 0$) $a$ is a zero-divisor ($b-c$ is a zero-divisor)
+\end{proof}

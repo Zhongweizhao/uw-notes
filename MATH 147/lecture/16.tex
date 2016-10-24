@@ -1,0 +1,76 @@
+\lecture{Oct. 19}
+Thursday $\to$ Lecture
+
+Friday $\to$ Tutorial
+
+\topic{Basic Fact about Limits}
+For $\lim_{n\to a}f(x)$ to exist $f(x)$ must be defined in some open interval I containing $x=a$, except possibly at $x=a$.
+
+\topic{Sequential Characterization of Limits}
+\begin{thm}
+Let $f(x)$ be defined in an open interval I containing $a$, except possibly at $x=a$. Then the following are equivalent.
+\begin{enumerate}
+\item \[\lim_{x\to a} f(x) = L\]
+\item Whenever $\{x_n\}$ is such that $x_n\to a$ ($x_n\neq a$) we have $f(x)\to L$
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+Assume that $\lim_{x\to a}f(x) = L$. Let $\{x_n\}$ be such that $x_n\to a$, $x_n \neq a$. Let $\epsilon > 0$. Then there exists a $\delta >0$ such that if $0<\abs{x-a}<\delta$, then $\abs{f(x) - L} < \epsilon$. Since $x_n\to a$, we can find a $N_0\in \mathbb{N}$ so that if $n\geq N_0$, then $0<\abs{x_n-a}<\delta \Rightarrow \abs{f(x_n) - L}<\epsilon$
+
+Conversely, (prove by contrapositive) assume that $L$ is not the limit. Then there exists $e_0 > 0$ such that for any $\delta > 0$, there exists $x_\delta \in (a-\delta,a+\delta)$, $x_\delta \neq a$ and $\abs{f(x_\delta) - L} \geq e_0$. In particular, for each $n\in\mathbb{N}$, there exists $x_n\in (a-\frac{1}{n},a+\frac{1}{n})$, $x_n \neq a$, such that $\abs{f(x) - L} \geq e_0$. Hence $x_n \to a$, $x_n\neq a$, but $\{f(x_n)\}$ does not converge to L.
+\end{proof}
+
+\begin{thm}\textbf{Arithmetic Rules for Limits}
+Assume that $\lim_{x\to a} f(x) = L$, $\lim_{x\to a} g(x) = M$ then 
+\begin{enumerate}
+\item $lim_{x\to a} (cf)(x) = cL$
+\item $lim_{x\to a} (f+g)(x) = L+M$
+\item $lim_{x\to a} (fg)(x) = L\cdot M$
+\item $lim_{x\to a} (f/g)(x) = L/M$ if $M\neq 0$
+\end{enumerate}
+\end{thm}
+
+\begin{thm}\textbf{Squeeze Theorem for Limits}
+Assume that on some open interval $I$ containing $x=a$ that \[f(x) \leq g(x) \leq h(x)\] for all $x\in I$, except posibly at $x=a$. If $\lim_{x\to a} f(x) = L = \lim_{x\to a} h(x)$ then \[\lim_{x\to a} g(x) = L\] 
+\end{thm}
+
+\begin{rem}
+\begin{enumerate}
+\item Let $p(x) = a_0 + a_1x+a_2x^2 + \cdots$ then \[\lim_{x\to a} p(x) = p(a)\]
+\item Let $f(x) = p(x)/q(x)$ where $p(x), q(x)$ are polynomials, then \[\lim_{x\to a} f(x) = \frac{\lim_{x\to a} p(x)}{\lim_{x\to a}q(x)} = \frac{p(a)}{q(a)} = f(a)\] if $q(a) \neq 0$.
+\end{enumerate}
+\end{rem}
+
+\begin{note}
+If $\lim_{x\to a} f(x)/g(x) = L$ exists and $\lim_{x\to a} g(x) = 0$ then \[\lim_{x\to a} f(x) = 0\]
+For $f(x) = p(x)/q(x)$ if $q(a) = 0$ and $p(a) \neq 0$ then $\lim_{x\to a} f(x)$ does not exist.
+
+If $f(x) = p(x)/q(x)$, $p(x) = q(x) = 0$,
+\[p(x) = (x-a)^n p_1(x) \qquad p_1(a)\neq 0\]
+\[q(x) = (x-a)^m q_1(x) \qquad q_1(a)\neq 0\]
+\begin{equation*}
+    \lim_{x\to a} \frac{p(x)}{q(x)} = \begin{cases}
+    \frac{p_1(a)}{p_2(a)} & \text{ if } n=m \\
+    0 & \text{ if } n>m \\
+    \text{does not exist} & \text{ if } n <m
+    \end{cases}
+\end{equation*}
+\end{note}
+
+
+
+\begin{exmp}
+\[\lim_{x\to 1} \frac{x^2-1}{x-1} = 2\]
+\end{exmp}
+
+\begin{exmp}
+\begin{equation*}
+   f(x) =  \begin{cases}
+   1 & \text{ if } x\in \mathbb{Q} \\
+   -1 & \text{ if } x\in \mathbb{R}\backslash\mathbb{Q}
+    \end{cases}
+\end{equation*}
+
+Let $a\in \mathbb{R}$. What can we say about $\lim_{x\to a} f(x)$? Exists a sequence in $\mathbb{Q}$ that converge to 1, and exists a sequence in $\mathbb{R}\backslash\mathbb{Q}$ that converge to -1. Thus the limit does not exist.
+\end{exmp}
