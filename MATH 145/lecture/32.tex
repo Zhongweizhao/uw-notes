@@ -1,0 +1,121 @@
+\lecture{Oct. 8}
+
+\begin{exmp}
+Determine whether 125 is a unit in $\mathbb{Z}_{471}$ and, if so, find $125^{-1}$.
+\end{exmp}
+
+\begin{solution}
+We use EA with BS.
+
+EA:
+\[471 = 3\cdot 125 + 96\]
+\[125 = 1\cdot 96 + 29\]
+\[96 = 3\cdot 29 + 9\]
+\[29 = 3\cdot 9 + 2\]
+\[9 = 4\cdot 2 + 1\]
+
+BS:
+\[1,-4,13,-43,56,-211\]
+
+So we have $471\cdot 56 - 125\cdot 211 = 1$
+
+Thus $125^{-1} = -211 = 260$ in $\mathbb{Z}_{471}$.
+\end{solution}
+
+\begin{defn}[Group]
+A group is a set $G$ with an element $e$ (called the identity element) and one binary operation $\ast \colon G\times G\to G$ such that 
+
+\begin{enumerate}
+\item $\ast$ is associative. For all $a,b,c\in G$ we have \[a\ast (b\ast c) = (a\ast b)\ast c\]
+\item $e$ is an identity for all $a\in G$ \[a\ast e = e\ast a = a\]
+\item every $a\in G$ has a inverse. For all $a\in G$ there exists $b\in G$ such that \[a\ast b = b\ast a = e\]
+\end{enumerate}
+\end{defn}
+
+\begin{defn}[Abelian Group]
+A group $G$ is called abelian (or commutative) when
+\begin{enumerate}
+\item[4] $\ast$ is commutative. For all $a,b\in G$ we have \[a\ast b = b\ast a\]
+\end{enumerate}
+\end{defn}
+
+\begin{note}\leavevmode
+
+\begin{enumerate}
+\item the identity element $e\in G$ is unique. For all $a,u\in G$, if $(a\ast u = a \text{ or } u\ast a = a)$ then $e = u$
+\item the inverse of $a\in G$ is unique. For all $a,b,c\in G$, if $(a\ast b =e \text{ and } c\ast a = e)$ then $b=c$
+\end{enumerate}
+\end{note}
+
+\begin{exmp}
+When $R$ is a ring, $R$ is also an abelian group under its addition operation $+$ (which we can call the additive group of $R$).
+\end{exmp}
+
+\begin{exmp}
+Also when $R$ is a ring, the set of all invertible elements in $R$ under multiplication is a group, which we call the group of units of $R$, and denoted by $R^{\ast}$ or $R^{\times}$
+\end{exmp}
+
+\begin{rem}
+A product of two units is a unit.
+\end{rem}
+
+\begin{exmp}
+When $F$ is a field, all non zero elements in $F$ are invertible, so $F^{\ast} = F \backslash \{0\}$
+\end{exmp}
+
+\begin{exmp}
+$(\mathbb{Z} [\sqrt{2}])^{\ast} = \{\pm u^k\mid k\in\mathbb{Z}\}$
+\end{exmp}
+
+\begin{defn}
+The group of units in $\mathbb{Z}_n$ is called the group of units modulo n and it is denoted by $U_n$
+\begin{align*}
+    U_n = \mathbb{Z}_n^{\ast} =& \{a\in\mathbb{Z}_n \mid a \text{ is invertible }\} \\
+    = & \{a\in\{1,2,3,\cdots,n\} \mid gcd(a,n) = 1\}
+\end{align*}
+
+\end{defn}
+
+\begin{rem}
+The reason we can write $gcd(a,n)$ is because $gcd(a,n) = gcd([a],n)$
+\end{rem}
+
+\begin{rem}
+For $n\in\mathbb{Z}$ with $n\geq 2$ and $a,b\in\mathbb{Z}$, we \underline{cannot} define \[gcd([a],[b]) = gcd(a,b)\] because for $a,b,c,d\in\mathbb{Z}$, $a = c \mod n$ and $b = d \mod n$ do not imply that $gcd(a,b) = gcd(c,d)$.
+\end{rem}
+
+\begin{defn}[Euler phi function]
+The map $\varphi \colon \mathbb{Z}^+\to\mathbb{Z}^+$ denoted by $\varphi (n) = \abs{U_n}$ for $n\geq 2$, (where for a finite set $S$, $\abs{S}$ denotes the number of elements in $S$), is called the Euler phi function.
+
+So we have 
+\begin{align*}
+    \varphi (n) = & \abs{U_n} = \abs{\{a\in\mathbb{Z}_n\mid gcd(a,n) = 1\}} \\
+    = & \text{the number of integers }a \text{ with } 1\leq a \leq n \text{ such that } gcd(a,n) = 1
+\end{align*}
+\end{defn}
+
+\begin{exmp}
+$\varphi (20) = 8$.
+\end{exmp}
+
+\begin{exmp}
+When $p$ is prime and $k\in\mathbb{Z}^+$,
+\[\varphi (p^k) = p^k - p^{k-1}\]
+\end{exmp}
+
+\begin{thm}
+For \[n = \prod_{i=1}^l p_i^{k_i}\] where $p_i$ are distinct primes and $k_i\in\mathbb{Z}^+$
+\begin{align*}
+    \varphi (n) = & \varphi (\prod_{i=1}^l p_i^{k_i}) \\
+    = & \prod_{i=1}^l \varphi (p_i)^{k_i} \\
+    = & \prod_{i=1}^{l} p_i^{k_i} (1-\frac{1}{p_i}) \\
+    = & n \prod_{i=1}^{l} (1-\frac{1}{p_i})\\
+    = & n \prod_{p\mid n} (1-\frac{1}{p})
+\end{align*}
+\end{thm}
+
+\topic{Powers Modulo $n$}
+
+\begin{exmp}
+What day will it be in $2^{100}$ days?
+\end{exmp}

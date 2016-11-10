@@ -1,0 +1,77 @@
+\lecture{Oct. 28}
+
+\begin{thm}[Properties of GCD]
+Let $a,b,c\in\mathbb{Z}$
+\begin{enumerate}
+\item if $c\mid a $ and $c\mid b$ then $c\mid gcd(a,b)$
+\item there exist $x,y\in\mathbb{Z}$ such that $ax+by = c$ iff $gcd(a,b)\mid c$
+\item there exist $x,y\in\mathbb{Z}$ such that $ax+by = 1$ iff $gcd(a,b) = 1$
+\item if $d = gcd(a,b) \neq 0$ (which is the case unless $a=b=0$) then $gcd(a/d,b/d) = 1$
+\item if $a\mid bc$ and $gcd(a,b) = 1$ then $a\mid c$
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+\begin{enumerate}
+\item[5.] Let $a,b,c\in\mathbb{Z}$. Suppose $a\mid bc$ and $gcd(a,b) = 1$. Since $a\mid bc$, choose $k\in\mathbb{Z}$ such that $bc = ak$. Since $gcd(a,b) = 1$, we can choose $s,t\in\mathbb{Z}$ such that $as+bt = 1$. Then $c=c\cdot 1 = c\cdot (as+bt) = acs + bct = acs + akt = a(cs + kt)$. So $a\mid c$
+\end{enumerate}
+\end{proof}
+
+\begin{defn}[Prime]
+Let $n\in\mathbb{Z}$. We say that $n$ is a \textbf{prime} when $n>1$ and $n$ has no factors $a\in\mathbb{Z}$ with $1<a<n$.
+
+We say $n$ is composite when $n>1$ and $n$ does have a factor $a\in\mathbb{Z}$ with $1<a<n$.
+\end{defn}
+
+\begin{note}
+If $n>1$ and $n=ab$ with $1<a<n$ then we also have $1<b<n$.
+\end{note}
+
+\begin{thm}
+Every composite number $n$ has a prime factor $p$ with $p\leq \sqrt{n}$.
+\end{thm}
+
+\begin{proof}
+We claim that every integer $n\geq 2$ has a prime factor.
+
+Let $n\geq 2$. Suppose, inductively, that for every $a\in\mathbb{Z}$ with $2\leq a < n$, $a$ has a prime factor. If $n$ is prime, then since $n\mid n$, $n$ has a prime factor. Suppose $n$ is not prime, say $n=ab$ with $1<a<n$ and $1<b<n$. Since $1<a<n$ we have $2\leq a <n$, so $a$ has a prime factor, say $p\mid a $ and $p$ is prime. Since $p\mid a$ and $a\mid n$ then $p\mid n$, so $p$ has a prime factor.
+
+By induction, every integer $n\geq 2$ does have a prime factor.
+
+Let $n\geq 2$ be arbitrary. Suppose $n$ is composite, say $n=ab$ with $1<a<n$ and $1<b<n$. Say $a\leq b$ (the case $b\leq a$ is similar). Note that $a\leq \sqrt{n}$ since if $a> \sqrt{n}$ then we have $n=ab\geq aa>\sqrt{n}\sqrt{n} = n$ which is not possible. Since $1<a<n$, we have $a\geq 2$. So $a$ has a prime factor. Let $p$ be a prime factor of $a$. Since $p\mid a$ and $a\mid n$ then $p\mid n$. Since $p\mid a$ we have $p\leq a \leq \sqrt{n}$.
+\end{proof}
+
+\begin{note}
+There is a method for listing all prime numbers $p\leq n$, where $n\geq 2$ is a given integer, called the \textbf{Sieve of Eratosthenes}.
+
+It works as follows:
+
+We begin by listing all the numbers from 1 to n. We cross off the number $1$. We circle the smallest remaining number (namely $p_1 = 2$). Cross off all the other multiples of $p_1 = 2$ (they are composites). Circle the smallest remaining number (namely $p_2 = 3$). Cross off all the other multiples of $p_2 = 3$ (they are composites). Repeat this procedure until we have circled a prime $p_l$ with $p_l\geq \sqrt{n}$ and crossed off the other multiples of $p_l$.
+\end{note}
+
+Note that after we have circled $p_1,p_2,\cdots,p_k$ and crossed off all their multiples, the smallest remaining numbers $p_{k+1}$ must be prime since if it were composite it would have a prime factor $p<p_{k+1}$, but we have already found and crossed off all multiples of all primes $p$ with $p<p_{k+1}$.
+
+Also note that after we have found $p_l \geq \sqrt{n}$ and circled all multiples, all reaming numbers $m\leq n$ are prime since if $m\leq n$ is composite, then $m$ has a prime factor with $p\leq\sqrt{m}\leq\sqrt{n}$, but we have already crossed off all multiples of all such primes.
+
+\begin{exmp}
+Find all primes $p\leq 100$
+\end{exmp}
+\begin{solution}
+\[\encircle{2},\encircle{3},\encircle{5},\encircle{7},\xcancel{9},\encircle{11},\encircle{13},\xcancel{15},\encircle{17},\encircle{19},\xcancel{21},\encircle{23},\xcancel{25},\xcancel{27},\encircle{29},\encircle{31},\xcancel{33},\xcancel{35},\encircle{37},\xcancel{39},\encircle{41},\encircle{43},\xcancel{45},\encircle{47},\xcancel{49}\]\[\xcancel{51},\encircle{53},\xcancel{55},\xcancel{57},\encircle{59},\encircle{61},\xcancel{63},\xcancel{65},\encircle{67},\xcancel{69},\encircle{71},\encircle{73},\xcancel{75},\xcancel{77},\encircle{79},\xcancel{81},\encircle{83},\xcancel{85},\xcancel{87},\encircle{89},\xcancel{91},\xcancel{93},\xcancel{95},\encircle{97},\xcancel{99}\]
+
+\end{solution}
+
+\begin{thm}[The Infinitude of Primes]
+There are infinitely many primes.
+\end{thm}
+
+\begin{proof}
+Suppose, for a contradiction, that there are finitely many primes, say $p_1,p_2,\cdots,p_l$, consider the number \[n=p_1p_2\cdots p_l+1.\] Since $n$ has a prime factor, we know that one of the primes is a factor of $n$, say $p_k\mid n$. So $gcd(p_k,n) = p_k$
+
+But \begin{align*}
+    gcd(p_k,n) = & gcd(n,p_k) \\
+    = & gcd(p_1p_2\cdots p_l + 1,p_k) \\
+    = & gcd(1,p_k) \\
+    = & 1
+\end{align*}
+\end{proof}

@@ -1,0 +1,94 @@
+\lecture{Oct. 26}
+
+Written Assignment 3 Due Wed, Nov. 9
+
+\begin{thm}[Fundamental Trig Limit]
+\[\lim_{x\to 0}\frac{\sin x}{x} = 1\]
+\end{thm}
+\begin{proof}
+Note that $f(x)$ is even. Hence we need only $\lim_{x\to 0^+} \frac{\sin x}{x} = 1$
+
+\begin{center}
+\begin{tikzpicture}[scale=0.26]
+      \draw[->] (-9,0) -- (9,0) node[right] {$x$};
+      \draw[->] (0,-8) -- (0,8) node[above] {$y$};
+      \draw[] (0,0) circle (6);
+      \draw (0,0) --  (5.196,3) -- (5.196,0);
+      \filldraw[black] (2.7,1) circle (0pt) node[anchor=west] {$R_1$};
+      \draw[->] (11,0) -- (29,0) node[right] {$x$};
+      \draw[->] (20,-8) -- (20,8) node[above] {$y$};
+    \draw[] (20,0) circle (6);
+    \draw (20,0) -- (25.196,3);
+      \filldraw[black] (23,1) circle (0pt) node[anchor=west] {$R_2$};
+      \draw[->] (31,0) -- (49,0) node[right] {$x$};
+      \draw[->] (40,-8) -- (40,8) node[above] {$y$};
+    \draw[] (40,0) circle (6);
+    \draw (40,0) -- (46,3.464) -- (46,0);
+      \filldraw[black] (43,1) circle (0pt) node[anchor=west] {$R_3$};
+\end{tikzpicture}
+\end{center}
+
+We have $R_1 = \sin x \cos x / 2$, $R_2 = x/2$ and $R_3 = \sin x / (2 \cos x)$.
+
+Since $R_1\leq R_2 \leq R_3$, we get \[\cos x \leq \frac{x}{\sin x} \leq \frac{1}{\cos x}.\]
+
+Hence \[\cos x \leq \frac{\sin x}{x} \leq \frac{1}{\cos x}.\]
+
+By Squeeze Theorem, $\lim_{x\to 0^+} \frac{\sin x}{x} = 1$.
+
+\end{proof}
+
+\begin{exmp}
+Find \[\lim_{x\to 0} \frac{\sin 3x}{\sin 4x}\]
+\end{exmp}
+\begin{solution}
+\begin{align*}
+    \lim_{x\to 0} \frac{\sin 3x}{\sin 4x} = & \lim_{x\to 0} \frac{\sin 3x}{3}\cdot \lim_{x\to 0} \frac{4}{\sin 4x} \cdot \frac{3}{4} \\
+    = & 1 \cdot 1 \cdot \frac{3}{4} \\
+    = & \frac{3}{4}
+\end{align*}
+\end{solution}
+
+\begin{exmp}
+Find \[\lim_{x\to 0} \frac{\tan x}{x}.\]
+\end{exmp}
+
+\begin{exmp}
+Find \[\lim_{x\to 0} \frac{\tan \pi x}{\sin 2x}.\]
+\end{exmp}
+
+
+\topic{Asymptotes and Limits at $\infty$}
+
+\begin{defn}
+We say that $L$ is the limit as x approaches infinity of $f(x)$ if for every $\epsilon > 0$, there exists $M>0$ such that if $x\geq M$, then $\abs{f(x) - L}< \epsilon$. We write \[\lim_{x\to\infty} f(x) = L.\]
+\end{defn}
+
+\begin{exmp}
+If $f(x) = 1/x$, then $\lim_{x\to\infty} f(x) = 0$.
+\end{exmp}
+
+\begin{note}
+Arithmetic Rules, Sequential Characterization and Squeeze Theorem carry through.
+\end{note}
+
+\begin{thm}[Fundamental Log Limit]
+\[\lim_{x\to\infty}\frac{ln(x)}{x} = 0\]
+\end{thm}
+
+\begin{proof}
+\[\frac{ln(x)}{x} = \frac{2ln(x^{1/2})}{x^{1/2}\cdot x^{1/2}} = \frac{2ln(x^{1/2})}{x^{1/2}} \cdot \frac{1}{x^{1/2}} <\frac{2}{x^{1/2}}\]
+By squeeze theorem, $\lim_{x\to\infty}\frac{ln(x)}{x} = 0$
+\end{proof}
+
+\begin{exmp}
+Find \[\lim_{x\to\infty} \frac{ln(x)}{x^{1/100}}\]
+\end{exmp}
+
+\begin{note}
+\[\lim_{x\to\infty} \frac{ln(x)}{x^p} = 0 \text{ if } p>0\]
+\end{note}
+
+\begin{exmp}
+\[\lim_{x\to\infty} \frac{x^p}{e^x} = 0\]
+\end{exmp}

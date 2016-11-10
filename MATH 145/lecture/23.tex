@@ -1,0 +1,99 @@
+\lecture{Oct. 24}
+Woman in Pure Math/Math Finance Lunch
+
+Tuesday 12:30-1:20 MC5417
+
+\begin{thm}
+\leavevmode
+\begin{enumerate}
+    \item if $b\neq 0$ and $a\mid b$ then $\abs{a} \leq \abs{b}$
+    \item $a\mid a$
+    \item if $a\mid b$ and $b\mid a$ then $a=b$
+    \item if $a\mid b$ and $b\mid c$ then $a\mid c$
+    \item if $a\mid b$ and $a\mid c$ then \[\forall x,y\in \mathbb{Z} \ a\mid (bx+cy)\]
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+\leavevmode
+\begin{enumerate}
+    \item Let $a,b\in\mathbb{Z}$. Suppose $b\neq 0$ and $a\mid b$. Since $a\mid b$ we can choose $k\in\mathbb{Z}$ so that $b=ak$. Note that $k\neq 0$ because if $k=0$ then $b = 0$ but $b\neq 0$. Since $k\neq 0$ we have $\abs{k}\geq 1$. So we have 
+    \begin{align*}
+        b =& ak \\
+        \abs{b} = & \abs{ak} \\
+         = & \abs{a} \abs{k}\\
+        \geq & \abs{a}\cdot 1 \\
+        = & \abs{a}
+    \end{align*}
+    \item Let $a\in\mathbb{Z}$. Since $a= a\cdot 1$, it follows that $a\mid a$.
+    \begin{align*}
+        \{\forall x \ x\cdot 1 = x\} \vDash & \forall x \ x\cdot 1 = x \\
+        \vDash & a\cdot 1 = a \\
+        \vDash & \exists x \ a\cdot x = a
+    \end{align*}
+    \item Let $a,b\in\mathbb{Z}$. Suppose $a\mid b$ and $b\mid a$. Choose $k\in\mathbb{Z}$ so that $b=ak$. Choose $l\in\mathbb{Z}$ sp that $a=bl$. Then $b=ak=(nl)k = b(lk)$
+    \begin{align*}
+        b - b(lk) =& 0 \\
+        b\cdot 1 - b(lk) = & 0 \\
+        b(1-lk) = & 0 
+    \end{align*}
+    So $b=0$ or $(1-lk) = 0$ (Since $\mathbb{Z}$ has no zero divisors.)
+    
+    Case 1: Suppose $b=0$, then $a = bl = 0\cdot l = 0$, so we have $b = a = 0$, hence $b=\pm a$.
+    
+    Case 2: Suppose $1-lk = 0$, then $lk = 1$ and so either $l=k=1$ or $l=k=-1$. When $l=k=1$, we have $b = ak = a\cdot 1 = a$, then $b =\pm a$. When $l=k=-1$, we have $b = ak = a (-1) = (-1) a = -a$, then $b=\pm a$.
+    
+    In all cases we have $b=\pm a$ as required.
+    
+    \item $cdots$
+    \item Let $a,b,c\in\mathbb{Z}$. Suppose $a\mid b$ and $a\mid c$. Say $b=ak$ and $c=al$ with $k,l\in\mathbb{Z}$. Let $x,y\in\mathbb{Z}$.
+    \begin{align*}
+        bx + cy =& (ak)x + (al)y \\ 
+        = & a(kx) + a(ly) \\
+        =& a(kx+ly)
+    \end{align*}
+    $\therefore a\mid bx+cy$ as required.
+\end{enumerate}
+\end{proof}
+
+\begin{rem}
+$a\mid b$ means $\exists x \ b = ax$. $a\mid c$ means $\exists x \ c = ax$.
+
+\begin{align*}
+    &[\exists x \ b = ax]_{b\mapsto bx+cy}\\
+    \equiv&[\exists u \ b = au]_{b\mapsto bx+cy}\\
+    \equiv&\exists u \ (bx+cy)= au
+\end{align*}
+$a\mid (bx+cy)$ means $\exists u \ (bx+cy)= au$
+\end{rem}
+
+\begin{rem}
+    Recall that when $b\neq 0$, if $a\mid b$ then $\abs{a} \leq \abs{b}$. So $b$ has finitely many divisors (and the greatest divisor is $\abs{b}$).
+\end{rem}
+
+\begin{defn}
+    For $a,b,d\in\mathbb{Z}$, we say that $d$ is a \textbf{common divisor} of $a$ and $b$ when $d\mid a$ and $d\mid b$. When $a$ and $b$ are not both zero, there are only finitely many common divisor of $a$ and $b$, and $\pm 1$ are common divisors, so $a$ and $b$ do have a greatest common divisor and we denote it by $gcd(a,b)$.
+    
+    For convenience, we also write $gcd(0,0) = 0$
+\end{defn}
+
+\begin{thm}\textbf{(Properties of the GCD)}
+Let $a,b,c\in\mathbb{Z}$.
+\begin{enumerate}
+\item $gcd(a,b) = gcd(b,a)$
+\item $gcd(a,b) = gcd(\abs{a},\abs{b})$
+\item if $a\mid b$ then $gcd(a,b) = \abs{a}$, in particular, $gcd(a,0) = \abs{a}$
+\item $gcd(a,b) = gcd(a+tb,b)$ for all $t\in\mathbb{Z}$.
+\item if $a=qb + r$ where $q,r\in\mathbb{Z}$, then $gcd(a,b) = gcd(b,r)$
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+\begin{enumerate}
+\item[4] To show that $gcd(a,b) = gcd(a+tb,b)$ we shall show that the common divisor of $a$ and $b$ is exactly the same as the common divisor of $a+tb$ and $b$. 
+
+Let $a,b,t\in\mathbb{Z}$. Let $d\in\mathbb{Z}$. Suppose $d\mid a$ and $d\mid b$ then $d\mid ax+by$ for all $x,y\in\mathbb{Z}$. In particular, $d\mid (a\cdot 1+bt)$, so $d\mid (a+td)$. Thus $d\mid (a+tb)$ and $d\mid b$.
+
+Conversely, suppose $d\mid (a+tb)$ and $d\mid b$. Then $d\mid (a+tb) x + by$  for all $x,y\in\mathbb{Z}$. In particular, $d\mid (a+tb)\cdot 1 + b\cdot (-1) $, so $d\mid a$. Thus $d\mid a$ and $d\mid a$. 
+\end{enumerate}
+\end{proof}

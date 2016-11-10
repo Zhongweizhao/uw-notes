@@ -1,0 +1,82 @@
+\lecture{Oct. 31}
+
+Anton's tutorial on Tuesady is cancelled.
+
+\topic{Aside}
+
+Suppose $f\colon \mathbb{R}\to\mathbb{R}$. \[D(f) =\{x_0\in\mathbb{R} \mid f \text{ is discontinuous at }x_0\}\]
+
+\[D_n(f) = \{x_0\in\mathbb{R} \mid \forall \delta>0 \, \exists x,y\in (x_0-\delta ,x_0+\delta) \ \abs{f(x) - f(y)}\geq \frac{1}{n}\}\]
+
+Then if $x_0\in D_n(f)$ for some $n$, then $x_0 \in D(f)$.
+
+\begin{note}
+    \[D(f) = \bigcup_{n=1}^\infty D_n(f)\]
+\end{note}
+
+\begin{defn}
+    A set $A\subset \mathbb{R}$ is called $F_\sigma$ if \[A = \bigcup_{n=1}^\infty F_n\] where each $F_n$ is closed.
+\end{defn}
+
+\begin{exmp} Let $\mathbb{Q} = \{r_1,r_2,r_3,\cdots\}$
+    \[\mathbb{Q} = \bigcup_{n=1}^\infty \{r_n\} \to F_\sigma \]
+\end{exmp}
+
+\begin{defn}
+    A set $A\subset \mathbb{R}$ is called $G_\delta$ if \[A = \bigcap_{n=1}^\infty U_n\] where each $U_n$ is open.
+\end{defn}
+
+\begin{note}
+    \begin{enumerate}
+        \item $\{0\} = \bigcup_{n=1}^\infty (-\frac{1}{n},\frac{1}{n})$
+        \item $A$ is $G_\delta$ iff $A^c$ is $F_\sigma$
+        \item $D(f)$ is $F_\sigma \to D(f)^c $ is $G_\delta$
+    \end{enumerate}
+\end{note}
+
+\begin{note}
+    $\mathbb{Q} = \{r_1,r_2,r_3,\cdots\}$   
+    \[U_k = \bigcup_{n=1}^\infty (r_n-\frac{1}{2^{n+k+1}},r_n+\frac{1}{2^{n+k+1}}) \supset \mathbb{Q}\]
+    
+    So is it true that \[\bigcap_{k=1}^{\infty} U_k = \mathbb{Q}\] 
+\end{note}
+
+\topic{Continuity on an Interval}
+\begin{ques}
+Is $f(x) = \sqrt{x}$ continuous at $x=0$?
+\end{ques}
+
+\begin{defn}[Continuity on an Interval]
+    We say that $f(x)$ is continuous on the open interval $(a,b)$ if $f(x)$ is continuous at each $x_0\in (a,b)$
+    
+    We say that $f(x)$ is continuous on the closed interval $[a,b]$ if $f(x)$ is continuous at $(a,b)$ and $\lim_{x\to a^+} f(x) = f(a)$ and $\lim_{x\to b^-} f(x) = f(b)$.
+    
+    Similarly for $(a,b],(a,\infty),\cdots$
+\end{defn}
+
+\begin{thm}[Sequential Characterization for Continuity on {[a,b]}]
+Let $f\colon [a,b] \to \mathbb{R}$, then the followings are equivalent:
+\begin{enumerate}
+\item $f$ is continuous at $[a,b]$
+\item if $\{x_n\}\subset [a,b]$ with $x_n\to x_0\in[a,b]$ then $f(x_n) \to f(x_0)$
+\end{enumerate}
+\end{thm}
+
+\begin{rem}
+Given $S\subset \mathbb{R}, S\neq \emptyset$, we say that $f\colon S\to \mathbb{R}$ is continuous on $S$ is whenever $\{x_n\}$ is a sequence in $S$ with $x_n\to x_0\in S$ we have $f(x_n) \to f(x_0)$
+\end{rem}
+
+
+
+mathmode
+inline: $x=0$ \(x=0\)
+display: $$x=0$$ \[x=0\] 
+
+\begin{equation*}
+    x=0
+\end{equation*}
+
+\begin{equation}
+    x=0
+\end{equation} 
+

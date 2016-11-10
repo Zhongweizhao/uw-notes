@@ -40,7 +40,9 @@
 \newcommand{\mybinom}[2]{\Bigl(\begin{array}{@{}c@{}}#1\\#2\end{array}\Bigr)}
 \newcommand{\abs}[1] {\left| #1 \right| }
 \newcommand{\topic}[1]{{ \textbf{#1}}}
-
+\newcommand\encircle[1]{%
+  \tikz[baseline=(X.base)] 
+    \node (X) [draw, shape=circle, inner sep=0] {\strut #1};}
 
 %define theorem style
 \swapnumbers
@@ -57,6 +59,7 @@
 \newtheorem{axiom}[thm]{Axiom}
 \newtheorem{ques}[thm]{Question}
 \newtheorem{exer}[thm]{Exercise}
+\newtheorem{conj}[thm]{Conjecture}
 
 \theoremstyle{remark}
 \newtheorem*{note}{Note}

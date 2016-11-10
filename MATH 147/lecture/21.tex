@@ -1,0 +1,94 @@
+\lecture{Oct. 28}
+
+EA 3 due Fri Nov. 4
+
+WA 3 due Wed Nov. 9
+
+
+\begin{defn}[Continuity]
+We say that $f(x)$ is \textbf{continuous} at $x=a$ if \begin{enumerate}
+    \item $\lim_{x\to a} f(x)$ exists
+    \item $\lim_{x\to a} f(x) = f(a)$
+\end{enumerate}
+Equivalently, we say that $f(x)$ is continuous at $x=a$ if for every $\epsilon>0$ there exists a $\delta > 0$ such that if $\abs{x-a}<\delta$, we have $\abs{f(x) - f(a)}<\epsilon$. 
+\end{defn}
+
+If $f(x)$ is not continuous at $x=a$ we say that $f$ is \textbf{discontinuous} at $x=a$. We write \[D(f) =\{a\in\mathbb{R} \mid f \text{ is discontinuous at }x=a\}\]
+
+\begin{thm}[Sequential Characterization of Limit]
+Assume that $f(x)$ is defined on an open interval $I$ containing $x=a$, Then the following are equivalent: \begin{enumerate}
+    \item $f(x)$ is continuous at $x=a$
+    \item If $\{x_n\}$ with $x_n\to a$, we have $f(x_n)\to f(a)$
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+Assume that $f(x)$ is continuous at $x=a$. Let $\{x_n\}$ be such that $x_n\to a$. Let $\epsilon > 0$. Since $f(x)$ is continuous at $x=a$, there exists a $\delta > 0$ such that for all $\abs{x-a}<\delta$ we have $\abs{f(x) - f(a)} < \epsilon$. Since $\{x_n\}$ converges to $a$, there exists a $N_0>0$ such that for all $n>N_0$ we have $\abs{x_n-a}<\delta$. Then if $n\geq N_0$, we have $\abs{f(x_n)-f(a)}<\epsilon$.
+
+Conversely, for a contraposition, that $f(x)$ is not continuous at $x=a$. Then there exists an $\epsilon_0 > 0$ such that for every $\delta > 0$ there exists $x_\delta \in (a-\delta,a+\delta)$ with $\abs{f(x_\delta) - f(a)} \geq \epsilon_0$. In particular, there exists a $x_n \in (a-\frac{1}{n},a+\frac{1}{n})$ with $\abs{f(x_n) - f(a)}>\epsilon_0$. Hence $f(x_n)$ does not converge to $f(a)$.
+\end{proof}
+
+\begin{thm}[Arithmetic Rules]
+Assume $f(x)$ and $g(x)$ are continuous at $x=a$, then \begin{enumerate}
+    \item $(cf)(x)$ is continuous at $x=a$ for $c\in\mathbb{R}$
+    \item $(f+g)(x)$ is continuous at $x=a$
+    \item $(fg)(x)$ is continuous at $x=a$
+    \item $(f/g)(x)$ is continuous at $x=a$ provided that $g(a) \neq 0$.
+\end{enumerate}
+\end{thm}
+
+
+\begin{ques}
+Let $f\colon \mathbb{R}\to\mathbb{R}$,  $g\colon \mathbb{R}\to\mathbb{R}$. Let $h(x) = g\circ f(x) = g(f(x))$. Assume that $\lim_{x\to a} f(x) = L$ and $\lim_{y\to L} g(y)=M$.
+
+Is $\lim_{x\to a} g\circ f(x) = \lim_{x\to a} h(x) = M$?
+\end{ques}
+
+\begin{thm}
+If $f(x)$ is continuous at $x=a$, and $g(y)$ is continuous at $y=f(a)$, then $h(x) = g\circ f(x)$ is continuous at $x=a$.
+\end{thm}
+
+\begin{proof}
+Let $x_n\to a$, then $f(x_n)\to f(a)$, hence $g(f(x_n)) \to g(f(a))$
+\end{proof}
+
+\begin{exmp}
+Show that $\sin x$ is continuous.
+
+Observation:
+
+\begin{enumerate}
+\item $\sin x$ is continuous at $x=0$ since $\lim_{x\to 0} \sin x = 0$.
+\item If we can show that $\lim_{h\to 0} \sin (x_0+h) = \sin x_0$ then $\sin x$ is continuous at $x_0$.
+\end{enumerate}
+
+\begin{align*}
+    \lim_{h\to 0} \sin (x_0+h) = & \lim_{h\to 0} [\sin x_0 \cos h + \sin h \cos x_0]\\
+    = & \sin x_0
+\end{align*}
+\end{exmp}
+
+
+\topic{Nature of Discontinuity}
+\begin{exmp}
+\[f(x) = \frac{x^2-1}{x-1}\]
+$f(x)$ is not continuous at $x=1$.
+
+Let \[g(x) = \begin{cases} f(x) & \text{ if } x\neq 1 \\ 2 & \text{ if } x=1 \end{cases}\]
+\end{exmp}
+
+\begin{defn}
+If $\lim_{x\to a} f(x) = L$ exists but $L\neq f(a)$, then we say that $f(x)$ has a \textbf{removable discontinuity} at $x=a$. 
+Let \[g(x) = \begin{cases} f(x) & \text{ if } x\neq a \\ L & \text{ if } x=a \end{cases}\]
+\end{defn}
+
+\begin{defn}
+If $\lim_{x\to a} f(x)$ does not exists, then $x=a$ is called an \textbf{essential discontinuity} for $f(x)$.
+\end{defn}
+
+\topic{3 Types of Essential Discontinuities}
+\begin{enumerate}
+\item Finite jump discontinuity: $\lim_{x\to a^+} f(x) = L$, $\lim_{x\to a^-} f(x) = M$ and $L\neq M$
+\item Vertical Asymptote: $\lim_{x\to a^\pm} f(x) = \pm\infty$
+\item Oscillatory Discontinuity: $\lim_{x\to 0} \sin (1/x)$
+\end{enumerate}

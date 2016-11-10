@@ -1,0 +1,82 @@
+\lecture{Oct. 9}
+
+\begin{thm}
+If $f(x)$ is continuous on $[a,b]$, then $f$ is uniformly continuous.
+\end{thm}
+
+\topic{Basic Facts about Uniform Continuity}
+\begin{enumerate}
+    \item If $f$ is uniformly continuous on $S\subset \mathbb{R}$ and if $T\subseteq S$ then $f$ is uniformly continuous on $T$.
+    \item If $f$ is uniformly continuous on $S$ and if $\{x_n\}\subset S$ is Cauchy then $\{f(x_n)\}$ is Cauchy.
+    \item If $f$ is uniformly continuous on $(a,b)$, then $\lim_{x\to a^+} f(x)$ exists and $\lim_{x\to b^-}f(x)$ exists.
+    \item $f$ is uniformly continuous on $(a,b)$ iff there exists $F\colon [a,b] \to R$ such that $F$ is continuous on $[a,b]$ and $F(x) = f(x)$ for all $x\in (a,b)$.
+    \item if $f(x)$ is uniformly continuous on $(a,b)$, then $f((a,b))$ is bounded.
+\end{enumerate}
+
+\topic{Derivatives}
+
+\begin{defn}[Differentiable]
+We say that $f$ is differentiable at $x=a$ if \[\lim_{x\to a } \frac{f(x)-f(a)}{x-a}\] exists. In this case, we write \[f' (x) = \lim_{x\to a} \frac{f(x) - f(a)}{x-a}\] and we call $f' (x)$ the derivative of $f$ at $x=a$.
+\end{defn}
+
+\begin{defn}[Tangent Line]
+Assume that $f' (x)$ exists. Then the line with slope $f' (x)$ passing through $(a,f(a))$ is called the tangent line to $f(x)$ at $x=a$. \[y =f(a)+ f' (a (x-a))\]
+\end{defn}
+
+\begin{defn}[Alternative Definition]
+\[f'(a) = \lim_{h\to 0} \frac{f(a+h) - f(a)}{h}\]
+\end{defn}
+
+\begin{exmp}
+$f(x) = \cos x$, find $f'(0)$
+\end{exmp}
+\begin{solution}
+\begin{align*}
+    f'(0) = & \lim_{h\to 0} \frac{\cos h - \cos 0}{ h} \\
+    = & \lim_{h\to 0} \frac{\cos h - 1}{h}\\
+    = & \lim_{h\to 0} \frac{(\cos h - 1)(\cos h + 1)}{h(\cos x + 1)} \\
+    = & \lim_{h\to 0} \frac{\cos ^2 h - 1}{h(\cos h + 1)} \\
+    = & \lim_{h\to 0} \frac{-\sin h}{h} \frac{\sin h}{(\cos h + 1)} \\
+    = & 0
+\end{align*}
+\end{solution}
+
+\begin{exmp}
+$f(x) = \sin x$, find $f'(a)$
+\end{exmp}
+
+\begin{solution}
+\begin{align*}
+    f'(a) = & \lim_{h\to 0} \frac{\sin (a+h) - \sin (a)}{h} \\
+    = & \lim_{h\to 0} \frac{\sin a\cos h + \cos a\sin h - \sin a}{h} \\
+    = & \lim_{h\to 0} \sin a \frac{\cos h - 1}{h} + \cos a \frac{\sin h}{h}\\
+    = & \cos a
+\end{align*}
+\end{solution}
+
+\begin{thm}
+If $f(x)$ is differentiable at $x=a$, then $f(x)$ is continuous at $x=a$.
+\end{thm}
+\begin{proof}
+Since $\lim_{x\to a} (f(x)-f(a))/(x-a)$ exists and $\lim_{x\to a } x-a = 0$, we have $\lim_{x\to a} f(x) - f(a) = 0 \Longleftrightarrow \lim_{x\to a} f(x) = f(a)$.
+\end{proof}
+
+\begin{exmp}
+\begin{equation*}
+    g(x) = \begin{cases}
+    x\sin \frac{1}{x} & \text{ if } x\neq 0 \\
+    0 & \text{ if } x= 0
+    \end{cases}
+\end{equation*}
+is $g(x)$ differentiable at $x=0$?
+\end{exmp}
+
+\begin{exmp}
+\begin{equation*}
+    h(x) = \begin{cases}
+    x^2\sin \frac{1}{x} & \text{ if } x\neq 0 \\
+    0 & \text{ if } x= 0
+    \end{cases}
+\end{equation*}
+is $h(x)$ differentiable at $x=0$?
+\end{exmp}

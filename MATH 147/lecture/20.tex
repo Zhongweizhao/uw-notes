@@ -1,0 +1,52 @@
+\lecture{Oct. 27}
+
+\begin{defn}
+$L = \lim_{x\to\infty} f(x)$ if for every $\epsilon > 0$, there exists $M>0$ such that $x\geq M$, then \[\abs{f(x) - L} < \epsilon.\]
+\end{defn}
+
+\begin{exmp}
+\begin{enumerate}
+    \item If $p>0$, we have $\lim_{x\to\infty} \frac{1}{x^p} = 0$
+    \item $\lim_{x\to\infty} \frac{lnx}{x} = 0$
+\end{enumerate}
+Variants
+\begin{enumerate}
+\item If $p>0$, we have $\lim_{x\to 0} \frac{lnx}{x^p} = 0$
+\item For all $p$, $\lim_{x\to 0} \frac{(lnx)^p}{x} = 0$
+\item $\lim_{x\to\infty} \frac{x}{e^x} = 0$
+\end{enumerate}
+\end{exmp}
+
+\begin{defn}
+We say that $L$ is the limit of $f(x)$ as $x$ approaches $-\infty$ if for every $\epsilon > 0$ there exists $M>0$ such that if $x < - M$, then $\abs{f(x) - L} < \epsilon$. We write \[\lim_{x\to -\infty} f(x) = L.\]
+\end{defn}
+
+\begin{exmp} By Squeeze Theorem, we have
+\[\lim_{x\to\infty} \frac{\sin x }{x} = 0\]
+\end{exmp}
+
+
+\begin{defn}[Asymptote]
+Assume $\lim_{x\to\pm\infty} f(x) = L$, then the line $y=L$ is called a horizontal asymptote of f(x).
+\end{defn}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.4]
+      \draw[->] (-6,0) -- (6,0) node[right] {$x$};
+      \draw[->] (0,-5) -- (0,5) node[above] {$y$};
+      \draw[domain=-5:5,smooth,variable=\y,black] plot ({\y},{1});
+      \draw[domain=0.33:5,smooth,variable=\x,black]  plot ({\x},{1+1/\x});
+      \filldraw[black] (-5,1) circle (0pt) node[anchor=east] {$y=L$};
+      \filldraw[black] (1,2.5) circle (0pt) node[anchor=west] {$f(x)$};
+\end{tikzpicture}
+\end{center}
+
+
+\topic{Infinite Limits}
+\begin{defn}
+    We say that $f(x)$ approaches $\infty$ at $x=a$ if for every $M>0$ there exists $\delta >0$ such that if $\abs{x-a}<\delta$, then $f(x) > M$. We write \[\lim_{x\to a}f(x) = \infty \]
+\end{defn}
+
+\begin{defn}[Vertical Asymptote]
+    If $\lim_{x\to a^+} f(x) = \pm\infty$ or $\lim_{x\to a^-} f(x) = \pm\infty$, then $x=a$ is called a vertical asymptote for $f(x)$
+\end{defn}

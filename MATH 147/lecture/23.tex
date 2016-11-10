@@ -1,0 +1,38 @@
+\lecture{Oct. 2}
+
+\begin{thm}[Intermediate Value Thm (IVT)]
+\label{ivt}
+    If $f(x)$ is continuous on $[a,b], f(a)<0$ and $f(b)>0$, then there exists $c\in (a,b)$ with $f(c)=0$.
+\end{thm}
+
+\begin{proof}
+    Let $E = \{x \in [a,b] \mid f(x) \leq 0 \}$. Then $E \neq \emptyset$ since $a \in E.$ Since E is bounded, it has a lub which we call c (Note: $c \in [a,b]$). We claim $f(c)=0$ We can find ${x_n} \in E$ with $x_n \to c$. By the Sequential Characterization of Continuity $f(x_n) \to f(c)$. Since $f(x_n)\leq 0$ for all $n$, $f(c) \leq 0$. Observe that $c<B$ for each $n\in\mathbb{N}$. We choose $y_n\in [a,b]$ so that $c<y_n \leq b$ and $\abs{c-y_n} < \frac{1}{n}$. Since $y_n\to c$, we have $f(y_n) \to f(c)$. But $f(y_n) > 0$ for all $n$, so $f(c) \geq 0$. Thus $f(c) = 0$.
+\end{proof}
+
+\begin{note}
+A similar statement holds if $f(a) > 0$ and $f(b) < 0$.
+\end{note}
+
+\begin{cor}[Intermediate Value Theorem II]
+If $f(x)$ is continuous on $[a,b]$, and if $f(a) < \alpha < f(b)$ or $f(b) < \alpha < f(a)$, then there exists $c\in (a,b)$ with $f(c) = \alpha $.
+\end{cor}
+
+\begin{proof}
+    Let $g(x) = f(x) - \alpha$ and apply the theorem \ref{ivt}.
+\end{proof}
+
+\begin{ques}
+Assume $f\colon [a,b]\to \mathbb{R}$ is 1-1. What can we say about $f$ if $f(x)$ is also continuous? Is $f$ strictly monotonic?
+\end{ques}
+
+\begin{defn}
+We say that $f(x) \colon [a,b]$ is non-decreasing on $[a,b]$ if whenever $x,y\in [a,b]$ with $x<y$, we have $f(x)\leq f(y)$. We say that $f$ is strictly increasing if whenever $x,y\in [a,b]$ with $x<y$ we have $f(x) < f(y)$. Similarly we could define non-increasing and strictly decreasing.
+\end{defn}
+
+$f$ is monotonic on $[a,b]$ if it is either non-decreasing or non-increasing. $f$ is strictly monotonic if it is strictly increasing or strictly decreasing.
+
+\begin{cor}
+
+\end{cor}
+
+TO BE FINISHED

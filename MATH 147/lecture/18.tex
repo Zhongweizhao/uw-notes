@@ -1,0 +1,77 @@
+\lecture{Oct. 24}
+
+Midterm: 7:00-8:45
+
+RCH 307 - A-J
+
+RCH 306 - K-O
+
+DWE 3522 - P-W
+
+DWE 3522A - X-Z
+
+Woman in Pure Math/Math Finance Lunch
+
+Tuesday 12:30-1:20 MC5417
+
+\begin{defn}
+We say that $L$ is the limit of $f(x)$ from above (from the right) if for every $\epsilon > 0$ there exists $\delta > 0$ such that if $0<x-a<\delta$, then $\abs{f(x) - L}<\epsilon$. We write \[\lim_{x\to a^+} f(x) = L\]
+We say that $L$ is the limit of $f(x)$ from below (from the left) if for every $\epsilon > 0$ there exists $\delta > 0$ such that if $-\delta<x-a<0$, then $\abs{f(x) - L}<\epsilon$. We write \[\lim_{x\to a^-} f(x) = L\]
+\end{defn}
+
+\begin{note}
+Both the Arithmetic Rules and Sequential Characterization hold for one-sided limits. As does the Squeeze Theorem.
+\[lim_{x\to a^+} f(x) = L \text{ iff whenever } \{x_n\} \text{ is such that } x_n\to a, a<x_n \text{ we have } \lim_{x\to\infty} f(x_n) = L\]
+\end{note}
+
+\begin{thm}
+The following are equivaent
+\begin{enumerate}
+\item \(\lim_{x\to a} f(x) = L\)
+\item \(\lim_{x\to a^-} f(x) = L\) and \(\lim_{x\to a^+} f(x) = L\)
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+\begin{enumerate}
+\item Assume that \(\lim_{x\to a} f(x) = L\), Let \(\epsilon > 0\), then there exists \(\delta>0\) such that if $0 < \abs{x-a} < \delta$ then $\abs{f(x)- L} < \epsilon$.  Hence if $0<x-a < \delta$ then $\abs{f(x) - L} < \epsilon$ and if $0<a-x < \delta$ then $\abs{f(x) - L} < \epsilon$. Thus \(\lim_{x\to a^-} f(x) = L\) and \(\lim_{x\to a^+} f(x) = L\).
+\item Conversely, assume that \(\lim_{x\to a^-} f(x) = L\) and \(\lim_{x\to a^+} f(x) = L\). Let $\epsilon > 0$. We can find $\delta_1 > 0$ such that if $0 < x-a < \delta_1$ then $\abs{f(x) - L} < \delta$ and $\delta_2 > 0$ such that if $0 < a-x < \delta_1$ then $\abs{f(x) - L} < \delta$. Let $\delta = min\{\delta_1,\delta_2\}$, hence if $0 < \abs{x-a} < \delta$ then $\abs{f(x) - L} < \epsilon$.
+\end{enumerate}
+\end{proof}
+
+\begin{exmp}
+\[lim_{x\to 0} \frac{\abs{x}}{x}\]
+\end{exmp}
+
+\begin{exmp}
+\[lim_{x\to 0^+} \sqrt{x} = 0\]
+\end{exmp}
+
+\begin{defn}
+A function $f(x)$ is \textbf{even} if $f(x) = f(-x)$ for all $x\in\mathbb{R}$ (graph is symmetric about $x=0$)
+\end{defn}
+
+\begin{note}
+If $f(x)$ is even, (assume these limits exist)
+\[\lim_{x\to a^+} f(x) = \lim_{x\to -a^-} f(x)\]
+\[\lim_{x\to a^-} f(x) = \lim_{x\to -a^+} f(x)\]
+In particular, $\lim_{x\to 0} f(x)$ exists iff $\lim_{x\to 0^+} f(x)$ exists iff $\lim_{x\to 0^-} f(x)$ exists.
+\end{note}
+
+\begin{defn}
+A function $f(x)$ is \textbf{odd} if $f(x) = -f(-x)$ for all $x\in\mathbb{R}$ (graph is symmetric about $(0,0)$)
+\end{defn}
+\begin{note}
+If $f(x)$ is odd, (assume these limits exist)
+\[\lim_{x\to a^+} f(x) = -\lim_{x\to -a^-} f(x)\]
+\[\lim_{x\to a^-} f(x) = -\lim_{x\to -a^+} f(x)\]
+$\lim_{x\to 0} f(x)$ exists iff $\lim_{x\to 0^+} f(x) = 0$ or $\lim_{x\to 0^-} f(x) = 0$
+\end{note}
+
+\begin{exmp}
+$\lim_{x\to 0} \sin x$ and $\lim_{x\to 0} \cos x$
+\end{exmp}
+
+\begin{exmp}
+\[\lim_{x\to 0} \frac{\sin x}{x} = 1\]
+\end{exmp}

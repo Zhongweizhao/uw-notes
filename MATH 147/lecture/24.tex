@@ -1,0 +1,62 @@
+\lecture{Oct. 4}
+
+\begin{thm}[Intermediate Value Thm (IVT)]
+    \label{oct4ivt}
+    If $f(x)$ is continuous on $[a,b]$ and $f(a)f(b)<0$, then there exists $c\in (a,b)$ with $f(c)=0$.
+\end{thm}
+
+\begin{exmp}
+Show that \[f(x) = x^2+x-3\] has a root on $[0,4]$.
+\end{exmp}
+
+\begin{solution}
+Observation:
+\begin{enumerate}
+\item $f(x)$ is continuous.
+\item $f(0)= -3<0$
+\item $f(4)>0$
+\end{enumerate}
+
+By the theorem \ref{oct4ivt} there exists $c\in [0,4]$ with $f(c) = 0$.
+\end{solution}
+
+\begin{ques}
+How do we find $c$?
+\end{ques}
+\begin{solution}
+Binary Search Algorithm.
+
+\underline{Set Up} $f(x)$ is continuous. We want to solve $f(x) = 0$.
+
+\underline{Step 1} Find $a<b$ with $f(a)f(b) < 0$.
+
+\underline{Algorithm}
+
+\begin{enumerate}
+\item $a_1=a,b_1=b$
+\item If $\abs{b-a} < 2\epsilon$, let $d = \frac{a+b}{2}$, stop
+\item If $f(d)=0$, stop
+\item If $f(a)f(d)<0$, let $a_1 = a_1$, $b_1 =d$, goto $1$.
+\item If $f(d)f(b)<0$, let $a_1 = d$, $b_1 = b_1$, goto $2$
+\end{enumerate}
+\end{solution}
+
+\begin{exmp}
+Show that there exists $c\in[0,\frac{\pi}{2}]$ with $\cos c = c$
+\end{exmp}
+
+\begin{solution}
+Let $f(x) = \cos x - x$, which is continuous on $[0,\frac{\pi}{2}]$. Observe that $f(0)>0$ and $f(\frac{\pi}{2}) < 0$. By the theorem \ref{oct4ivt} there exists $c$ with $f(c) = 0 = \cos c - c$.
+
+\end{solution}
+
+
+\begin{thm}[Extreme Value Theorem]
+If $f(x)$ is continuous on $[a,b]$, then there exists $c,d\in [a,b]$ such that \[f(c)\leq f(x) \leq f(d)\] for all $x\in [a,b]$.    
+\end{thm}
+
+\begin{proof}
+First we show that $f(x)$ is bounded. Suppose it is not bounded. Then for each $n\in\mathbb{N}$, there exists $x_n\in [a,b]$ with $f(x_n)\geq n$. By the BWT, $\{x_n\}$ has a convergent sub-sequence $\{x_{n_k}\}$ with $x_{n_k} \to x_0 \in [a,b]$. Since $f$ is continuous, $f(x_{n_k})\to f(x_0)$. But $f(x_{n_k}) \geq n_k \to\infty$, which is impossible. Thus $f([a,b])$ is bounded.
+
+Let $M = lub(f([a,b]))$. For each $n\in\mathbb{N}$ choose $y_m\in [a,b]$ with $M-\frac{1}{n} < f(y_n) \leq M$. By the BWT, $\{y_n\}$ has a convergent sub-sequence $\{y_{n_k}\}$ with $y_{n_k} \to d \in [a,b]$. Hence $f(d) = \lim_{k\to\infty} f(x_{n_k}) = M$
+\end{proof}

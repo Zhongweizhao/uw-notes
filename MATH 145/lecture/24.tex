@@ -1,0 +1,83 @@
+\lecture{Oct. 25}
+
+\begin{thm}[The Division Algorithm]
+Let $a,b\in\mathbb{Z}$ with $b\neq 0$. There exist unique $q,r\in\mathbb{Z}$ such that $a = qb+r$ and $0\leq r< \abs{b}$
+\end{thm}
+
+Since $b\neq 0$, either $b>0$ or $b<0$.
+
+Case 1: Suppose $b>0$. Let $q = \lfloor a/b \rfloor$ ($q\leq a/b$ and $q+1 > a/b$). Let $r=a-qb$. 
+
+\begin{proof}
+Since $q\leq a/b$ we have \begin{align*}
+    qb\leq & a \\
+    0 \leq & a-qb \\
+    0 \leq & r
+\end{align*}
+
+Since $q+t > a/b$ \begin{align*}
+    (q+1)b >& a \\
+    qb+b > & a \\
+    b > & a-qb \\
+    b > & r
+\end{align*}
+Thus $r<b = \abs{b}$
+\end{proof}
+
+\begin{proof}[Another proof]
+Suppose $b>0$ and $a\geq 0$. Consider the sequence \[0b,11b,2b,3b,\cdots\] Eventually, the terms $kb$ exceed a. Choose $q\geq 0$ so that $qb\leq a$ and $(q+1)b > a$. (In fact, we choose $q = max(S)$ where $S = \{t\geq - \mid tb \leq a\}$ and we have $S\neq \emptyset$ since $0\in S$ and $S$ is bounded above by $a+1$)
+
+Then we have \begin{align*}
+    qb \leq & a \\
+    0 \leq a - qb \\ 
+    0 \leq r
+\end{align*}
+and \begin{align*}
+    (q+1) b >& a \\ 
+    qb+b>&a\\
+    b >& a-qb \\
+    b > & r
+\end{align*}
+So $r<b = \abs{b}$.
+\end{proof}
+
+Case 2: Suppose $b< 0$. Let $c = -b$ so $c > 0$. Using the result of Case 1 we can choose $p,r\in\mathbb{Z}$ so that $a= pc + r $ and $0 \leq r < c$. Then $a = -pb + r$. So we can choose $q = -p$ to get $a = qb+r$ and $0\leq r <\abs{b}$.
+
+
+\begin{proof}[Proof of Uniqueness]
+Suppose that \[a = qb + r \text{ with } 0\leq r < \abs{b}\] and 
+Suppose that \[a = pb + s \text{ with } 0\leq r < \abs{b}\]
+
+Suppose, for a contradiction, that $r\neq s$. 
+Then $0\leq r < s < \abs{b}$.
+Since $r<s$ we have $s-r > 0$
+Since $r\geq 0$ and $s<\abs{b}$ we have $s-r \leq s < \abs{b}$.
+Thus $0<s-r < \abs{b}$.
+Since $a=qb+r$ and $a=pb+s$, \begin{align*}
+    qb+r =& pb + s\\
+    qb - pb =& s-r\\
+    (q-p) b = & s - r \\
+\end{align*}
+Thus $b\mid (s-r)$
+
+$\cdots$
+
+Leads to contradiction.
+
+Thus $r = s$.
+
+$\cdots$
+
+Then $p = q$
+\end{proof}
+
+
+
+
+
+
+\begin{thm}[The Euclidean Algorithm with Back-substitution]
+Let $a,b\in \mathbb{Z}$, and let $d = gcd(a,b)$. Then there exist $s,t\in\mathbb{Z}$ such that $as+bt = d$.
+\end{thm}
+
+The proof of the theorem provides an \textbf{Algorithm} (that is a systematic procedure) called the \textbf{The Euclidean Algorithm} for computing $d = gcd(a,b)$ and an algorithm, called \textbf{Back-Substitution}, for finding $s,t\in\mathbb{Z}$ such that $as+bt = d$.

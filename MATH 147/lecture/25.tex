@@ -1,0 +1,39 @@
+\lecture{Nov. 7}
+
+\begin{thm}[Extreme Value Theorem]
+If $f(x)$ is continuous on $[a,b]$, then there exists $c,d\in [a,b]$ such that \[f(c)\leq f(x) \leq f(d)\] for all $x\in [a,b]$.    
+\end{thm}
+
+\topic{Uniform Continuity}
+
+\begin{ques}
+Assume that $f(x)$ is continuous on some interval $I$. Let $\epsilon > 0$. Does there exists a single $\delta > 0$ such that for every $a\in I$, we have if $\abs{x-a} < \delta$, $x\in I$, then $\abs{f(x)-f(a)}<\delta$?
+\end{ques}
+
+\begin{defn}[Uniform Conitnuity]
+We say that $f(x)$ is uniformly continuous on $S\subset \mathbb{R}$ if for every $\epsilon$, there exists a $\delta > 0$ such that if $\abs{x-y} < \delta$, $x,y\in S$, then $\abs{f(x)-f(y)} < \delta$.
+\end{defn}
+
+\begin{thm}[Sequential Characterization for Uniform Continuity]
+Let $f\colon S\to \mathbb{R}$. Then the followings are equivalent
+\begin{enumerate}
+    \item $f(x)$ is continuous on $S$
+    \item If $\{x_n\}, \{y_n\} \subset S$ with $\lim_{x\to\infty} \abs{x_n-y_n} = 0$, then $\lim_{n\to \infty} \abs{f(x_n)-f(y_n)} = 0$.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+Assume that $f(x)$ is uniformly continuous on $S$. Let $\epsilon > 0$ and let $\{x_n\},\{y_n\}\subset S$ with $\abs{x_n-y_n}\to 0$. Choose $\delta > 0$ so that if $x,y\in S$, $\abs{x-y}<\delta$ then $\abs{f(x) - f(y)} < \epsilon$. We can pick $N_0 \in \mathbb{N}$ so that if $n\geq N_0$, then $\abs{x_n-y_n}<\delta$. It follows that if $n\geq N_0$, then $\abs{f(x_n)-f(y_N)} < \epsilon$. Hence $\lim_{x\to\infty} \abs{f(x_n)-f(y_n)} = 0$.
+
+Conversely, assume that 1 fails ($f(x)$ is not uniformly continuous on $S$). Then there exists $\epsilon_0 > 0$ such that for every $\delta > 0$ we can find $x_\delta ,y_\delta \in S$ with $\abs{x_\delta -y_\delta }<\delta$, but $\abs{f(x_\delta)-f(y_\delta)}\geq \epsilon_0$. Let $\delta = 1/n$, and $x_\delta = x_n$, $y_\delta = y_n$. This gives us $\{x_n\},\{y_n\}\subset S$, with $\abs{x_n - y_n} < 1/n \to 0$, but $\lim_{x\to\infty} \abs{f(x_n)-f(y_n)} \neq 0$
+\end{proof}
+
+\begin{thm}
+If $f(x)$ is continuous on $[a,b]$, then $f(x)$ is uniformly continuous on $[a,b]$.
+\end{thm}
+
+\begin{proof}
+Assume that $f(x)$ is not uniformly continuous on $[a,b]$, then there exists $\epsilon_0$ and $\{x_n\},\{y_n\}\subset S$ with $\abs{x_n-y_n} \to 0$, but $\abs{f(x_n)-f(y_n)}\geq \epsilon_0$ for all $n$.
+
+By the BWT $\{x_n\}$ has a sub-sequence $\{x_{n_k}\}$ with $x_{n_k}\to a\in S$. Since $\abs{x_{n_k} - y_{n_k}}\to 0$, then $y_{n_k}\to a$. But then $\lim_{x\to\infty} \abs{f(x_{n_k}) - f(y_{n_k})} =0$, which is impossible.
+\end{proof}
