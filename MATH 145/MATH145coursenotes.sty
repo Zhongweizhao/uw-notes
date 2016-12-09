@@ -13,15 +13,19 @@
 %define title page
 \newcommand{\displaytitle}{
 \begin{titlepage}
-    \titlepagedecoration
     \begin{center}
-        \vspace*{6cm}
-        {\Huge \text{MATH 145 Calculus (Advanced)}}\\
-        \vspace{1cm}
-        {\huge Lecture Notes}\\
-        \vspace{2.5cm}
-        {\LARGE Zhongwei Zhao}
-       \vfill
+        \vspace{3cm}
+    %Thesis title
+        {\uppercase{\Large math 145 lecture notes\par}}
+        \vspace{3cm}
+    %Author's name
+        {\Large Zhongwei Zhao\par}
+        \vspace{3cm}
+    %Degree
+        {\Large My Lecture Notes for MATH 145 2016 Fall\par}
+        \vspace{3cm}
+    %Date
+        {\Large December 2016}
     \end{center}
 \end{titlepage}
 }
@@ -43,6 +47,7 @@
 \newcommand\encircle[1]{%
   \tikz[baseline=(X.base)] 
     \node (X) [draw, shape=circle, inner sep=0] {\strut #1};}
+\newcommand{\lcm}{\operatorname{lcm}}
 
 %define theorem style
 \swapnumbers
@@ -52,6 +57,7 @@
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{cor}[thm]{Corollary}
+\newtheorem{algorithm}[thm]{Algorithm}
 
 \theoremstyle{definition}
 \newtheorem{defn}[thm]{Definition}
@@ -60,6 +66,7 @@
 \newtheorem{ques}[thm]{Question}
 \newtheorem{exer}[thm]{Exercise}
 \newtheorem{conj}[thm]{Conjecture}
+\newtheorem{crypsys}[thm]{Cryptosystem}
 
 \theoremstyle{remark}
 \newtheorem*{note}{Note}

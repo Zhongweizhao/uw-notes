@@ -1,0 +1,75 @@
+\lecture{Dec. 2}
+
+\begin{exmp}
+Let \[f(x) = \begin{cases}
+\frac{\sin x}{x} & \text{ if }x\neq 0\\
+1 \text{ if } x=0
+\end{cases}\]
+\end{exmp}
+
+
+\begin{solution}
+From Taylor's Theorem we get \[\abs{\sin h - h } \leq \frac{\abs{h^3}}{6}\]
+Then \[\abs{\frac{\sin h}{h} -1} \leq \frac{\abs{h^3}}{6}\]
+Then \[\abs{\frac{\frac{\sin h}{h}-1}{h} - 0}\leq \frac{\abs{h}}{6}\]
+By Squeeze Theorem
+\[\lim_{x\to 0} \frac{\frac{\sin h}{h}-1}{h} - 0 = f'(0) = 0\]
+
+\end{solution}
+
+\begin{thm}[Approximation Theorem]
+Assume that there exists a $\delta > 0$ such that $\abs{f^{(n+1)}(x)} \leq M$ for all $x\in (a-\delta, a+\delta)$, then for each $x\in (a-\delta,a+\delta)$ we have \[\abs{f(x) - P_{n,a} (x)} \leq \frac{M}{(n+1)!}\abs{(x-a)^{n+1}}\]
+\end{thm} 
+
+
+\begin{defn}[Big-O notation]
+Let $a\in \mathbb{R}$. Given $f,g$ we say that $f(x) = O(g(x))$ as x approaches $a$ if there exists $0<\delta \leq 1$ with 
+\[\abs{f(x)}\leq M\abs{f(x)} \text{ for all } x\in(a-\delta,a+\delta)\] except possibly at $x=a$.
+\end{defn}
+
+\begin{thm}
+If There exists a $0< \delta \leq 1$ such that $f^{(n+1)}(x)$ is continuous on $[-\delta,\delta]$, then \[f(x) - P_{n,a}(x) = O(x^{n+1})\] and we write $f(x) = P_{n,a}(x) + O(x^{n+1})$.
+\end{thm}
+
+\begin{proof}
+Since $f^{(n+1)}(x)$ is continuous on $[-\delta,\delta]$, the Extreme Value Theorem show that there exists $M$ with $\abs{f^{(n+1)}(x)} \leq M$ for all $x\in [-\delta, \delta]$. Hence by the Approximation Theorem,
+\[\abs{f(x) - P_{n,a}(x)}\leq \frac{M}{(n+1)!}\abs{x^{n+1}}\] Then $f(x) = P_{n,a}(x) + O(x^{n+1})$.
+\end{proof}
+
+\begin{thm}[Arithmetic Rules for Big-O]
+Assume that $f= O(x^n)$, $g = O(x^m)$.
+\begin{enumerate}
+    \item $cf(x) = O(x^n)$
+    \item $f(x) + g(x) = O(x^{\operatorname{min} (m,n)})$
+    \item $f(x)\cdot g(x) = O(x^{m+n})$
+    \item $x^k\cdot f(x) = O(x^{n+k})$
+    \item $(f(x))^k = O(x^{nk})$
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+On $[-\delta,\delta]$, $\abs{f(x)} \leq M_1\abs{x^n}$, $\abs{g(x)} \leq M_2 \abs{x^n}$
+Then \[\abs{f(x) + g(x)} \leq \abs{f(x)} + \abs{g(x)} \leq M_1 \abs{x^n} + M_2 \abs{x^m} \leq M_1 \abs{x^{\operatorname{min} (m,n)}} + M_2 \abs{x^{\operatorname{min} (m,n)}} = (M_1 + M_2) \abs{x^{\operatorname{min} (m,n)}}\]
+\end{proof}
+
+
+\begin{lem}
+Let $p(x) = a_0 + a_1x+ \cdots a_nx^n$. Assume that $p(x) = O(x^{n+1})$, then $p(x) = 0$.
+\end{lem}
+
+\begin{proof}
+Prove by induction.
+\end{proof}
+
+\begin{thm}
+Assume that $f^{(n+1)}(x)$ is continuous on $[-\delta,\delta]$. If $p(x) = a_0 + a_1x+\cdots a_nx^n$ is such that $f(x) = p(x) + O(x^{n+1})$, then $p(x) = P_{n,0}(x)$.
+\end{thm}
+
+\begin{proof}
+\begin{align*}
+    p(x) - P_{n,a} (x) = & (p(x) - f(x)) + (f(x) - P_{n,0}(x))\\
+    = & O(x^{m+1}) + O(x^{m+1})\\
+    = & O(x^{m+1})
+\end{align*}
+Then by the lemma, we have $p(x) - P_{n,a} (x) = 0$.
+\end{proof}

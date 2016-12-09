@@ -1,0 +1,50 @@
+\lecture{Nov. 16}
+
+\topic{Maxima, Minima and Critical Points}
+
+\begin{defn}[Global Maximum and Minimum]
+Let $f$ be defined on an interval $I$. We say that, $d\in I$ is a global maximum for $f$ on $I$ if \[f(x)\leq f(d) \text{ for all } x\in I\] and $f(d)$ is the global maximum value.
+
+Similarly we define the global minimum and global minimum value.
+\end{defn}
+
+\begin{exmp}
+$f(x) = x$ on $(0,1)$ has no global maximum or minimum on $(0,1)$.
+\end{exmp}
+
+\begin{defn}[Local Maximum and Minimum]
+We say that $c$ ks a local maximum for $f(x)$ if there exists an open interval $(a,b)$ containing $c$ with \[f(x)\leq f(c) \text{ for all }x \in (a,b)\]
+
+Similarly we define the local minimum.
+\end{defn}
+
+\begin{thm}[The Might-be-on-the-exam Theorem]\leavevmode
+
+\begin{enumerate}
+\item Assume that $f(x)$ has a local maximum at $x=c$. If $f(x)$ is differentiable at $x=c$ then $f'(c) = 0$
+\item Assume that $f(x)$ has a local minimum at $x=c$. If $f(x)$ is differentiable at $x=c$ then $f'(c) = 0$. (Might be on the exam)
+\end{enumerate}
+\end{thm}
+
+\begin{proof}\leavevmode
+
+\begin{enumerate}
+    \item Since $x=c$ is  a local maximum for $f(x)$ there exists $\delta > 0$ such that if $c-\delta < x < c+\delta$, then $f(x)\leq f(c)$. Then if $c-\delta < x < c$, \[\frac{f(x) - f(c)}{x-c} \geq 0\] and if $c < x < c+\delta$, \[\frac{f(x) - f(c)}{x-c} \leq 0\] Thus \[\frac{f(x) - f(c)}{x-c} = 0\] Hence $f'(c) = 0$. \qedhere
+\end{enumerate}
+\end{proof}
+
+\begin{defn}[Critical Point]
+Assume that $f$ is defined on an open interval $I$. We call $c\in I$ a critical point for $f$ if either \begin{enumerate}
+    \item $f'(c) = 0$
+    \item $f$ is not differentiable at $x=c$.
+\end{enumerate}
+\end{defn}
+
+\begin{note}
+    Given f continuous on $[a.b]$, then the global max (min) will be at
+    \begin{enumerate}
+        \item either $x = a$ or $x = b$ or
+        \item a critical point in $(a,b)$.
+    \end{enumerate}
+\end{note}
+

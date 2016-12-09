@@ -1,0 +1,28 @@
+\lecture{Dec. 1}
+
+\begin{proof}[Proof of Taylor's Theorem]
+    If $x \neq a$, let $M$ be such that $R_{n,a}=f(x)=P_{n,a}\inf = M(x-a)^{n+1}$.
+    
+    Let $F(t)= f(t) + f'(t) + f''(t)(x-t) + ...$
+
+    $F'(t) = f'(t) + (-f'(t) + f''(t) (x-a)) +...$
+    
+    $F'(t) = \frac{f^{(n+1)}(t)}{n!}(x-t)^n - M(n+1)(x-t)^n$
+    
+    $F'(c) = 0 \Rightarrow \frac{f^{(n+1)}}{n!} -M(n+1)(x-t)^n= M = \frac{f^{(n+1)}(c)}{(n+1)!}$ (Some stuff missing here)
+\end{proof}
+
+
+
+Observation:
+\begin{enumerate}
+    \item When $n = 0$, Taylor Thm is the MVT.
+    \item When $n = 1$, $P_{1,a}(x)= L_a^f(a) \Rightarrow \abs{f(x)-L_a^f(x)} = \frac{f''(a)}{2!}(x-a)^2$
+\end{enumerate} 
+
+\begin{exmp}[$\sin x$]
+Same on the modulo on Learn.
+\end{exmp}
+
+
+Some stuff missing here.

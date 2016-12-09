@@ -1,0 +1,66 @@
+\lecture{Nov. 14}
+
+
+\begin{defn}
+    Assume that $f(x)$ is differentiable at each $x_0$ in an interval I. We define $f': I \to R$ by \[f'(x)= \lim_{h \to 0} \frac{f(x_0+h)-f(x_0)}{h}\]. $f'$ is called the derivative (function) of f on I.
+\end{defn}
+
+\begin{exmp}
+    $f(x) = sinx$, $f'(x) = cosx$ on $\mathbb{R}$
+\end{exmp}
+
+
+\begin{nota}\leavevmode
+
+\begin{enumerate}
+    \item $y=f(x) \to y'$ will denote $f'(x)$
+    \item $\displaystyle \frac{dy}{dx} = f'(x)$
+    \item $\displaystyle \frac{d}{dy} f(x) = f'(x)$
+\end{enumerate}
+\end{nota}
+
+If $f'(x)$ is differentiable at $x_0\in \mathbb{R}$, then we call \[(f')'(x_0) = \lim_{h\to 0}\frac{f'(x_0+h) - f'(h)}{h}\] the second derivative of $f$ at $x=x_0$. We denote this by $f''(x_0)$.
+
+In general if $f$ is twice differentiable on $I$, we write $f''(x)$ to represent the second derivative.
+
+$f'''(x) \to $ third derivative.
+
+$f^{(n)}(x)$ denotes the n-th derivative.
+
+\begin{thm}[More on Linear Approximation]
+    If $f(x)$ is differentiable at $x=a$, and if \[L_a(x) = f(a) +f'(a)(x-a)\] then $L_a(x)\approxeq f(x)$ if $ x\approxeq a$
+\end{thm}
+
+\begin{thm}[Error in Linear Approximation]
+    \[\text{Error} = \abs{f(x) - L_a(x)}\]
+    
+The error is effected by
+\begin{enumerate}
+\item Distance of $x$ to $a$.
+\item The larger $\abs{f''(x)}$ the larger the error may be.
+\end{enumerate}
+Both 1 and 2 hold in general most of the time but not always.
+\end{thm}
+
+\begin{thm}[Newton's Method]
+Pick $a_1$.
+
+Let \[a_{n+1} = a_n - \frac{f(a_n)}{f'(a_n)}\]
+\end{thm}
+
+\begin{rem}\leavevmode
+
+\begin{enumerate}
+\item If $f'(c)\neq 0$, then there exists $\delta > 0$ such that if $a_1 \in (c-\delta,c+\delta)$ then $a_n \to c$
+\item When the method work, the convergence is generally very fast. In general, the convergence is ``quadratic" in nature. Roughly speaking this means the number of decimal places of accuracy will at least double with each iteration.
+\item It can fail.
+\end{enumerate}
+\end{rem}
+
+\begin{exmp}[Heron's Method]
+Solve $x^2 - a = 0$.
+\end{exmp}
+
+\begin{solution}
+Pick $a_1$. \[a_{n+1} = a_{n} - \frac{f(a_n)}{f'(a_n)} = a_n - \frac{a^2_n - a}{2a_n} = \frac{1}{2} (a_n + \frac{a}{a_n})\]
+\end{solution}

@@ -1,0 +1,61 @@
+\lecture{Nov. 18}
+
+\begin{thm}
+If $f\colon [a,b]\to \mathbb{R}$ is increasing, then TFAE
+\begin{enumerate}
+\item $f(x)$ is continuous on $[a,b]$
+\item $f([a,b]) = [f(a),f(b)]$
+\end{enumerate}
+\end{thm}
+
+\begin{cor}
+If $f\colon [a,b]$ is strictly monotonic with inverse $g\colon f([a,b])\to [a,b]$ then $f$ is continuous on $[a,b]$ if and only if $g$ is continuous on $f([a,b])$.
+\end{cor}
+
+\begin{thm}[Inverse Function Theorem]
+Assume that if $f\colon [a,b] \to\mathbb{R}$ is strictly monotonic with inverse $g\colon f([a,b])\to \mathbb{R}$. If $f$ is continuous on $[a,b]$, differentiable on $[a,b]$, and if $x_0\in (a,b)$ with $f'(x_0)\neq 0$ with $y_0 = f(x_0)$, then $g$ is differentiable at $y_0$ with \[g'(y_0) = \frac{1}{f'(x_0)} = \frac{1}{f'(g(y_0))}.\]
+\end{thm}
+
+\begin{proof}
+Let $\{y_n\} \subset f([a,b])$ with $y_n\to y_0$, $y_n\neq y_0$. Let $x_n = g(y_n) \in [a,b]$. Since $f$ and $g$ are continuous, $g(y_n) \to g(y_0) \Rightarrow x_n \to x_0$. Then \[\lim_{x\to \infty} \frac{g(y_n)-g(y_0)}{y_n - y_0} = \lim_{n\to\infty} \frac{x_n - x_0}{f(x_n - f(x_0))} = \lim_{n\to\infty} \frac{1}{f'(x_0)}.\] By the Sequenctial Characterization of limits $g'(x) = \lim_{n\to\infty} \frac{1}{f'(x_0)}$
+\end{proof}
+
+\begin{exmp}
+$f(x) = x^3$ and $g(x) = x^{1/3}$. \[f'(0) = 0\] \[g'(x) = \begin{cases}\frac{1}{3x^{2/3}} & \text{if }x\neq 0 \\ \text{does not exist} & \text{if } x=0 \end{cases}\]
+\end{exmp}
+
+\begin{exmp}[Inverse Trig Functions]\leavevmode
+
+\begin{enumerate}
+\item $\arcsin x$
+
+$f(x) = \sin x$ on $[-\pi / 2,\pi / 2]$, $f(x)$ is strictly increasing $\Rightarrow$ invertible on $[-\pi / 2,\pi / 2]$.
+\[\sin ([-\pi / 2,\pi / 2]) = [-1,1].\] 
+Define $g(x) = \arcsin(y)$ on $[-1, 1]$ by $g(y) = x$ iff $\sin x = y$ for $x \in [-\pi / 2,\pi / 2]$
+
+If $g(y) = \arcsin y$. if $y_0 \in (-1,1)$, \[g'(y_0) = \frac{1}{f'(x_0)} = \frac{1}{\cos x}.\] where $f(x) = \sin x$ and $x_0 = \arcsin y_0$ and $y_0 = \sin x_0$, $x_0 \in (-\pi / 2,\pi / 2)$. Since $\cos x_0 = \sqrt{1-\sin^2 x_0}= \sqrt{1-y_0^2}$, \[g'(y_0) = \frac{1}{\sqrt{1-y_0^2}}.\]
+
+\begin{note}
+$\sin (\arcsin x )= x$ holds for $x\in [-1,1]$ while $\arcsin(\sin x)=x$ Holds iff $x \in [-\pi / 2,\pi/2]$
+\end{note}
+
+\item $\arctan x$
+
+For each $y\in \mathbb{R}$ define $g(y)=\arctan y$ by $ g(y)= x$ iff $\tan x = y$ for $x \in (-\pi / 2,\pi / 2)$. That is, \[\arctan y: \mathbb{R}\to (-\frac{\pi}{2},\frac{\pi}{2})\] with $\tan (\arctan y) = y$ for $ y \in \mathbb{R}$
+
+Note that \[\frac{d}{dx} \tan x =\sec^2 x = \frac{1}{\cos^2 x}\]
+
+By the Inverse Function Theorem, \[g'(y) = \frac{1}{f'(x)} = \frac{1}{\sec^2 x} = \frac{1}{\sec^2 (\arctan y)} = \frac{1}{1+\tan^2 (\arctan y)} = \frac{1}{1+y^1}\]
+
+
+\item $\arccos y$
+$\cos(x)$ is 1-1 on $[0,\pi]$
+
+\begin{note}
+    $\cos([0,\pi]) = [-1, 1]$
+    
+    For each $ y \in [-1,1]$ define $g(y) = x$ iff $y = \cos x$ for $x \in [0, \pi]$
+    \[g'(y) = \frac{1}{-\sqrt{1-y^2}}\]
+\end{note}
+\end{enumerate}
+\end{exmp}

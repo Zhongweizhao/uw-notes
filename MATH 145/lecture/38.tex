@@ -1,0 +1,101 @@
+\lecture{Nov. 18}
+
+\topic{Cryptography}
+
+\begin{exmp}
+    Alice and Bob agrees on a permutation of alphabet, for example
+    \begin{enumerate}
+        \item $ A \to Z$
+        \item $ B \to Y$
+    \end{enumerate}
+\end{exmp}
+
+\begin{defn}[Symmetric-Key Cryptosystem]
+\begin{align*}
+    M &= \text{set of messages}\\
+    C &= \text{set of cipher text}\\
+    K &= \text{set of keys}\\
+    E&: K \times M \to C \\
+    D&: K \times C \to M \\
+    D(K, E(K, M)) &= M \text{ where } E(K, M) = C
+\end{align*}
+\end{defn}
+
+\begin{defn}[Advanced Encryption System]
+Public-key Cryptosystem
+\begin{itemize}
+    \item In 1973, Ralph Markle
+    \item In 1976, Diffie-Hellman
+    \item In 1977, RSA public-key
+\end{itemize}
+\end{defn}
+
+\begin{exmp}[Merkle's puzzle]
+\end{exmp}
+
+\begin{defn}[Public-Key Cryptosystem]
+    \begin{align*}
+        M&, C\\
+        K_1 &= \text{set off public key}\\
+        K_2 &= \text{set of private key}\\
+        E&: K_1 \times M \to C\\
+        D&: K_2 \times C \to M\\
+        D(K_{private}, E(K_{public}, M)) &= M \text{ where } E(K_{public}, M) = C\\
+        (K_{private}, K_{public}) &\text{ is a valid pair}
+    \end{align*}
+\end{defn}
+
+
+\begin{algorithm}[RSA Key Generation]
+Bob 
+\begin{enumerate}
+\item generates two large prime $p,q$
+\item Compute $n = pq$. 
+\item compute $\phi (n) = (p-1) (q-1)$
+\item Randomly choose $e\neq 1$, $gcd(e,\phi (n)) = 1$.
+\item Solve $ed \equiv 1 \mod \phi (n)$.
+\end{enumerate} 
+Then Bob has Public Key $(n,e)$, Private Key $d$.
+
+Encryption: To send $m\in [0,n-1]$. Compute $c = m^e \mod n$. Send $c$ to Bob.
+
+Decryption: Compute $c^d \mod n = m'$
+\end{algorithm}
+
+\begin{claim}
+$m = m'$
+\end{claim}
+\begin{proof}
+\begin{align*}
+    m' \equiv & c^d \mod n\\
+    \equiv & {(m^e)}^d \mod n\\
+    \equiv & m^{ed} \mod n \\
+    \equiv & m^{k\phi(n) + 1} \mod n\\
+    \equiv & m \mod n
+\end{align*}
+
+Since $m \in [0,n-1]$, we have $m' = m$.
+\end{proof}
+
+
+\begin{defn}
+    We call $A$ can be polynomial-time reduced to $B$, if we can solve A using polynomial time algorithm and we call the solver of $B$ polynomially many times $A \leq B$
+    
+    If $A \leq B, B\leq A$, we call $A$ and $B$ are polynomial-time equivalent $A \equiv B$
+\end{defn}
+
+The adversary 
+\begin{enumerate}
+\item[$P_1$:] Factor $n=pq$
+\item[$P_2$:] Find $\phi(n)$
+\item[$P_3$:] Find $d$ 
+\item[$P_4$:] Given $n,e$ and $m^e \mod n$, Find $m$. (called RSA Problem)
+\end{enumerate}
+
+We have $P4\leq P3 \leq P2 \leq P1$.
+
+\begin{claim}
+$P_2 \equiv P_1\equiv P_3$
+\end{claim}
+
+The security of RSA is based on the RSA Problem.

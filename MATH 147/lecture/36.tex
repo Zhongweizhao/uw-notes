@@ -1,0 +1,56 @@
+\lecture{Nov. 25}
+
+\begin{thm}[Increasing Function Theorem]
+Assume that $f(x)$ is continuous on $[a,b]$ and differentiable on $(a,b)$ with $f'(x) \geq 0$ ($f'(x) > 0$) for all $x\in (a,b)$, then $f(x)$ is (strictly) increasing on $(a,b)$.
+\end{thm}
+
+
+\begin{thm}[Comparison Theorem]
+Assume that $f$ and $g$ are differentiable on $(a,b)$ and continuous on $[a,b]$. If $f(a) = g(a)$ and if $f'(x)<g'(x)$ for all $x \in (a,b)$, then $f(x) < g(x)$ for all $x \in (a,b]$. 
+\end{thm}
+
+\topic{Classifying Critical Points}
+
+\begin{thm}[First Derivative Test]
+Assume that $f'(c) = 0$
+
+\begin{enumerate}
+\item Assume that there exists an open interval $(a,b)$ containing $c$ with $f'(x) \geq 0$ for all $a<x<c$ and $f'(x) \leq 0$ for all $c<x<b$, then $x=c$ is a local maximum.
+
+\item Assume that there exists an open interval $(a,b)$ containing $c$ with $f'(x) \leq 0$ for all $a<x<c$ and $f'(x) \geq 0$ for all $c<x<b$, then $x=c$ is a local minimum.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+Let $a < x_0 < c$. Then Mean Value Theorem holds on $[x_0,c]$. There exists $d_1 \in (x_0 ,c)$ with \[\frac{f(x_0) - f(c)}{x_0 - c} = f'(d_1) \geq 0.\] Then $f(x_0) \leq f(c)$ since $x_0 - c < 0$. Similarly we prove the other parts of the theorem.
+\end{proof}
+
+\begin{thm}[Second Derivative Test]
+Assume that $f'(c) = 0$ and that $f''(x)$ is continuous at $x=c$.
+\begin{enumerate}
+\item If $f''(c) > 0$, then $x = c$ is a local minimum
+\item If $f''(c) < 0$, then $x= c$ is a local maximum
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+Assume that $f'(c) = 0$ and that $f''(x)$ is continuous at $x=c$.
+\begin{enumerate}
+\item Assume $f''(x) > 0$. Since $f''(x)$ is continuous at $x=c$, there is an open interval $(c-\delta, c+\delta)$ on which $f''(x) > 0$. Hence $f'(x)$ is strictly increasing on $(c-\delta,c+\delta)$. But $f'(c) <0$, then $f'(x) < 0$ on $(c-\delta , c)$ and $f'(c) > 0$ on $(c,c+\delta)$. Then we apply the First Derivative Test.
+\end{enumerate}
+\end{proof}
+
+\begin{defn}[Concavity]
+We say that a function $f(x)$ which is continuous on an interval $I$ is concave up on $I$ if for every $a< b$, $a,b \in I$, we have
+\[h(x) = f(a) + \frac{f(b) - f(a)}{b-a} - f(x) \geq 0 \text{ on }(a,b)\]
+We say that a function $f(x)$ is concave down on $I$ if for every $a< b$, $a,b \in I$, we have
+\[h(x) = f(a) + \frac{f(b) - f(a)}{b-a} - f(x) \leq 0 \text{ on }(a,b)\]
+\end{defn}
+
+\begin{thm}[Concavity Theorem]\leavevmode
+
+\begin{enumerate}
+\item Assume that $f''(x) > 0$ for all $x\in I$ then $f(x)$ is concave up on $I$.
+\item Assume that $f''(x) < 0$ for all $x\in I$ then $f(x)$ is concave down on $I$.
+\end{enumerate}
+\end{thm}

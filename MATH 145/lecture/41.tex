@@ -1,0 +1,121 @@
+\lecture{Nov. 23}
+
+\begin{note}
+The Quadratic Formula works in $\mathbb{C}$.
+
+For $z,w\in\mathbb{C}$, we have $\sqrt{zw} =\sqrt{z} \sqrt{w}$, provided that $\sqrt{z},\sqrt{w}$ denote both of the two square roots.
+\end{note}
+
+For $a,b,c\in\mathbb{C}$ with $a\neq 0$, 
+\begin{align*}
+    & az^2+bz + c = 0 \\
+   \Longleftrightarrow\ & z^2 + \frac{b}{a}z + \frac{c}{a} = 0\\
+   \Longleftrightarrow\ & (z + \frac{b}{2a})^2 = \frac{b^2-4ac}{4a^2}\\
+   \Longleftrightarrow\ & z = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
+\end{align*}
+
+\begin{exmp}
+Solve \[z^2 + (2-i)z + (2+2i) = 0\]
+\end{exmp}
+
+\begin{solution}
+\begin{align*}
+z =& \frac{-(2-i) \pm \sqrt{(2-i)^2-4(2+2i)}}{2}\\
+= & \frac{(-2+i) \pm \sqrt{-5-12i}}{2}
+\end{align*}
+
+\[\sqrt{-5-12i} = \pm \left( \sqrt{\frac{-5 + \sqrt{5^2+12^2}}{2}} - i \sqrt{\frac{5 + \sqrt{5^2+12^2}}{2}} \right) = \pm(2-3i)\]
+
+\begin{align*}
+z =& \frac{(-2+i) \pm \sqrt{-5-12i}}{2} \\
+= & \frac{(-2+i) \pm (2-3i)}{2} \\
+= & -i \text{ or } -2 + 2i
+\end{align*}
+\end{solution}
+
+\topic{Polar Coordinates}
+
+\begin{defn}
+For $0\neq z \in \mathbb{C}$, the angle (or argument) of $z$ is the angle $\theta = \theta (z)$ such that \[z = \abs{z} \cos \theta +i \abs{z}\sin\theta\]
+
+We can consider the angle $\theta$ to be the unique real number $\theta \in [0,2\pi)$ such that \(z = \abs{z} \cos \theta +i \abs{z}\sin\theta\), or we can consider the angle $\theta$ to be any real number such that \(z = \abs{z} \cos \theta +i \abs{z}\sin\theta\) (in which case $\theta$ is not unique), or we can consider $\theta$ to be the set of all such real numbers 
+\begin{align*}
+    \theta (z) =& \{\theta \in \mathbb{R} \mid z = \abs{z} \cos \theta +i \abs{z}\sin\theta\} \\
+    =& \{\theta_0 + 2\pi k \mid k\in\mathbb{Z}\}
+\end{align*}
+where $\theta \in [0,2\pi)$ with \(z = \abs{z} \cos \theta +i \abs{z}\sin\theta\). In this final case, $\theta (z) = [\theta_0]$ under the equivalence relation $\sim$ on $\mathbb{R}$ defined as follows: for $\alpha,\beta \in \mathbb{R}$, $\alpha\sim \beta \Longleftrightarrow \alpha = \beta + 2\pi k$ for some $k\in\mathbb{Z}$. Then we have \[\theta(z) \in \mathbb{R} / \sim\]
+\end{defn}
+
+\begin{note}
+For $0\neq z$ with $z = x+iy$ with $x,y\in\mathbb{R}$, \[z = re^{i\theta} = r\cos \theta + ir\sin\theta\] with $r,\theta \in \mathbb{R}$ (usually with $r>0$).
+
+\begin{gather*}
+    x = r\cos\theta \\
+    y = r\sin\theta \\
+    \tan \theta = y/x \text{ if }x\neq 0\\
+    r^2 = x^2 + y^2\\
+    r = \sqrt{x^2+y^2}\\
+    \theta = \begin{cases}
+    \tan^{-1} (y/x) + 2\pi k, \ \, k\in\mathbb{Z} & \text{ if } x > 0\\
+    \cos^{-1} \frac{x}{\sqrt{x^2+y^2}}  + 2\pi k, \ \, k\in\mathbb{Z} & \text{ if } y > 0\\
+    \tan^{-1} (y/x) + \pi k, \ \, k\in\mathbb{Z} & \text{ if } x < 0\\
+    2\pi k - \cos^{-1} \frac{x}{\sqrt{x^2+y^2}} , \ \, k\in\mathbb{Z} & \text{ if } y < 0\\
+    \sin^{-1} \frac{y}{\sqrt{x^2+y^2}} + 2\pi k
+    \end{cases}
+\end{gather*}
+\end{note}
+
+\begin{exmp}
+\begin{align*}
+    2e^{-i\pi/6} = & 2(\cos (-\pi/6) + i \sin (-\pi/6))\\
+    =& \sqrt{3} - i
+\end{align*}
+\end{exmp}
+
+\begin{exmp}
+\[e^{i\pi} = -1\]
+\end{exmp}
+
+When we write $z = x + iy$ with $x,y\in\mathbb{R}$, we have expressed $z$ in Cartesian coordinates. When we write $z = re^{i\theta}$ with $r,\theta \in\mathbb{R}$, we have expressed $z$ in polar coordinates.
+
+\begin{exmp}
+Find a formula for multiplication of complex numbers in polar coordinates.
+\end{exmp}
+\begin{solution}
+Let $z = re^{i\alpha}$ and $w = se^{i\beta}$ where $r,s,\alpha,\beta \in\mathbb{R}$. Then
+\begin{align*}
+zw =& re^{i\alpha}se^{i\beta}\\
+= & r(\cos \alpha + i\sin\alpha)s(\cos\beta + i \sin \beta)\\
+= & rs((\cos\alpha \cos\beta - \sin\alpha \sin\beta) + i(\cos\alpha\sin\beta + \sin\alpha\cos\beta))\\
+= & rs(\cos(\alpha+\beta) + i\sin(\alpha+\beta))\\
+= & rs e^{i(\alpha+\beta)}
+\end{align*}
+Thus to multiply $z$ and $w$ in $\mathbb{C}$, we multiply the length and add the angle.
+\end{solution}
+
+\begin{exmp}
+For $z = re^{i\theta}$ with $r\neq 0$, 
+\begin{gather*}
+    z^{-1} = (re^{i\theta})^{-1} = \frac{1}{r}e^{-i\theta}\\
+    z^{n} = r^{n}e^{in\theta}
+\end{gather*}
+\end{exmp}
+
+\begin{defn}
+for $\theta \in \mathbb{R}$,
+\begin{gather*}
+    e^{i\theta} = \cos \theta + i\sin\theta \\
+    e^{-i\theta} = \cos \theta - i\sin\theta\\
+    \cos\theta = \frac{e^{i\theta}+e^{-i\theta}}{2}\\
+    \sin\theta = \frac{e^{i\theta}-e^{-i\theta}}{2i}\\
+\end{gather*}
+\end{defn}
+
+\begin{defn}
+For $z\in\mathbb{C}$ we make the following definitions. For $z = x + iy$ with $x,y\in\mathbb{R}$, \[e^z = e^{x + iy} = e^xe^{iy} = e^x(\cos y + i\sin y)\]
+
+and \begin{gather*}
+    \cos z = \frac{e^{iz}+e^{-iz}}{2}\\
+    \sin z = \frac{e^{iz}-e^{-iz}}{2i}\\
+\end{gather*}
+\end{defn}

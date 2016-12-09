@@ -1,0 +1,49 @@
+\lecture{Dec. 2}
+
+\begin{thm}[Division Algorithm]
+Let $R$ be a ring, let $f,g \in R[x]$ and suppose the leading coefficient of $g$ is a unit in $R$, then there exists unique $q,r\in R[x]$ such that $f = qg + r$ and $\deg r < \deg g$ (with $\deg 0 = -1$)
+\end{thm}
+
+\begin{proof}
+First we prove existence. If $\deg f < \deg g$, then we can take $q = 0$ and $r=f$. Suppose $\deg f \geq \deg g$, say \[f(x) = \sum_{i=0}^n {a_i}^{x_i}\] $a_i\in R$, $a_n\geq 0$, and \[g(x)=\sum_{i=0}^m {b_i}^{x_i}\] $b_i\in R$ and $b_m$ is a unit in $R$,
+then $n = \deg f \geq \deg g = m$, so $n -m \geq 0$. The polynomial
+\[a_n{b_m}^{-1}x^{n-m} g(x)\] has degree $n$ with leading coefficient $a_n$ (the same as $f$), so \[f(x) - a_n{b_m}^{-1}x^{n-m} g(x)\] has degree less than $n$.
+
+By a suitable induction hypothesis, we can suppose that \[f(x) - a_n{b_m}^{-1}x^{n-m} g(x)=p(x)g(x) + r(x)\] where $p,r \in R[x]$ with $\deg r < \deg g$. Then we have \[f(x) = q(x)g(x) + r(x)\] with $q(x) = a_n{b_m}^{-1}x^{n-m} + p(x)$.
+
+Next we prove uniqueness.
+Suppose $f = qg+r = pg +s$, where $q,r,p,s \in R[x]$ with $\deg s, \deg r < \deg g$.
+Then $(q-p)g = s-r$.
+If $p-q \neq 0$ then $\deg (p-q) \geq 0$, so $\deg ((q-p)g) = \deg (q-p)+\deg g \geq \deg g$. But $\deg (s-r) < \deg g$. So we must have $q-p = 0$. It follows that $s=r$.
+\end{proof}
+
+\topic{Consequences}
+\begin{thm}[The Remainder Theorem]
+Let $R$ be a commutative ring. Let $f \in R[x]$ and let $a\in R$. Then when we divide $f(x)$ by $(x-a)$. Then the remainder is a constant polynomial $r(x) = r \in R$ and $r = f(a)$.
+\end{thm}
+
+\begin{proof}
+Write \[f(x) = q(x) (x-a) + r\] Then \[f(a) = r\]
+\end{proof}
+
+\begin{thm}[The Factor Theorem]
+Let $R$ be an integral domain. Let $f \in R[x]$ and let $a\in R$. The $a$ is a root of $f$ if and only if $(x-a) \mid f(x)$.
+\end{thm}
+
+\begin{proof}
+Suppose $f(a) = 0$. Write $f(x) = q(x)(x-a) + r$. Then $r=0$. So $f(x) = q(x)(x-a)$. So $(x-a) \mid f(x)$. 
+
+Conversely, if $(x-a)\mid f(x)$, we can choose $q(x) \in R[x]$ so that $f(x) = q(x) (x-a)$, then $f(a) = 0$.
+\end{proof} 
+
+\begin{thm}
+Let $R$ be an integral domain and let $0 \neq f \in R[x]$, with $\deg f = n$. Then $f$ has at most $n$ roots.
+\end{thm}
+
+\begin{proof}
+When $\deg f = 0$, $f$ is a non-zero constant polynomial, so $f$ has no roots. Let $n = \deg f > 0$. Suppose that $a\in R$ is a root of $f$, so $f(a) = 0$. Then $(x-a)\mid f(x)$, say \[f(x) = (x-a)g(x)\] Then $\deg g = n-1$. So we can suppose inductively, that $g$ has at most $n-1$ roots. we need to show that every root $b$ of $f$ with $b\neq a$ is also a root of $g$. Let $b\in R$ be a root of $f$ with $b\neq a$. Since $f(x) = (x-a)g(x)$, $0= = f(b) = (b-a)g(b)$. Since $(b-a)g(b) =0$ and $b-a \neq 0$, then $g(b) = 0$, because $R$ is an integral domain.
+\end{proof}
+
+\begin{thm}[]
+Let $F$ be a field and let $f\in F[x]$ be a polynomial with $\deg f = 2 \text{ or } 3$. Then $f$ is irreducible if and only if $f$ has not roots.
+\end{thm}

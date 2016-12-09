@@ -1,0 +1,68 @@
+\lecture{Nov. 28}
+
+\begin{defn}[Concavity]
+We say that a function $f(x)$ which is continuous on an interval $I$ is concave up on $I$ if for every $a< b$, $a,b \in I$, we have
+\[h(x) = f(a) + \frac{f(b) - f(a)}{b-a} - f(x) \geq 0 \text{ on }(a,b)\]
+We say that a function $f(x)$ is concave down on $I$ if for every $a< b$, $a,b \in I$, we have
+\[h(x) = f(a) + \frac{f(b) - f(a)}{b-a} - f(x) \leq 0 \text{ on }(a,b)\]
+\end{defn}
+
+\begin{thm}[Concavity Theorem]\leavevmode
+
+\begin{enumerate}
+\item Assume that $f''(x) > 0$ for all $x\in I$ then $f(x)$ is concave up on $I$.
+\item Assume that $f''(x) < 0$ for all $x\in I$ then $f(x)$ is concave down on $I$.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+Assume that $f''(x) \geq 0$ on $I$. Let $a<b$, $a,b \in I$. Consider $h(x) = f(x) - g(x)$ where $g(x) = f(a) + (f(b)-f(a))(x-a)/(b-a)$. Since $h(a) = h(b) = 0$, by Rolle's Theorem there exists a $c \in (a,b)$ with $h'(c) = 0$. Moreover, $h''(x)= f''(x) > 0$ on $(a,b)$. Then $f'(x)$ is increasing on $(a,b)$. Hence $h'(x)<0$ on $(a,c)$ and $h'(x) > 0$ on $(c,b)$. Hence $c$ is a local minimum. Moreover this is the only point in $(a,b)$ with $h'(c) =0$. 
+\end{proof}
+
+\begin{thm}
+Assume that $f \colon I\to \mathbb{R}$ is such that $f''(x) > 0$ on $I$. Then $f(x)$ is concave upwards on $I$. If $f''(x) < 0$ on $I$. Then $f(x)$ is concave downwards on $I$.
+\end{thm}
+
+
+\begin{defn}
+Assume that $f(x)$ is continuous on $(a,b)$ with $c \in (a, b)$. We say that $c$ is an inflection point for $f(x)$ if there exist $\lambda > 0$ such that either i) $f(x)$ concave up on $( c - \lambda, c)$ and concave down on $(c, c+ \lambda)$ or  ii) $f(x)$ concave down on  $(c - \lambda, c)$ and concave up on $(c, c+ \lambda)$
+\end{defn}
+
+\begin{prop}
+Assume that $f''(x)$ exists on $(a,b)$. If $c\in (a,b)$ is an inflection point, then $f''(c) = 0$.
+\end{prop}
+
+
+\begin{thm}[Cauchy's Mean Value Theorem]
+Assume that $f(x)$ and $g(x)$ are continuous on $[a,b]$, differentiable on $(a,b)$ with $g'(x) \neq 0$ for all $x\in (a,b)$. Then there exists $c \in (a,b)$ with \[\frac{f(b) - f(a)}{b-a} = \frac{f'(c)}{g'(c)}\]
+\end{thm}
+
+\begin{proof}
+Observe that $g'(x) \neq 0$ on $(a,b)$ so $g(b)\neq g(a)$. Let \[h(x) = \frac{f(b)-f(a)}{g(b)-g(a)} (f(x)-g(a)) - (f(x) - f(a))\] Then since $h(a) = h(b) = 0$, by Rolle's Theorem there exists $c\in(a,b)$ with \[h'(c) = 0 =  \frac{f(b)-f(a)}{g(b)-g(a)} (f(x)-g(a)) g'(c) - f'(c)\] then \[\frac{f(b) - f(a)}{b-a} = \frac{f'(c)}{g'(c)}\]
+\end{proof}
+
+\begin{defn}
+Assume that $\lim_{x \to a}f(x) = \lim_{x \to a}g(x) = 0$. We call $\lim_{x\to a}\frac{f(x)}{g(x)}$ on indeterminate form of type $\frac{0}{0}$ If $\lim_{x \to a} f(x) = \pm\infty = \lim_{x \to 0} g(x)$. Then $ \lim_{x \to a}\frac{f(x)}{g(x)}$ is type $\frac{\infty}{\infty}$
+\end{defn}
+
+
+\begin{thm}[L'Hospital's Rule Version 0/0]
+Assume that $f(x)$ and $g(x)$ are differentiable on $(a,b)$ where $a \in \mathbb{R} \cup \{-\infty\}$ and $b \in \mathbb{R} \cup \{\infty\}$. Assume also that $g(x)\neq 0$, $g'(x) \neq 0$ on $(a,b)$. Assume that $\lim_{x\to a^+} f(x) = 0 = \lim_{x\to a^+} g(x)$, then \begin{enumerate}
+\item if $\displaystyle \lim_{x\to a^+} \frac{f'(x)}{g'(x)} = L$, then $\displaystyle \lim_{x\to a^+} \frac{f(x)}{g(x)} = L$.
+\item if $\displaystyle \lim_{x\to a^+} \frac{f'(x)}{g'(x)} = \pm \infty$, then $\displaystyle \lim_{x\to a^+} \frac{f(x)}{g(x)} = \pm\infty$.
+\end{enumerate}
+Assume that $\lim_{x\to b^-} f(x) = 0 = \lim_{x\to b^-} g(x)$, then \begin{enumerate}
+\item[3] if $\displaystyle \lim_{x\to b^-} \frac{f'(x)}{g'(x)} = L$, then $\displaystyle \lim_{x\to b^-} \frac{f(x)}{g(x)} = L$.
+\item[4] if $\displaystyle \lim_{x\to b^-} \frac{f'(x)}{g'(x)} = \pm \infty$, then $\displaystyle \lim_{x\to b^-} \frac{f(x)}{g(x)} = \pm\infty$.
+\end{enumerate}
+
+\end{thm}
+
+
+\begin{proof}
+Assume that \[\lim_{x\to a^+} \frac{f'(x)}{g'(x)} = L\] Let $\epsilon > 0$. There exists a $\beta$ such that if $a < x < b$, then \[\abs{\frac{f'(x)}{g'(x)} -L} < \frac{\epsilon}{2}\]
+Let $a < \alpha < \beta_1 < \beta$. Then by the Cauchy Mean Value Theorem
+\[\abs{\frac{f(\beta_1) - f(\alpha)}{g(\beta_1)-g(\alpha)} - L} = \abs{\frac{f'(c_{\alpha\beta_1})}{g'(c_{\alpha\beta_1})}- L}\]
+Hence
+\[\abs{\frac{f(\beta_1)}{g(\beta_1)} - L} = \lim_{\alpha \to a^+} \abs{\frac{f(\beta_1)-f(\alpha)}{g(\beta_1) - g(\alpha)} - L} \leq \frac{\epsilon}{2} < \epsilon\]
+\end{proof}

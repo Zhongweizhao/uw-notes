@@ -1,0 +1,64 @@
+\lecture{Nov. 29}
+
+
+\begin{exmp}
+Let $f(x) = x^5-1$. For $x\in\mathbb{C}$, $f(x) = 0\Leftrightarrow x^5 = 1$.
+
+Then $x\in\{1,\alpha, \alpha^2,\alpha^3,\alpha^4\}$.
+
+Then 
+\begin{align*}
+    f(x) = & (x-1)(x^2-ux+1)(x^2-vx+1)\\
+    f(x) = & (x-1)- (u+v)x^3+(2+uv)x^2- (u+v)x +1
+\end{align*}
+where $u = 2\cos (2\pi/5)$,  $v = 2\cos (4\pi/5)$
+
+Also \[f(x) = (x-1)(x^4+x^3+x^2+x+1)\]
+
+
+
+Comparing coefficient gives\[
+\begin{array}{ll}
+     u+v=&-1  \\
+     2+uv=&1
+\end{array}\]
+
+Then we have $u = \frac{-1\pm\sqrt{5}}{2}$. Similarly $v = \frac{-1\pm\sqrt{5}}{2}$. Since $u=2\cos{\frac{2\pi}{5}}>0$ and $v=2\cos{\frac{4\pi}{5}}<0$, we have $u = \frac{-1+\sqrt{5}}{2}$ and $v = \frac{-1-\sqrt{5}}{2}$.
+
+Thus \[\cos{\frac{4\pi}{5}} =\frac{-1-\sqrt{5}}{4}, \ \,  \cos {\frac{2\pi}{5}} =\frac{-1+\sqrt{5}}{4}\]
+\end{exmp}
+
+
+\begin{exmp}
+We can solve any cubic equation \[ax^3+bx^2+cx +d = 0\] where $a,b,c,d \in\mathbb{C}$.
+
+Step 1. Divide by $a$ \[x^3 + Bx^2+Cx+D=0\]
+Step 2. Complete the cube. Change $x = y - \frac{B}{3}$.
+\[0 = (y - \frac{B}{3})^3 + B(y - \frac{B}{3})^2+C(y - \frac{B}{3})+D= y^3 + py + q\] for some $p,q$.
+Step 3. Let $y = z-\frac{p}{3z}$ to get \[0 = y^3 + py + q = (z-\frac{p}{3z})^3 + p(z-\frac{p}{3z}) + q = z^3 + q - (\frac{p}{3z})^3\]
+Step 4. Multiply by $z^3$ to get \[z^6 + qz^3 - \frac{p^3}{37} = 0\]
+Step 5. Solve for $z^3$ using the Quadratic Formula.
+\end{exmp}
+
+\begin{rem}
+Either one of the two solutions for $z^3$ will produce all three solutions to $f(x) = 0$.
+\end{rem}
+
+\begin{exmp}
+Let $f(x) = x^3 -3x + 1$. Solve $f(x) = 0$ for $x\in\mathbb{R}$.
+\end{exmp}
+
+\begin{solution}
+Let $x = z + 1/z$. Then \[z^3 + 1/z^3 + 1 = 0\] Then \[z^3 = e^{\pm i 2\pi/3}\] Then \[z \in \{e^{i 2\pi /9},e^{i 8\pi /9},e^{i 14\pi /9}\}\] Then \[x =2\operatorname{Re}(z)\in \{2\cos(2\pi/9),2\cos(8\pi/9),2\cos(14\pi/9)\}\]
+\end{solution}
+
+\begin{defn}
+Let $R$ be a commutative ring. For $a,b \in R$, we say $a$ divides $b$, and we write $a\mid b$, when $b=ac$ for some $c \in R$. We say that $a$ and $b$ are associates, and we write $a\sim b$ when $a\mid b$ and $b\mid a$.
+
+In an exercise, it was shown that if $R$ is an integral domain then $a\sim b \Leftrightarrow a = bu$ for some unit $u \in R$.
+
+For $a\in R$ we say that $a$ is reducible when $a\neq 0$ and $a$ is not a unit and $a = bc$ for some non-units $b,c \in R$. We say it is irreducible when $a\neq 0$ and $a$ is not a unit and and $a$ is not reducible.
+
+For $a \in R$, we say that $a$ is prime when $a\neq 0$ and $a$ is not a unit and for all $ab\in R$, if $a\mid bc$ then either $a\mid b$ or $a\mid c$.
+
+\end{defn}

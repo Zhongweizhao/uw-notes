@@ -1,0 +1,25 @@
+\lecture{Nov. 24}
+
+\begin{thm}
+    If $f(x)$ is continuous on $[a,b]$ and differentiable on $(a,b)$ with $m\leq f'(x) \leq M$ on $(a,b)$, then for each $x\in [a,b]$ we have 
+    \[f(a) + m(x-a) \leq f(x) \leq f(a) + M(x-a)\]
+\end{thm}
+
+\begin{proof}
+    Pick $x \in (a,b]$. Then the Mean Value Theorem holds on $[a,x]$. So there exists a $c \in (a,x)$ with \[\frac{f(x) - f(a)}{x-a} = f'(c).\] Hence 
+    \[m\leq \frac{f(x) - f(a)}{x-a} \leq M.\] Then \[f(a) + m(x-a) \leq f(x) \leq f(a) + M(x-a).\]
+\end{proof}
+
+\begin{thm}
+    Assume that $f(x)$ is differentiable on an interval $I$ with $\abs{f'(x)} \leq M$ for all $x\in I$. Then $f(x)$ is uniformly continuous on $I$.
+\end{thm}
+
+\begin{proof}
+    Let $\epsilon > 0$. Let $x, y \in I$ with $x\neq y$. Then by the Mean Value Theorem, \[\abs{\frac{f(x) - f(y)}{x-y}} = \abs{f'(c)} \leq M\] Then \[\abs{f(x)-f(y)} \leq M\abs{x-y}\]
+  
+    Let $\delta = \epsilon / M$. If $\abs{x-y} < \delta$ then $\abs{f(x) - f(y)} < \epsilon$. Thus $f(x)$ is uniformly continuous.
+\end{proof}
+
+\begin{ques}
+Assume $f(x)$ is uniformly continuous on $I$ and differentiable on $I$. Is $f'(x)$ bounded on $I$?
+\end{ques}

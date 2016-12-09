@@ -1,0 +1,75 @@
+\lecture{Nov. 15}
+
+\begin{exmp}
+Solve \begin{gather*}
+    5x = 9\mod 14\\
+    7x = 4 \mod 15
+\end{gather*}
+\end{exmp}
+
+\begin{solution}
+Euclidean Algorithum
+\begin{align*}
+14  &= 2 \times 5 +4\\
+5 &= 1\times 4 +1\\
+&= 1\times (14-2\times 5) +1 \\
+3*5 &= 1\times 14 +1
+\end{align*}
+Let $x = 14k +13$, then
+\begin{align*}
+7(14k+13) = 4 \mod 15\\
+8k = 3 \mod 15 
+\end{align*}
+By inspection, $ k = 2 \times 8k = 3 \mod 15 $, then $ k = 15t +6$
+\begin{align*}
+x&=14(15t+6)+13\\
+&=210t+97
+\end{align*}
+Thus $x = 97 \mod 210$ is the solution    
+\end{solution}
+
+\topic{Cryptography}
+
+\topic{Primality Test} Given an integer $p$, determine if $p$ is prime.
+
+\begin{exmp}[Trial Division]
+$\forall 2\leq d \leq \sqrt{p}$, if $\exists d \mid p$, then $p$ is composite. Otherwise $p$ is prime.
+\end{exmp}
+
+\begin{defn}[Algorithm Efficiency]
+We call $f(n)\in O(g(n))$ if $\exists M,N \, \forall n> N \ f(n) \leq Mg(n)$.
+\end{defn}
+
+\begin{defn}[Efficient]
+An algorithm is efficient if its worst-case running time on n-bit input is $O(n^k)$ for some $k$.
+(Note: The original way of finding if p is prime is growing exponentially, but we want polynomial growth to be "efficient")
+\end{defn}
+
+
+\begin{exmp}
+    Input: a, b n-bit integer
+    Output: 
+    \begin{align*}
+    a+b\\
+    a=(a_n+1 ..... a_0)_2\\
+    b=(b_n+1 ..... b_0)_2
+    \end{align*}
+    Each bit take at most 2 ops. In total at most 2n ops which takes O(n) time. Which means that the multiplication of the prime number of take $O(n^2)$ time.
+\end{exmp}
+
+\begin{algorithm}[Repeated Square Algorithm]
+\[a^k = \prod a^{2^i} \mod n\]
+\end{algorithm}
+
+\begin{exmp}
+    \begin{align*}
+        3^{13} \mod 19 \\
+        13 &= 2^3 +2 ^2 +1\\
+        3 &= 3 \mod 19\\
+        3^2 &= 9 \mod 19\\
+        3^4 &= 81 \mod 19\\
+        &= 5 \mod 19\\
+        3^8 &= 5^2 = 25 = 6 \mod 19\\
+        3^{13} &= 3^83^43^1 = 14 \mod 19
+    \end{align*}    
+\end{exmp}

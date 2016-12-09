@@ -1,0 +1,81 @@
+\lecture{Nov. 10}
+
+\begin{thm}[Arithmetic Rules for Differentiation]
+Assume that $f(x)$, $g(x)$ are differentiable at $x=a$.
+\begin{enumerate}
+\item If $f(x) = c$ for all $x$, then $f'(a) = 0$
+\item $(f+g)(x)$ is differentiable at $x=a$ with $(f+g)'(a) = f'(a) + g'(a)$
+\item $(fg)(x)$ is differentiable at $x=a$ with $(fg)'(a) = f'(a)g(a) + g'(a)f(a)$
+\item Let $h(x)= \frac{1}{f(x)}$. Then $h(x)$ is differentiable at $x = a$ if $f(a)\neq 0$ and \[h'(a) = \frac{-f'(a)}{f(a)}\]
+\item If $h(x)=\frac{f(x)}{g(x)}$ then $h(x)$ is differentiable at $x=a$, if $g(a)\neq 0$ and \[h'(a) = \frac{f'(a)g(a)-g'(a)f(a)}{g^2(a)}\]
+\end{enumerate}
+\end{thm}
+
+\begin{proof} \leavevmode
+
+\begin{enumerate}
+\item[3]
+Consider \[\lim_{x\to a} \frac{(fg)(x) - (fg)(a)}{x-a}\]
+
+\begin{align*}
+   &  \lim_{x\to a} \frac{(fg)(x) - (fg)(a)}{x-a}\\
+   = & \lim_{x\to a} \frac{f(x)g(x) - f(a)g(x) + f(a)g(x) - f(a)g(a)}{x-a}\\
+   = & \lim_{x\to a} g(x)\frac{f(x) - f(a)}{x-a} + \lim_{x\to a} f(a) \frac{g(x) - g(a)}{x-a} \\
+   = & \lim_{x\to a} g(x) \lim_{x\to a }\frac{f(x) - f(a)}{ x-a} + f(a)g'(a) \\
+   = & g(a)f'(a) + f(a)g'(a)
+\end{align*}
+
+\item[4]
+Consider \[\lim_{x\to a} \frac{1/f(x) - 1/f(a)}{x-a}.\]
+\begin{align*}
+    & \lim_{x\to a} \frac{1/f(x) - 1/f(a)}{x-a}\\
+    = & \lim_{x\to a} \frac{f(a) - f(x)}{x-a}\cdot \frac{1}{f(a)f(x)}\\
+    = & \frac{-f'(a)}{f^2(a)}
+\end{align*}
+
+\item[5] Combine 3 and 4.
+\end{enumerate}
+\end{proof}
+
+\topic{Linear Approximation}
+\begin{note}
+Assume that $f(x)$ is differentiable at $x=a$. Then \[f'(a)=\lim_{x\to a}\frac{f(x)-f(a)}{x-a}\]
+\end{note}
+
+If $x\approxeq a$, then 
+\begin{align*}
+    &f'(a) \approxeq \frac{f(x) - f(a)}{x-a}\\
+    \Rightarrow & f'(a)(x-a) \approxeq f(x) - f(a) \\
+    \Rightarrow & f(x) \approxeq f'(a)(x-a) + f(a)
+\end{align*}
+
+
+\begin{defn}
+    Let $f(x)$ be differentiable at $x=a$. We define the linear approximation to $f(x)$ at $x=a$ to be the function \[L_a^f (x) = f(a) + f'(a)(x-a)\]
+\end{defn}
+
+\begin{thm}[Properties of Linear Approximation]
+    $\displaystyle L_a^f (x)$ has the following properties
+    \begin{enumerate}
+    \item \(\displaystyle L_a^f (a) = f(a)\)
+    \item \(\displaystyle (L_a^f)' (x) = f'(a)\)
+    \item If $h(x) = mx+b$ and $h(x)$ satisfies 1) and 2) then $\displaystyle h(x)= L_a^f (a)$
+    \item $\displaystyle L_a^f (a) \approxeq f(x)$ if $x \approxeq a$
+    \item The graph of $L_a^f (a)$ is the tangent line to graph of $f(x)$ at $x=a$
+    \end{enumerate}
+\end{thm}
+
+\begin{exmp}
+Consider $f(x) = \sin x$.
+\[L_0^{\sin x} = \sin 0 + \cos 0 (x-0) = x\]
+\end{exmp}
+
+
+\begin{exmp}
+Consider $f(x) = e^x$, we have $f(0)=1$ and $f'(0)=1$. Then
+\[L_0^{e^x} = f(0) + f'(0)(x-0) = 1+x\]
+\end{exmp}
+
+\begin{exmp}
+If $f(x) = e^{-u^2}$, \[e^{-u^2} \approxeq 1-u^2\] if $u$ is small. 
+\end{exmp}

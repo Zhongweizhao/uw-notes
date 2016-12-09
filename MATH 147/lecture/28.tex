@@ -1,0 +1,60 @@
+\lecture{Nov. 11}
+
+\topic{Chain Rule}
+Assume $f\colon I\to \mathbb{R}$, with $I$ open and containing $x=a$, $g\colon J\to \mathbb{R}$, with $J$ open and containing $f(a)$ with $f(I)\subset J$. Assume that $f$ is differentiable at $x=a$ and $g$ is differentiable at $y=f(a)$. Let $h(x) \colon I\to \mathbb{R}$ be $h(x) = g\circ g(x) = g(f(x))$.
+
+\begin{ques}
+Is $h(x)$ differentiable at $x=a$ and if so what is $h'(a)$? 
+\end{ques}
+
+We know that if $x\approxeq a$, then \[f(x)\approxeq L_a^f (x)\] and if $y\approxeq f(a)$ then \[g(y) = L_{f(a)}^{g} (y).\] If $x\approxeq a$, then $f(x)\approxeq f(a)$, hence $h(x)=g(f(x)) \approxeq g(L_{a}^f (x)) \approxeq L_{f(a)}^g (L_a^f (x))$.
+
+The equation
+\begin{align*}
+    &L_{f(a)}^g \circ L_a^f (x) \\
+    = & L_{f(a)}^g (f(a) + f'(a)(x-a))\\
+    =& g(f(a)) + g'(f(a))(f(a) + f'(a)(x-a) - f(a))\\
+    = & g(f(a)) + g'(f(a))f'(a)(x-a)\\
+    = & h(a) + h'(a)(x-a)\\
+    = & L_a^h (x)
+\end{align*}
+holds if an only if $h'(x) = g'(f(a))f'(a)$.
+
+\begin{thm}[Chain Rule]
+    If $f\colon I\to \mathbb{R}$ is an open interval containing $x=a$, $g\colon J \to \mathbb{R}$ is an open interval containing $y= f(a)$, $f(I) \subset J$, J is differentiable at $x= a$, g is differentiable at $y =f(a)$, then if $h \colon I\to \mathbb{R}$ is given by $ h(x)=g\circ f(x)$, then $h$ is differentiable at $x=a$ with $h'(a) = g'(f(a))f'(a)$.
+\end{thm}
+
+\begin{proof}[False proof]
+    \begin{align*}
+    h'(a) = & \lim_{x\to a} \frac{h(x) - g(a)}{x-a} \\
+    = & \lim_{x\to a } \frac{g(f(x)) - g(f(a))}{ x-a} \\
+    = & \lim_{x\to a} \frac{g(f(x)) - g(f(a))}{f(x) - f(a)}\cdot \frac{f(x) - f(a)}{x-a} \\
+    =& \lim_{y\to f(a)} \frac{g(y) - g(f(a))}{y-f(a)} \cdot \lim_{x\to a}\frac{f(x) - f(a)}{x-a}\\
+    = & g'(f(a)f'(a)
+    \end{align*}
+    This is false because $f(x)$ might equal $f(a)$, and thus you multiplied $\frac{0}{0}$.
+\end{proof}
+
+\begin{proof}[Real Proof]
+    Let \begin{equation*}
+        \varphi(y) = \begin{cases}
+            \frac{g(y) - g(f(a))}{y-f(a)} & \text{ if } y\neq f(a)\\
+            g'(f(a)) &\text{ if } y=f(a)
+        \end{cases}
+    \end{equation*}
+    Note that $\varphi (y)$ is continuous.
+    
+    Observe that $g(y) - g(f(a)) = \varphi (y) [y-f(a)]$ for all $y \in J$, even $y=f(a)$. Then now,
+     \begin{align*}
+    h'(a) = & \lim_{x\to a} \frac{h(x) - g(a)}{x-a} \\
+    = & \lim_{x\to a } \frac{g(f(x)) - g(f(a))}{ x-a} \\
+    = & \lim_{x\to a} \frac{\varphi (f(x)) [f(x) - f(a)]}{x-a}\\
+    = & \lim_{x \to a} \varphi (f(x)) \cdot \lim_{x \to a} \frac{f(x) - f(a)}{x-a}\\
+    = & \varphi (f(a)) \cdot f'(a)\\
+    = & g'(f(a))f'(a) \qedhere
+    \end{align*}
+\end{proof}
+
+\begin{exmp}
+Consider $h(x) = \cos x = \sin (x + \pi / 2)$
+\end{exmp}

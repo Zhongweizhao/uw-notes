@@ -1,0 +1,98 @@
+\lecture{Nov. 24}
+
+\topic{Computation of String}\\
+    Sequence $S = S_0, S_1, S_2 ...$ (any odd stuff)\\
+    string $x = x_0, x_1, x_2 ...$ such that for every $i$, $x_i \in V$ where $V$ is a finite set.\\
+    Formal Language use a set of strings:
+    \begin{exmp}
+    \[L_1 = \{\text{cat, dog, monkey}\} \text{ where }  V = \{a,b,c,...,z\}\]
+    \[L_2 = \{010,110,111,11000\} \text{ where } V = \{0,1\}\]
+    \end{exmp}
+
+
+The idea of Recognition: given $x$, $L$, determine if $x \in L$
+
+\begin{thm}[Noam Chomsky]
+Chomsky hierarchy
+    \begin{enumerate}
+        \item[Type 0.] Unrestricted - any thing a TM can do (Tm is any grammar) ($\abs{\text{Left hand side}} \leq \abs{\text{Right hand side}}$) 
+        \item[Type 1.] Context-sensitive - anything a TM can do with O(n) space where n is input size
+        \item[Type 2.] Context-free
+        \item[Type 3.] Regular 
+    \end{enumerate}
+\end{thm}
+
+\begin{defn}[Regular Languages] \leavevmode
+
+    \begin{enumerate}
+        \item Linear grammar
+        \item Left linear
+        $A \to A$ which means the Only recursive use of variable is $RHS_0$
+    \end{enumerate}
+\end{defn}
+
+
+\begin{thm}[Specifying Languages]When you are given S, you can get B, which is entirely alphabet symbols
+    When in an alternative universe, you can get to a. 
+    In a free grammar, there is no limit on the  ...
+\end{thm}
+
+
+\begin{exmp} x= "hello there" y = the
+    
+    Is x = y?
+    It is easy.
+    
+    Is x a prefix of y?\\
+    $x = x_0 ... x_{n-1}$\\
+    $x$ is a prefix of $y$, if:\\
+    $\abs{y} \geq n$ and\\
+    $\sum_{i = 0}^{n-1} x_i = y_i$\\
+    which means a suffix sub-string
+    
+    is x a sub-sequence of y? \\
+    it means can you delete 0 or more symbols from y to make it (x) equal to y\\
+    for example:\\
+    y = 0110001, x = 101, you want the first occurrence of "1"01 in y, and so on
+    
+    Is $x < y$? \\
+    generally, we need $a < b$? which means the total order on alphabet, we can apply the lexicographic\ order to the string
+    
+    Is x increasing? non-decreasing?\\
+    it means for $i$, $0 \leq i \leq n-1$ then $x_i \leq x_i+1$
+
+    
+\end{exmp}
+
+
+\topic{The solution to the substring problem}
+
+    Is $x$ a substring of $y$?\\
+    consider the set $S$ as the set of "all substrings of y"
+    and consider Is $x \in S$?
+
+    For S, instead of getting the permutation of the string, we can get the permutation of the address v, where v will be a finite set of the element in the string.
+
+    Another algorithm:
+    Consider the set of all suffixes of y.\\
+    The advantage of this algorithm is that suffixed can be sorted in lexicographic order, since I don't need to sort the actually string, but the address of the string.\\
+    Basically what we want to know is that "is x a prefix of a suffix of y?"
+
+    What is the longest prefix of x in y? We can have a suffix tree which will take the O(N) where N is the number of symbols.
+
+\topic{Non-deterministic}
+
+    Non-deterministic computer means that it does not need to make any decisions, and if such computer exist, like the quantum technology, the program can expand in different universe and simply run for all possibilities. In the example of find the longest common sub-sequence, since special case can occur with only one cursor, a non-deterministic computer can simply run zip through all the possibilities although that will take polynomial time, if in theory, the program is ran in different universe together, it will take linear time.
+    
+    
+    
+
+
+
+
+
+
+
+
+
+

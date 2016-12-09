@@ -1,0 +1,43 @@
+\lecture{Oct. 23}
+
+\begin{thm}[Rolle's Theorem]
+Assume that $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$. Assume that $f(a) = f(b)$. Then there exists $c\in (a,b)$ with $f'(c) = 0$.
+\end{thm}
+
+\begin{proof}
+If $f(x)$ is constant on $[a,b]$, then if $c\in (a,b)$, then $f'(c) = 0$. If $f(x)$ is not constant on $[a,b]$, then $f(x)$ attains either its maximum or its minimum on some point $c\in (a,b)$. In either case, $f'(c)=  0$.
+\end{proof}
+
+\begin{thm}[Mean Value Theorem]
+Assume that $f(x)$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then there exists $c\in (a,b)$ with \[f'(c) = \frac{f(b) - f(a)}{b-a}.\]
+\end{thm}
+
+\begin{proof}
+Let \[g(x) = f(a) + \frac{f(b)-f(a)}{b-a}(x-a).\] Let $h(x) = f(x) - g(x)$. Then $h(a) = h(b) = 0$. Since $h(x)$ is continuous on $[a,b]$ and differentiable on $(a,b)$ with $h(a) = h(b)$, by Rolle's Theorem, there exists $c \in (a,b)$ with \[0 = h'(c) = f'(c) - \frac{f(b) - f(a)}{b-a}.\] Thus \[f'(c) = \frac{f(b) - f(a)}{b-a}.\]
+\end{proof}
+
+\begin{prop}
+Let $f(x)$ be continuous on an interval $I$. Assume that $f'(x) = 0$ for each $x \in I$. Then there exists $C \in \mathbb{R}$ such that $f(x) = C$ for all $x\in I$.
+\end{prop}
+
+\begin{proof}
+Let $x_0 \in I$. Let $f(x_0) = C$.Let $x\in I$, $x\neq x_0$. Then the MVT holds on the interval between $x_0$ and $x$. There exists $d \in I$ between $x_0$ and $x$ with \[\frac{f(x)-f(x_0)}{x-x_0} = f'(d) = 0\] Thus $f(x) = f(x_0) = C$.
+\end{proof}
+
+\begin{defn}[Antiderivatives]
+Given a function $f(x)$ we say that $F(x)$ is an antiderivative of $f(x)$ if $F'(x) = f(x)$.
+\end{defn}
+
+\begin{note}
+Suppose $F(x),G(x)$ are antiderivatives of $f(x)$. Then $F'(x) = f(x) = G'(x)$. Let $H(x) = F(x) - G(x)$. Then we have $H'(x) = 0$.
+
+For any $f(x)$, if $F(x)$ is antiderivative of $f(x)$, then all antiderivatives are of the form $G(x) = F(x)+C$ for some $C$.
+\end{note}
+
+\begin{thm}[Increasing Function Theorem]
+Assume that $f(x)$ is continuous on $[a,b]$ and differentiable on $(a,b)$ with $f'(x) \geq 0$ ($f'(x) > 0$) for all $x\in (a,b)$, then $f(x)$ is (strictly) increasing on $(a,b)$.
+\end{thm}
+
+\begin{proof}
+Let $x<y \in [a,b]$. By the MVT, there exists $x<c<y$ with \[f'(c) = \frac{f(y) - f(x)}{y-x}\] Since $f'(c) \geq 0$, we get $f(y) \geq f(x)$.
+\end{proof}

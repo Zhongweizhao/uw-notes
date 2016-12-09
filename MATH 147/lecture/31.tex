@@ -1,0 +1,44 @@
+\lecture{Nov. 17}
+
+\topic{Inverse Function Theorem}
+
+\begin{note}
+If $f$ is $1-1$, we get $f\colon X\to range(f) \subset Y = \{y\in Y \mid y = f(x) \text{ for some }x\}$. If $f$ is $1-1$ and onto its range, we can define $g\colon range(f) \to x$ by $g(y) = x$ if and only if $f(x) =y$.
+\end{note}
+
+\begin{defn}
+We say that $f$ is invertible on $A\subset R$ if $f$ is $1-1$ on $A$. In this case, we define the inverse of $f$ on $A$ by \[g(y) = x \iff y = f(x)\text{ for }x\in A\]
+\end{defn}
+
+\begin{note}
+Geometrically the inverse function is the reflection of the original function through $y=x$.
+\end{note}
+
+\begin{exmp}
+$f(x) = mx + b$ is always invertible if $m\neq 0$. The inverse function is \[g(y) = \frac{1}{m}x -\frac{b}{m}\]
+\end{exmp}
+
+\textit{Observation.} We have \[L_{f(a)}^g (x) = \frac{1}{f'(a)}(x-f(a))\] \[g'(f(a)) = \frac{1}{f'(a)}\]
+
+\begin{defn}
+We say that $f(x)$ is increasing (strictly increasing) on an interval $I$ if whenever $x_1,x_2 \in I$ with $x_1<x_2$, we have $f(x_1) \leq f(x_2)$ ($f(x_1) < f(x_2)$).
+
+Similarly we define ``decreasing (strictly decreasing)".
+
+We say that $f$ is monotonic on $I$ if one of these holds.
+\end{defn}
+
+\topic{Basic Facts.}
+\begin{enumerate}
+    \item If $f(x)$ is strictly increasing or decreasing on $I$, then $f$ is $1-1$ on $I$, and hence invertible on $I$.
+    \item If $f$ is continuous on $I$ and $1-1$ then $f$ is either strictly increasing or strictly decreasing.
+    \item Assume that $f(x)$ is increasing on $[a,b]$. Let $c\in (a,b)$. Claim that $\lim_{x\to a^-} f(x)$ and $\lim_{x\to a^+} f(x)$ exists with $\lim_{x\to a^-} f(x) \leq \lim_{x\to a^+} f(x)$
+\end{enumerate}
+
+\begin{thm}
+Assume that $f(x)$ is increasing on $[a,b]$, then the following are equivalent
+\begin{enumerate}
+\item $f(x)$ is continuous on $[a,b]$
+\item $f([a,b]) = [f(a),f(b)]$
+\end{enumerate}
+\end{thm}

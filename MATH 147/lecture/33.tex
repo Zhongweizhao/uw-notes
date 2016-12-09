@@ -1,0 +1,84 @@
+\lecture{Nov. 21}
+
+\topic{Exponential and Logarithmic Functions}
+
+\begin{defn}[$a^x$]
+Let $a > 0 $ We have
+\begin{enumerate}
+    \item $a^0 = 1$
+    \item $a^n = a\cdot a\cdot a \cdot \cdot\cdot a$ if $n \in \mathbb{N}$
+    \item $\displaystyle a^{n/m} = \sqrt[m]{a^{n}}$
+    \item if $\alpha \in \mathbb{R}$, $\alpha > 0$, let $a^\alpha = \lim_{r_n\to \alpha}a^{r_n}$ where ${r_n}\subset \mathbb{Q}$, $r_n\geq 0$
+    \item If $\alpha <0$, let $a^\alpha = \frac{1}{a^{-\alpha}}$
+\end{enumerate}
+
+\end{defn}
+
+\begin{thm}[Properties of $a^x$]\leavevmode
+
+\begin{enumerate}
+    \item $a^{x+y} = a^xa^y$
+    \item $a^{x^y} = a^{xy}$
+    \item $f(x) =a^x$ is differentiable and $f'(x) = f'(0)f(x) = f'(0)a^x$
+    \item There exist a unique base ``$e$" for which if $f(x) = e^x$ then $f'(0)= 1$.
+\end{enumerate}
+\begin{note}
+    The derivative of $f(x) = a^x$ at $ x = 0$ varies continuously with a. It also increase with a.
+\end{note}
+\end{thm}
+
+\begin{thm}[The function $e^x$]
+Properties
+\begin{enumerate}
+    \item Domain $e^x = \mathbb{R}$
+    \item Range $e^x = \mathbb{R}^+ = {y \in \mathbb{R} \mid y \geq 0}$
+    \item $e^x$ is strictly increasing and hence invertible.
+    \item $f'(x) = f'(0)f(x) = 1\cdot e^x = e^x$ (Inverse for $f(x) = e^x$)
+\end{enumerate}
+\end{thm}
+
+\begin{defn}[Natural log]
+    We define $g(y) = \ln y: \mathbb{R}^+ \to \mathbb{R}$ by $g(y) = x$ if and only if $e^x =y$
+\end{defn}
+
+From the Inverse Function Theorem, \[g'(y_0) = \frac{1}{f'(x_0)} = \frac{1}{e^x_0} = \frac{1}{y_0}\]
+
+Thus if $g(y) = \ln y$ then $g'(y) = \frac{1}{y}$.
+
+\begin{note}
+    If $a>0$, then $a = e^{\ln a}$, then $a^x = {e^{\ln a}}^{x} = e^{x\ln a }$. If $h(x) = a^x$,then the Chain Rule shows that 
+    \[h'(x) = \frac{d}{dx}e^{x\ln a } = \ln a e^{x\ln a } = \ln a \cdot a^x\]
+     In particular, $\displaystyle h'(0) = \ln a = \lim_{h \to 0}\frac{a^n - 1}{h}$
+     \begin{note}
+         If $a \neq 1$, $a> 0$, then $f(x) = a^x$ is 1-1 from $\mathbb{R}$ onto $\mathbb{R}^+$
+     \end{note}
+\end{note}
+
+\begin{defn}
+    $g(y) = \log_ay: \mathbb{R}^+ \to \mathbb{R}$ by $g(y) = x $ iff $a^x = y$.
+    
+    $\log_ay = x \Leftrightarrow a^x = y \Rightarrow e^{x\ln a} = y \Rightarrow \ln (e^{x{\ln a}}) = \ln y$ and $x\ln a = \ln y$, then $x = \frac{\ln y}{\ln a}$.
+    
+    Hence, $\displaystyle \log_a(y) = \frac{\ln y}{\ln a} \Rightarrow \frac{d}{dx} (\log_a (x) = \frac{d}{dx} (\frac{\ln x}{\ln a}) = \frac{1}{\ln ax}$
+\end{defn}
+
+\begin{exmp} [On the final exam]
+    
+Let $f(x) = x^x = (e^{\ln x})^x = e^{x\ln x}$
+
+Domain $f = \mathbb{R}^+$
+\begin{note}
+    If $g(x) = x\ln x$
+    
+    $g'(x) = \frac{x}{x} + \ln x = 1 + \ln x = 0 \Rightarrow x = \frac{1}{e}$
+\end{note}
+\[f'(x) = e^{x\ln x} \frac{d}{dx} x\ln x = (1+\ln x) e^{x\ln x} = (1+\ln x) x^x\]
+\end{exmp}
+
+\begin{exmp}
+    \[g(x) = x^{\sin x} = e^{\ln x \sin x}\]
+\end{exmp}
+
+\begin{exmp}[Mean Value Theorem]
+    Question: Suppose that a car travels a distance of 110km in exactly 1hr. If the posted speed limit on the road is 100km/h. Can you prove that the car was speeding at some point.
+\end{exmp}

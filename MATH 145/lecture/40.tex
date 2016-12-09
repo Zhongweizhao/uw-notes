@@ -1,0 +1,113 @@
+\lecture{Nov. 22}
+
+\begin{exmp}
+    Using RSA, Alice wants to receive a message from Bill. Alice chooses two large primes $p$, $q$, then calculate $n = pq$ and $\varphi = \varphi (n) = \varphi (p) \varphi (q) = (p-1)(q-1)$ (or $\varphi = lcm(p-1, q-1)$). Then she chooses $e$ with $gcd(e,\varphi) = 1$. Then calculate $d = e^{-1} \mod \varphi$. Then she makes public the pair $(n,e)$.
+    
+    Bob converts this message to a number $m$ with $m\leq n$ (or several such numbers). Bob calculates and sends $c = m^e \mod n$.
+    
+    Alice receives the message by calculating $c^d \mod n$. Since the table of powers repeats every $\varphi$ rows, and $ed = 1 \mod \varphi$, $c^d = {(m^e)}^d = m^{ed} = m^{1+k\varphi} = m \mod n$.
+\end{exmp}
+
+\topic{Here ends Chapter 4: Integers Modulo $n$}
+
+\topic{Chapter 5: Complex numbers}
+
+\[\mathbb{C} = \mathbb{R}^2 = \{(x,y) \mid x \in \mathbb{R}, y \in \mathbb{R} \}\]
+
+In $\mathbb{C}$ we write \[0 = (0,0) , \ 1 = (1,0) , \ i = (0,1)\]
+
+and for $x, y \in \mathbb{R}$ we write \[x = (x,0), iy = yi = (0, y)\]
+\[x + iy = x+yi = (x,y).\]
+For $z = x+ iy$ with $x, y \in \mathbb{R}$, x is called the real part of $z$ and $y$ is called the imaginary part and we write Re(z) = x, lm(z) = y.
+
+We define addition and multiplication in $\mathbb{C}$ by
+\[(a+ib)(c+id) = (a,b) + (c,d) = (a+c, b+d) = (a+c) + i(b+d)\]
+
+and 
+\[(a+ib)(c+id) = (ac-bd) + i(ad+bc) \]
+
+\begin{thm}
+$\mathbb{C}$ is a field.
+\end{thm}
+
+\begin{proof}
+We only bother to show that every non-zero $z\in\mathbb{C}$ has a inverse.
+
+Let $z = a + ib$ with $a,b\in\mathbb{R}$ and $(a,b)\neq (0,0)$. We need to find $w = x + iy$ with $x,y\in\mathbb{R}$ such that $zw = 1$.
+That is \[(a+ib)(x+iy)= 1+0i\]
+Then \[(ax-by)+i(ay+bx) = 1+0i\]
+So we need \begin{gather*}
+    ax-by = 1\\
+    ay+bx = 0
+\end{gather*}
+by solving the equations we get \begin{gather*}
+    x = \frac{a}{a^2+b^2}\\
+    y = \frac{-b}{a^2+b^2}
+\end{gather*}
+Therefore \[w = x+iy = \frac{a}{a^2+b^2} + i\frac{-b}{a^2+b^2}\]
+\end{proof}
+
+\begin{defn}
+For $z = x + iy$ with $x,y\in\mathbb{R}$, the conjugate of $z$ is \[\overline{z} = x -iy\] and the norm (or the length) of $z$ is \[\abs{z} = \sqrt{x^2+y^2}\]
+\end{defn}
+
+\begin{thm}[Properties of Conjugate and Norm]
+    \begin{enumerate}
+        \item $\overline{\overline{z}} = z$
+        \item $\overline{z+w} = \overline{z}+\overline{w}$
+        \item $\overline{z\cdot w} = \overline{z} \cdot \overline{w}$
+        \item $z + \overline{z} = 2 \cdot Re(z)$
+        \item $z - \overline{z} = 2 i \cdot Im(z)$
+        \item $\abs{\overline{z}} = \abs{z}$
+        \item $z \cdot \overline{z} = \abs{z}^2$
+        \item If $z \neq 0$ then $\abs{z} \neq 0$ and $\displaystyle z^{-1} = \frac{\overline{z}}{\abs{z}^2}$
+        \item $\abs{z} \geq 0$ with $\abs{z} = 0 \Leftrightarrow z = 0$
+        \item $\abs{zw} = \abs{z}\abs{w}$ ($\abs{z+w} \neq \abs{z}+\abs{w}$)
+        \item $\abs{\abs{z}+\abs{w}} \leq \abs{z+w} \leq \abs{z} + \abs{w}$ (Triangle Inequality)
+    \end{enumerate}
+\end{thm}
+
+\begin{thm}
+    Every non-zero complex number has exactly two complex square roots.
+\end{thm}
+
+\begin{proof}
+Let $z = a+ib$ with $a,b\in\mathbb{R}$ and $(a,b)\neq (0,0)$. We need to find $w = x + iy$ with $x,y\in\mathbb{R}$ such that $w^2 = z$.
+
+We have \begin{gather*}
+    w^2 = z\\
+    (x+iy)^2 = a+ib \\
+    (x^2-y^2) + i(2xy) = a + ib\\
+\end{gather*}
+
+then \begin{gather*}
+    x^2-y^2 = a\\
+    2xy = b
+\end{gather*}
+
+by solving the equations with respect to $x$ we get 
+\[x^2 = \frac{a + \sqrt{a^2+b^2}}{2}\]
+\[y^2 = x^2-a = \frac{-a + \sqrt{a^2+b^2}}{2}\]
+
+Then we must have \[w = x + iy = \pm \sqrt{\frac{a + \sqrt{a^2+b^2}}{2}} \pm i \sqrt{\frac{-a + \sqrt{a^2+b^2}}{2}} \]
+
+To get $2xy = b$ we need that if $b>0$, \[w = x + iy = \pm \left( \sqrt{\frac{a + \sqrt{a^2+b^2}}{2}} + i \sqrt{\frac{-a + \sqrt{a^2+b^2}}{2}} \right)\]
+
+and if $b < 0$, then \[w = x + iy = \pm \left( \sqrt{\frac{a + \sqrt{a^2+b^2}}{2}} - i \sqrt{\frac{-a + \sqrt{a^2+b^2}}{2}} \right)\]
+
+
+and when $b = 0$, then \[w = \begin{cases} \pm \sqrt{a} & \text{if } a > 0 \\ \pm \sqrt{-a} & \text{if } a<0  \end{cases}\qedhere\]
+\end{proof}
+
+\begin{exmp}
+    In $\mathbb{C}$, \begin{align*}
+        \sqrt{3+4i} = & \pm \left( \sqrt{\frac{3 + \sqrt{3^2+4^2}}{2}} + i \sqrt{\frac{-3 + \sqrt{3^2+4^2}}{2}} \right)\\ =& \pm (2+i)
+    \end{align*}
+\end{exmp}
+
+
+
+
+
+
+
