@@ -50,7 +50,7 @@ culpa qui officia deserunt mollit anim id est laborum.
 
 $f(x) = \int_0^4 x^2$
 
-\[f(x) = \int_0^4 x^2\abs{x}\]
+\[f(x) = \int_0^4 x^2\RR \binom{1}{2}\abs{x+y}\rightarrowtail\eqslantless\]
 
 ... we have `\(x_1 = 132\)` and `\(x_2 = 370\)` and so ...
 
@@ -102,13 +102,68 @@ There are no natural numbers $x$, $y$, and $z$ such that $x^n + y^n = z^n$, in w
 </div>
 ~~~~
 
+
+### Supported Environment
+
+~~~~
+align                  [AMSmath]
+align*                 [AMSmath]
+alignat                [AMSmath]
+alignat*               [AMSmath]
+aligned                [AMSmath]
+alignedat              [AMSmath]
+array
+
+Bmatrix
+bmatrix
+
+cases
+CD                      AMSmath
+
+eqnarray
+eqnarray*
+equation
+equation*
+
+gather                 [AMSmath]
+gather*                [AMSmath]
+gathered               [AMSmath]
+
+matrix
+multline               [AMSmath]
+multline*              [AMSmath]
+
+pmatrix
+
+smallmatrix             AMSmath
+split                  [AMSmath]
+subarray                AMSmath
+
+Vmatrix
+vmatrix
+~~~~
+
 </xmp>
 
 <script src="strapdown/strapdown.js"></script>
 <script type="text/javascript" async
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-<script src="js/mathjax-config.js">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "normal",
+  tex2jax: {inlineMath:[['$', '$']], displayMath:[['$$','$$'], ['\[','\]']]},
+  TeX: {
+      Macros: {
+          RR: "{\\mathbb{R}}",
+          CC: "{\\mathbb{C}}",
+          NN: "{\\mathbb{N}}",
+          QQ: "{\\mathbb{Q}}",
+          abs: ["{\\left| #1 \\right| }", 1],
+      },
+  },
+  jax: ["input/TeX","output/SVG"],
+});
 </script>
 </body>
 </html>
