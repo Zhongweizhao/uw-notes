@@ -2,178 +2,7 @@
 <html>
 <head>
 <title>MATH 146 Lineear Algebra</title>
-<style>
-/* -------  navbar ------- */
-
-.navbar-inner {
-    background-color: #006ec3 !important;
-    background-image: none !important;
-    border: 0 !important;
-}
-
-.navbar .brand {
-    text-shadow: 0 0 0 !important;
-}
-
-/* -------  font ------- */
-body {
-    font-family: "Computer Modern" !important;
-}
-
-
-
-/* -------  counters  -------  */
-
-body
-{
-    counter-reset: theorem 1;
-    counter-reset: lecture;
-}
-
-
-/* -------  theoremstyle{plain}  -------  */
-
-.theorem,
-.lemma,
-.proposition,
-.corollary {
-    display: block;
-    margin: 12px 0;
-    font-style: italic;
-    counter-increment: theorem;
-}
-
-.theorem:before,
-.lemma:before,
-.proposition:before,
-.corollary:before {
-    font-weight: bold;
-    font-style: normal;
-}
-
-.theorem:before {
-    content: counter(lecture) "." counter(theorem) " Theorem. ";
-}
-
-.lemma:before {
-    content: counter(lecture) "." counter(theorem) " Lemma. ";
-}
-
-.proposition:before {
-    content: counter(lecture) "." counter(theorem) " Proposition. ";
-}
-
-.corollary:before {
-    content: counter(lecture) "." counter(theorem) " Corollary. ";
-}
-
-
-/* -------  theoremstyle{definition}  -------  */
-
-.definition,
-.example,
-.axiom,
-.question,
-.exercise {
-    display: block;
-    margin: 12px 0;
-    font-style: normal;
-    counter-increment: theorem;
-}
-
-.definition:before,
-.example:before,
-.axiom:before,
-.question:before,
-.exercise:before {
-    font-weight: bold;
-    font-style: normal;
-}
-
-.definition:before {
-    content: counter(lecture) "." counter(theorem) " Definition. ";
-}
-
-.example:before {
-    content: counter(lecture) "." counter(theorem) " Example. ";
-}
-
-.axiom:before {
-    content: counter(lecture) "." counter(theorem) " Axiom. ";
-}
-
-.question:before {
-    content: counter(lecture) "." counter(theorem) " Question. ";
-}
-
-.exercise:before {
-    content: counter(lecture) "." counter(theorem) " Exercise. ";
-}
-
-/* -------  theoremstyle{remark}  -------  */
-
-.note,
-.notation,
-.remark,
-.claim,
-.solution {
-    display: block;
-    margin: 12px 0;
-    font-style: normal;
-}
-
-.note:before,
-.notation:before,
-.remark:before,
-.claim:before,
-.solution:before {
-    font-style: italic;
-    font-weight: normal;
-}
-
-.note:before {
-    content: "Note. "
-}
-
-.notation:before {
-    content: "Notation. "
-}
-
-.remark:before {
-    content: "Remark. "
-}
-
-.claim:before {
-    content: "Claim. "
-}
-
-.solution:before {
-    content: "Solution. "
-}
-
-
-/* -------  proof  -------  */
-
-.proof {
-    display: block;
-    margin: 12px 0;
-    font-style: normal;
-}
-.proof:before {
-    content: "Proof.";
-    font-style: italic;
-}
-.proof:after {
-    content: "\220E";
-    float:right;
-}
-
-h2:after {
-    content: " " counter(lecture);
-    counter-increment: lecture;
-}
-
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <xmp theme="united" style="display:none;">
@@ -182,6 +11,27 @@ h2:after {
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
 et dolore magna aliqua.
+
+<div class="definition">
+A set $C$ is *convex* if for all
+$x,y \in C$ and for all
+$\alpha \in [0,1]$ the point
+$\alpha x + (1-\alpha) y \in C$.
+</div>
+<div class="theorem">
+There are no natural numbers
+$\mathbb{N} = (1, 2, 3, \ldots)$
+$x$, $y$, and $z$ such that
+$x^n + y^n = z^n$, in which $n$
+is a natural number greater than 2.
+</div>
+<div class="proof">
+There are no natural numbers
+$\mathbb{N} = (1, 2, 3, \ldots)$
+$x$, $y$, and $z$ such that
+$x^n + y^n = z^n$, in which $n$
+is a natural number greater than 2.
+</div>
 
 ~~~~
 ## Lecture
@@ -200,7 +50,7 @@ culpa qui officia deserunt mollit anim id est laborum.
 
 $f(x) = \int_0^4 x^2$
 
-\[f(x) = \int_0^4 x^2\]
+\[f(x) = \int_0^4 x^2\abs{x}\]
 
 ... we have `\(x_1 = 132\)` and `\(x_2 = 370\)` and so ...
 
@@ -254,15 +104,11 @@ There are no natural numbers $x$, $y$, and $z$ such that $x^n + y^n = z^n$, in w
 
 </xmp>
 
-<script src="strapdown.js"></script>
+<script src="strapdown/strapdown.js"></script>
 <script type="text/javascript" async
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  messageStyle: "normal",
-  tex2jax: {inlineMath:[['$', '$']], displayMath:[['$$','$$'], ['\[','\]']]},
-});
+<script src="js/mathjax-config.js">
 </script>
 </body>
 </html>
