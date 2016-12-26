@@ -226,7 +226,7 @@ body
 }
 
 h2:after {
-    content: " " counter(lecture);
+    content: "";
 }
 
 h2 {

@@ -73,7 +73,23 @@
         loading.classList.remove('active');
     });
 
+    function unescapeHTML(escapedHTML) {
+      return escapedHTML.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
+    }
+
+    md = window.markdownit();
+    m = document.getElementById("markdown-code").innerHTML;
+    result = md.render(m);
+    result = unescapeHTML(result);
+    document.getElementById("content").innerHTML = result;
 
     Waves.init();
+
+/*
+    md = d.getElementById("markdown-code").innerHTML;
+    ht = marked(md);
+    d.getElementById("content").innerHTML = ht;
+*/
+
 
 })(window, document);
