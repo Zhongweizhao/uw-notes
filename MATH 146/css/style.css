@@ -615,9 +615,38 @@ main {
     color: #3F51B5;
 }
 
+.nav li.inactive,
+.nav li.inactive:hover {
+    background: white;
+}
+
+.nav li.inactive a {
+    color: #727272;
+}
+
 .nav li.active,
 .nav li:hover {
-    background: rgba(0, 0, 0, 0.05);;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.sub-nav {
+    padding: 0;
+    list-style: none;
+}
+
+.sub-nav li {
+    display: block;
+    padding-left: 64px;
+}
+
+.side-line {
+    position: absolute;
+    left: 40px;
+    margin: 0;
+    border: 0;
+    height: 44px;
+    width: 2px;
+    background: #727272;
 }
 
 /* ---- navigation bar footer ---- */

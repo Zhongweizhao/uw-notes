@@ -10,18 +10,24 @@
     <nav id="menu" class="active">
         <div class="menu-inner flex-row-vertical">
             <ul class="nav flex-col">
-                <li class="active">
+                <li class="inactive">
                     <a href="#">
-                        <i class="fa fa-home fa-lg fa-fw" aria-hidden="true"></i>Home</a>
+                        <i class="fa fa-archive fa-lg fa-fw" aria-hidden="true"></i>Lectures</a>
                 </li>
-                <li>
+                <ul id="lecture-list" class="sub-nav">
+                    <li><div class="side-line"></div><a href="#">Lecture 1</a></li>
+                    <li><div class="side-line"></div><a href="#">Lecture 2</a></li>
+                    <li><div class="side-line"></div><a href="#">Lecture 3</a></li>
+                </ul>
+                <li class="inactive">
                     <a href="#">
-                        <i class="fa fa-archive fa-lg fa-fw" aria-hidden="true"></i>About</a>
+                        <i class="fa fa-archive fa-lg fa-fw" aria-hidden="true"></i>Tutorials</a>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-address-card fa-lg fa-fw" aria-hidden="true"></i>Contact</a>
-                </li>
+                <ul id="tutorial-list" class="sub-nav">
+                    <li><div class="side-line"></div><a href="#">Tutorial 1</a></li>
+                    <li><div class="side-line"></div><a href="#">Tutorial 2</a></li>
+                    <li><div class="side-line"></div><a href="#">Tutorial 3</a></li>
+                </ul>
             </ul>
             <footer>
                 <p>Zhongwei &copy; 2017</p>
@@ -33,7 +39,6 @@
             <div class="flex-row">
                 <a href="javascript:;" id="menuToggle" class="header-icon waves-effect waves-circle waves-light"><i class="fa fa-bars fa-lg" aria-hidden="true"></i></a>
                 <div id="header-title" class="flex-col header-title">MATH 146</div>
-                <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light"><i class="fa fa-code-fork fa-lg" aria-hidden="true"></i></a>
             </div>
         </header>
         <header class="content-header">
@@ -157,6 +162,7 @@
         <i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i>
     </a>
     <script type="text/javascript" src="js/waves.js"></script>
+    <script type="text/javascript" src="js/markdown.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" async
       src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
