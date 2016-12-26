@@ -6,6 +6,8 @@
         menuToggle = d.getElementById("menuToggle"),
         mask = d.getElementById("mask"),
         topheader = d.getElementById("top-header"),
+        header_title = d.getElementById("header-title"),
+        loading = d.getElementById('loading'),
         animate = w.requestAnimationFrame,
         ua = navigator.userAgent,
         isMD = ua.indexOf('Mobile') !== -1 || ua.indexOf('Android') !== -1 || ua.indexOf('iPhone') !== -1 || ua.indexOf('iPad') !== -1 || ua.indexOf('KFAPWI') !== -1,
@@ -39,8 +41,10 @@
         fixedHeader: function(top) {
             if (top > topheader.clientHeight) {
                 topheader.classList.add('fixed');
+                header_title.classList.add('fixed');
             } else {
                 topheader.classList.remove('fixed');
+                header_title.classList.remove('fixed');
             }
         },
     }
@@ -64,6 +68,10 @@
         Content.toggleGotop(top);
         Content.fixedHeader(top);
     }, false);
+
+    w.addEventListener('load', function() {
+        loading.classList.remove('active');
+    });
 
 
     Waves.init();
