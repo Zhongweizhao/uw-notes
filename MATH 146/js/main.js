@@ -8,6 +8,7 @@
         topheader = d.getElementById("top-header"),
         header_title = d.getElementById("header-title"),
         loading = d.getElementById('loading'),
+        header_icon = d.getElementsByClassName("header-icon")
         animate = w.requestAnimationFrame,
         ua = navigator.userAgent,
         isMD = ua.indexOf('Mobile') !== -1 || ua.indexOf('Android') !== -1 || ua.indexOf('iPhone') !== -1 || ua.indexOf('iPad') !== -1 || ua.indexOf('KFAPWI') !== -1,
@@ -73,8 +74,20 @@
         loading.classList.remove('active');
     });
 
+    for (var i=0; i<header_icon.length;i++) {
+        header_icon[i].addEventListener("mouseenter", function() {
+            event.target.classList.add("waves-float");
+        });
+    }
+
+    for (var i=0; i<header_icon.length;i++) {
+        header_icon[i].addEventListener("mouseleave", function() {
+            event.target.classList.remove("waves-float");
+        });
+    }
+
     function unescapeHTML(escapedHTML) {
-      return escapedHTML.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
+      return escapedHTML.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&').replace(/&quot;/g,'"');
     }
 
     md = window.markdownit();
