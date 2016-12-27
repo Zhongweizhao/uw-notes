@@ -1,12 +1,13 @@
 * {
-margin: 0;
-padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 html,
 body {
   position: relative;
   min-height: 100%;
+  font-size: 100%;
 }
 
 a {
@@ -649,18 +650,17 @@ main {
 
 .sub-nav li {
     display: block;
-    padding-left: 64px;
+    margin-left: 40px;
+    padding-left: 36px;
+    overflow: hidden;
+    border-left: 1px solid #727272;
 }
 
-.side-line {
-    position: absolute;
-    left: 40px;
-    margin: 0;
-    border: 0;
-    height: 44px;
-    width: 2px;
-    background: #727272;
+.sub-nav li a {
+    padding-left: 0;
 }
+
+
 
 /* ---- navigation bar footer ---- */
 
@@ -669,7 +669,7 @@ main {
     width: 100%:auto;
     font-size: 12px;
     padding: 10px 20px;
-    border-top: 1px solid #dadada;
+    border-top: 2px solid #dadada;
 }
 
 
@@ -1360,4 +1360,44 @@ main {
     a:after {
         content: "( "attr(href)" )";
     }
+}
+
+/* ---- anchor ---- */
+
+.anchor {
+    display: block;
+    position: relative;
+    top: -70px;
+    visibility: hidden;
+}
+
+.anchor-link {
+    display: block;
+    position: absolute;
+    left: -24px;
+    opacity: 0;
+    font-size: 20px;
+    font-size: 20px;
+    padding: 4px 10px 0 0;
+}
+
+.anchor-link-disabled {
+    display: block;
+    position: absolute;
+    left: -24px;
+    opacity: 0;
+    font-size: 20px;
+    font-size: 20px;
+    padding: 4px 10px 0 0;
+    cursor: default;
+}
+
+
+
+
+.anchor-link:hover,
+.anchor-link:active,
+.anchor-tag:hover .anchor-link,
+.anchor-tag:active .anchor-link {
+    opacity: 1;
 }
