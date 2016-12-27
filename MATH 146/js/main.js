@@ -213,7 +213,7 @@
            document.getElementById("markdown-code").innerHTML = "Failed to fetch notes.";
        }
     };
-    xhttp.open("GET", "http://138.197.131.180:9999/notes.md", true);
+    xhttp.open("GET", "notes.md", true);
     xhttp.send();
 
 
