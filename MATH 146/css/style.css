@@ -1389,6 +1389,13 @@ main {
     cursor: default;
 }
 
+@media screen and (max-width: 760px) {
+    .anchor-link,
+    .anchor-link-disabled {
+        display: none;
+    }
+}
+
 
 
 
