@@ -1,200 +1,133 @@
 ## Lecture 1
 
-### Addition
+### Increasing Function Theorem
+<span class="theorem">
+Assume that $f(x)$ is continuous on $[a,b]$ and differentiable on $(a,b)$ with $f'(x) \geq 0$ ($f'(x) > 0$) for all $x\in (a,b)$, then $f(x)$ is (strictly) increasing on $(a,b)$.
+</span>
 
-$f(x) = \int_0^4 x^2$
+### Comparison Theorem
+<span class="theorem">
+Assume that $f$ and $g$ are differentiable on $(a,b)$ and continuous on $[a,b]$. If $f(a) = g(a)$ and if $f'(x)<g'(x)$ for all $x \in (a,b)$, then $f(x) < g(x)$ for all $x \in (a,b]$.
+</span>
 
-$$f(x) = \int_0^4 x^2\RR \binom{1}{2}\abs{x+y}\rightarrowtail\eqslantless$$
+### Classifying Critical Points
 
-we have `\(x_1 = 132\)` and `\(x_2 = 370\)` and so
+### First Derivative Test
+<span class="theorem">
+Assume that $f'(c) = 0$
 
-### Multiplication
+1. Assume that there exists an open interval $(a,b)$ containing $c$ with $f'(x) \geq 0$ for all $a<x<c$ and $f'(x) \leq 0$ for all $c<x<b$, then $x=c$ is a local maximum.
 
-$f(x) = \int_0^4 x^2$
+2. Assume that there exists an open interval $(a,b)$ containing $c$ with $f'(x) \leq 0$ for all $a<x<c$ and $f'(x) \geq 0$ for all $c<x<b$, then $x=c$ is a local minimum.
 
-$$f(x) = \int_0^4 x^2\RR \binom{1}{2}\abs{x+y}\rightarrowtail\eqslantless$$
+</span>
 
-we have `\(x_1 = 132\)` and `\(x_2 = 370\)` and so
+<span class="proof">
+Let $a < x_0 < c$. Then Mean Value Theorem holds on $[x_0,c]$. There exists $d_1 \in (x_0 ,c)$ with $$\frac{f(x_0) - f(c)}{x_0 - c} = f'(d_1) \geq 0.$$ Then $f(x_0) \leq f(c)$ since $x_0 - c < 0$. Similarly we prove the other parts of the theorem.
+</span>
+
+### Second Derivative Test
+<span class="theorem">
+Assume that $f'(c) = 0$ and that $f''(x)$ is continuous at $x=c$.
+1. If $f''(c) > 0$, then $x = c$ is a local minimum
+2. If $f''(c) < 0$, then $x= c$ is a local maximum
+</span>
+
+<span class="proof">
+Assume that $f'(c) = 0$ and that $f''(x)$ is continuous at $x=c$.
+
+1. Assume $f''(x) > 0$. Since $f''(x)$ is continuous at $x=c$, there is an open interval $(c-\delta, c+\delta)$ on which $f''(x) > 0$. Hence $f'(x)$ is strictly increasing on $(c-\delta,c+\delta)$. But $f'(c) <0$, then $f'(x) < 0$ on $(c-\delta , c)$ and $f'(c) > 0$ on $(c,c+\delta)$. Then we apply the First Derivative Test.
+
+</span>
+
+### Concavity
+<span class="definition">
+We say that a function $f(x)$ which is continuous on an interval $I$ is concave up on $I$ if for every $a< b$, $a,b \in I$, we have
+$$h(x) = f(a) + \frac{f(b) - f(a)}{b-a} - f(x) \geq 0 \text{ on }(a,b)$$
+We say that a function $f(x)$ is concave down on $I$ if for every $a< b$, $a,b \in I$, we have
+$$h(x) = f(a) + \frac{f(b) - f(a)}{b-a} - f(x) \leq 0 \text{ on }(a,b)$$
+</span>
+
+### Concavity Theorem
+<span class="theorem">
+1. Assume that $f''(x) > 0$ for all $x\in I$ then $f(x)$ is concave up on $I$.
+2. Assume that $f''(x) < 0$ for all $x\in I$ then $f(x)$ is concave down on $I$.
+</span>
 
 ## Lecture 2
 
-### Riemann Zeta Function
+<span class="example">
+Let
+$$f(x) = \begin{cases}
+\frac{\sin x}{x} & \text{ if }x\neq 0\\
+1 \text{ if } x=0
+\end{cases}
+$$
+</span>
 
-<div class="theorem">
-    The Riemann zeta function is defined for complex $s$
-    with real part greater than $1$ by the absolutely convergent infinite series
-    \begin{align*}
-        \zeta(s) = & \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots \\
-        = & \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots \\
-        = & \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots \\
-    \end{align*}
-</div>
 
-### Riemann Zeta function
+<span class="solution">
+From Taylor's Theorem we get $$\abs{\sin h - h } \leq \frac{\abs{h^3}}{6}$$
+Then $$\abs{\frac{\sin h}{h} -1} \leq \frac{\abs{h^3}}{6}$$
+Then $$\abs{\frac{\frac{\sin h}{h}-1}{h} - 0}\leq \frac{\abs{h}}{6}$$
+By Squeeze Theorem
+$$\lim_{x\to 0} \frac{\frac{\sin h}{h}-1}{h} - 0 = f'(0) = 0$$
+</span>
 
+### Approximation Theorem
+<span class="theorem">
+Assume that there exists a $\delta > 0$ such that $\abs{f^{(n+1)}(x)} \leq M$ for all $x\in (a-\delta, a+\delta)$, then for each $x\in (a-\delta,a+\delta)$ we have $$\abs{f(x) - P_{n,a} (x)} \leq \frac{M}{(n+1)!}\abs{(x-a)^{n+1}}$$
+</span>
+
+
+### Big-O notation
+<span class="definition">
+Let $a\in \mathbb{R}$. Given $f,g$ we say that $f(x) = O(g(x))$ as x approaches $a$ if there exists $0<\delta \leq 1$ with
+$$\abs{f(x)}\leq M\abs{f(x)} \text{ for all } x\in(a-\delta,a+\delta)$$ except possibly at $x=a$.
+</span>
+
+<span class="theorem">
+If There exists a $0< \delta \leq 1$ such that $f^{(n+1)}(x)$ is continuous on $[-\delta,\delta]$, then $$f(x) - P_{n,a}(x) = O(x^{n+1})$$ and we write $f(x) = P_{n,a}(x) + O(x^{n+1})$.
+</span>
+
+<span class="proof">
+Since $f^{(n+1)}(x)$ is continuous on $[-\delta,\delta]$, the Extreme Value Theorem show that there exists $M$ with $\abs{f^{(n+1)}(x)} \leq M$ for all $x\in [-\delta, \delta]$. Hence by the Approximation Theorem,
+$$\abs{f(x) - P_{n,a}(x)}\leq \frac{M}{(n+1)!}\abs{x^{n+1}}$$ Then $f(x) = P_{n,a}(x) + O(x^{n+1})$.
+</span>
+
+### Arithmetic Rules for Big-O
+<span class="theorem">
+Assume that $f= O(x^n)$, $g = O(x^m)$.
+- $cf(x) = O(x^n)$
+- $f(x) + g(x) = O(x^{\operatorname{min} (m,n)})$
+- $f(x)\cdot g(x) = O(x^{m+n})$
+- $x^k\cdot f(x) = O(x^{n+k})$
+- $(f(x))^k = O(x^{nk})$
+</span>
+
+<span class="proof">
+On $[-\delta,\delta]$, $\abs{f(x)} \leq M_1\abs{x^n}$, $\abs{g(x)} \leq M_2 \abs{x^n}$
+Then $$\abs{f(x) + g(x)} \leq \abs{f(x)} + \abs{g(x)} \leq M_1 \abs{x^n} + M_2 \abs{x^m} \leq M_1 \abs{x^{\operatorname{min} (m,n)}} + M_2 \abs{x^{\operatorname{min} (m,n)}} = (M_1 + M_2) \abs{x^{\operatorname{min} (m,n)}}$$
+</span>
+
+
+<span class="lemma">
+Let $p(x) = a_0 + a_1x+ \cdots a_nx^n$. Assume that $p(x) = O(x^{n+1})$, then $p(x) = 0$.
+</span>
+
+<span class="proof">
+Prove by induction.
+</span>
+
+<span class="theorem">
+Assume that $f^{(n+1)}(x)$ is continuous on $[-\delta,\delta]$. If $p(x) = a_0 + a_1x+\cdots a_nx^n$ is such that $f(x) = p(x) + O(x^{n+1})$, then $p(x) = P_{n,0}(x)$.
+</span>
+
+<span class="proof">
 \begin{align*}
-A &= B \\ &= C \\ &= D
+    p(x) - P_{n,a} (x) = & (p(x) - f(x)) + (f(x) - P_{n,0}(x))\\
+    = & O(x^{m+1}) + O(x^{m+1})\\
+    = & O(x^{m+1})
 \end{align*}
-
-<div class="lemma">
-    The Riemann zeta function is defined for complex $s$
-    with real part greater than
-    $1$ by the absolutely convergent infinite series
-    $$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots.$$
-</div>
-
-### Riemann Zeta function
-
-<div class="proof">
-    The Riemann zeta function is defined for complex $s$
-    with real part greater than
-    $1$ by the absolutely convergent infinite series
-    $$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots.$$
-</div>
-<div class="remark">
-    The Riemann zeta function is defined for complex $s$
-    with real part greater than
-    $1$ by the absolutely convergent infinite series
-    $$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots.$$
-</div>
-
-
-## Lecture 3
-
-### Convex
-
-<div class="definition">
-A set $C$ is *convex* if for all
-$x,y \in C$ and for all
-$\alpha \in [0,1]$ the point
-$\alpha x + (1-\alpha) y \in C$.
-</div>
-<div class="theorem">
-There are no natural numbers
-$\mathbb{N} = (1, 2, 3, \ldots)$
-$x$, $y$, and $z$ such that
-$x^n + y^n = z^n$, in which $n$
-is a natural number greater than 2.
-</div>
-<div class="proof">
-There are no natural numbers
-$\mathbb{N} = (1, 2, 3, \ldots)$
-$x$, $y$, and $z$ such that
-$x^n + y^n = z^n$, in which $n$
-is a natural number greater than 2.
-</div>
-<div class="theorem">
-    The Riemann zeta function is defined for complex $s$
-    with real part greater than $1$ by the absolutely convergent infinite series
-    $$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots.$$
-</div>
-<div class="lemma">
-    The Riemann zeta function is defined for complex $s$
-    with real part greater than
-    $1$ by the absolutely convergent infinite series
-    $$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots.$$
-</div>
-<div class="proof">
-    The Riemann zeta function is defined for complex $s$
-    with real part greater than
-    $1$ by the absolutely convergent infinite series
-    $$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots.$$
-</div>
-<div class="remark">
-    The Riemann zeta function is defined for complex $s$
-    with real part greater than
-    $1$ by the absolutely convergent infinite series
-    $$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots.$$
-</div>
-
-## Lecture 4
-
-<div class="definition">
-A set $C$ is *convex* if for all
-$x,y \in C$ and for all
-$\alpha \in [0,1]$ the point
-$\alpha x + (1-\alpha) y \in C$.
-</div>
-<div class="theorem">
-There are no natural numbers
-$\mathbb{N} = (1, 2, 3, \ldots)$
-$x$, $y$, and $z$ such that
-$x^n + y^n = z^n$, in which $n$
-is a natural number greater than 2.
-</div>
-<div class="proof">
-There are no natural numbers
-$\mathbb{N} = (1, 2, 3, \ldots)$
-$x$, $y$, and $z$ such that
-$x^n + y^n = z^n$, in which $n$
-is a natural number greater than 2.
-</div>
-<div class="theorem">
-    The Riemann zeta function is defined for complex $s$
-    with real part greater than $1$ by the absolutely convergent infinite series
-    $$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots.$$
-</div>
-<div class="lemma">
-    The Riemann zeta function is defined for complex $s$
-    with real part greater than
-    $1$ by the absolutely convergent infinite series
-    $$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots.$$
-</div>
-<div class="proof">
-    The Riemann zeta function is defined for complex $s$
-    with real part greater than
-    $1$ by the absolutely convergent infinite series
-    $$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots.$$
-</div>
-<div class="remark">
-    The Riemann zeta function is defined for complex $s$
-    with real part greater than
-    $1$ by the absolutely convergent infinite series
-    $$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots.$$
-</div>
-
-## Lecture 5
-
-<div class="definition">
-A set $C$ is *convex* if for all
-$x,y \in C$ and for all
-$\alpha \in [0,1]$ the point
-$\alpha x + (1-\alpha) y \in C$.
-</div>
-<div class="theorem">
-There are no natural numbers
-$\mathbb{N} = (1, 2, 3, \ldots)$
-$x$, $y$, and $z$ such that
-$x^n + y^n = z^n$, in which $n$
-is a natural number greater than 2.
-</div>
-<div class="proof">
-There are no natural numbers
-$\mathbb{N} = (1, 2, 3, \ldots)$
-$x$, $y$, and $z$ such that
-$x^n + y^n = z^n$, in which $n$
-is a natural number greater than 2.
-</div>
-<div class="theorem">
-    The Riemann zeta function is defined for complex $s$
-    with real part greater than $1$ by the absolutely convergent infinite series
-    $$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots.$$
-</div>
-<div class="lemma">
-    The Riemann zeta function is defined for complex $s$
-    with real part greater than
-    $1$ by the absolutely convergent infinite series
-    $$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots.$$
-</div>
-<div class="proof">
-    The Riemann zeta function is defined for complex $s$
-    with real part greater than
-    $1$ by the absolutely convergent infinite series
-    $$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots.$$
-</div>
-<div class="remark">
-    The Riemann zeta function is defined for complex $s$
-    with real part greater than
-    $1$ by the absolutely convergent infinite series
-    $$\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \cdots.$$
-</div>
+Then by the lemma, we have $p(x) - P_{n,a} (x) = 0$.
+</span>
