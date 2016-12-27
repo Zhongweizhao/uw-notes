@@ -86,12 +86,22 @@
         });
     }
 
+    String.prototype.replaceAll = function(search, replacement) {
+        var target = this;
+        return target.split(search).join(replacement);
+    };
+
     function unescapeHTML(escapedHTML) {
-      return escapedHTML.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&').replace(/&quot;/g,'"');
+      return escapedHTML.replace(/&lt;/g,'<')
+      .replace(/&gt;/g,'>')
+      .replace(/&amp;/g,'&')
+      .replace(/&quot;/g,'"')
+      .replace(/&#92;/g,'\\');
     }
 
     var md = window.markdownit();
     var m = document.getElementById("markdown-code").innerHTML;
+    m = m.replaceAll("\\", "&#92;");
     result = md.render(m);
     result = unescapeHTML(result);
     document.getElementById("content").innerHTML = result;
@@ -114,11 +124,6 @@
             return str;
         }
     }
-
-    String.prototype.replaceAll = function(search, replacement) {
-        var target = this;
-        return target.split(search).join(replacement);
-    };
 
 
     var h2s = d.getElementsByTagName("h2");

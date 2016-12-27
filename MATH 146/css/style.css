@@ -391,9 +391,6 @@ html {
 
 
 /* ---- header ---- */
-.html {
-    font-family:
-}
 
 .top-header {
     position: fixed;
@@ -666,7 +663,7 @@ main {
 
 #menu footer {
     position: relative;
-    width: 100%:auto;
+    width: 100% auto;
     font-size: 12px;
     padding: 10px 20px;
     border-top: 2px solid #dadada;
@@ -1400,4 +1397,12 @@ main {
 .anchor-tag:hover .anchor-link,
 .anchor-tag:active .anchor-link {
     opacity: 1;
+}
+
+
+/* ---- mathjax overflow ---- */
+
+.MathJax_SVG_Display {
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
