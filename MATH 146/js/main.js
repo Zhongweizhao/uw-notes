@@ -50,7 +50,7 @@
         },
     }
 
-    menuToggle.addEventListener(even, function(e) {
+    menuToggle.addEventListener("mouseup", function(e) {
         Content.toggleMenu(true);
         e.preventDefault();
     });
@@ -60,7 +60,7 @@
         mask.classList.remove('in');
     });
 
-    gotop.addEventListener(even, function() {
+    gotop.addEventListener("mouseup", function() {
         animate(Content.goTop);
     }, false);
 
