@@ -96,67 +96,6 @@
       .replace(/&#92;/g,'\\');
     }
 
-    var md = window.markdownit();
-    var m = document.getElementById("markdown-code").innerHTML;
-    m = m.replaceAll("\\", "&#92;");
-    result = md.render(m);
-    result = unescapeHTML(result);
-    document.getElementById("content").innerHTML = result;
-
-    function idUnique(str) {
-        if (d.getElementById(str)) {
-            return idWithNumberUnique(str + "-1");
-        } else {
-            return str;
-        }
-    }
-
-    function idWithNumberUnique(str) {
-        if (d.getElementById(str)) {
-            number = parseInt(/-\d*$/.exec(str)[0].slice(1));
-            number += 1;
-            number = "-" + number.toString();
-            return idWithNumberUnique(str.slice(0,-2) + number);
-        } else {
-            return str;
-        }
-    }
-
-
-    var h2s = d.getElementsByTagName("h2");
-    var h3s = d.getElementsByTagName("h3");
-
-    for (var i=0; i<h2s.length; i++) {
-        var newA = d.createElement("a");
-        var anchorlinkA = d.createElement("a");
-        var newI = d.createElement("i");
-        newI.classList.add("fa", "fa-link");
-        anchorlinkA.setAttribute("href", "#" + idUnique(h2s[i].textContent.toLowerCase().replaceAll(" ", "-")));
-        anchorlinkA.appendChild(newI);
-        anchorlinkA.classList.add("anchor-link");
-        newA.setAttribute("id", idUnique(h2s[i].textContent.toLowerCase().replaceAll(" ", "-")));
-        newA.classList.add("anchor");
-        h2s[i].classList.add("anchor-tag");
-        h2s[i].appendChild(newA);
-        h2s[i].insertBefore(anchorlinkA, h2s[i].childNodes[0]);
-    }
-
-    for (var i=0; i<h3s.length; i++) {
-        var newA = d.createElement("a");
-        var anchorlinkA = d.createElement("a");
-        var newI = d.createElement("i");
-        newI.classList.add("fa", "fa-link");
-        anchorlinkA.setAttribute("href", "#" + idUnique(h3s[i].textContent.toLowerCase().replaceAll(" ", "-")));
-        anchorlinkA.appendChild(newI);
-        anchorlinkA.classList.add("anchor-link-disabled");
-        newA.setAttribute("id", idUnique(h3s[i].textContent.toLowerCase().replaceAll(" ", "-")));
-        newA.classList.add("anchor");
-        h3s[i].classList.add("anchor-tag");
-        h3s[i].appendChild(newA);
-        h3s[i].insertBefore(anchorlinkA, h3s[i].childNodes[0]);
-    }
-
-
     function proc_toc(item, list) {
         if (item.tagName == "H2"){
             var newI = d.createElement("i");
@@ -187,21 +126,93 @@
         }
     }
 
-    var toc = document.getElementById("content").querySelectorAll("h2, h3");
-    var toc_list = document.getElementById("table-of-content");
-
-    for (var i=0; i<toc.length; i++) {
-        proc_toc(toc[i], toc_list);
+    function idUnique(str) {
+        if (d.getElementById(str)) {
+            return idWithNumberUnique(str + "-1");
+        } else {
+            return str;
+        }
     }
 
-    var toc_links = document.getElementsByClassName("toc-link");
-
-    for (var i=0; i<toc_links.length;i++) {
-        toc_links[i].addEventListener(even, function(e) {
-            menu.classList.remove('show');
-            mask.classList.remove('in');
-        });
+    function idWithNumberUnique(str) {
+        if (d.getElementById(str)) {
+            number = parseInt(/-\d*$/.exec(str)[0].slice(1));
+            number += 1;
+            number = "-" + number.toString();
+            return idWithNumberUnique(str.slice(0,-2) + number);
+        } else {
+            return str;
+        }
     }
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+           // Typical action to be performed when the document is ready:
+           document.getElementById("markdown-code").innerHTML = xhttp.responseText;
+
+           var md = window.markdownit();
+           var m = document.getElementById("markdown-code").innerHTML;
+           m = m.replaceAll("\\", "&#92;");
+           result = md.render(m);
+           result = unescapeHTML(result);
+           document.getElementById("content").innerHTML = result;
+
+           var h2s = d.getElementsByTagName("h2");
+           var h3s = d.getElementsByTagName("h3");
+
+           for (var i=0; i<h2s.length; i++) {
+               var newA = d.createElement("a");
+               var anchorlinkA = d.createElement("a");
+               var newI = d.createElement("i");
+               newI.classList.add("fa", "fa-link");
+               anchorlinkA.setAttribute("href", "#" + idUnique(h2s[i].textContent.toLowerCase().replaceAll(" ", "-")));
+               anchorlinkA.appendChild(newI);
+               anchorlinkA.classList.add("anchor-link");
+               newA.setAttribute("id", idUnique(h2s[i].textContent.toLowerCase().replaceAll(" ", "-")));
+               newA.classList.add("anchor");
+               h2s[i].classList.add("anchor-tag");
+               h2s[i].appendChild(newA);
+               h2s[i].insertBefore(anchorlinkA, h2s[i].childNodes[0]);
+           }
+
+           for (var i=0; i<h3s.length; i++) {
+               var newA = d.createElement("a");
+               var anchorlinkA = d.createElement("a");
+               var newI = d.createElement("i");
+               newI.classList.add("fa", "fa-link");
+               anchorlinkA.setAttribute("href", "#" + idUnique(h3s[i].textContent.toLowerCase().replaceAll(" ", "-")));
+               anchorlinkA.appendChild(newI);
+               anchorlinkA.classList.add("anchor-link-disabled");
+               newA.setAttribute("id", idUnique(h3s[i].textContent.toLowerCase().replaceAll(" ", "-")));
+               newA.classList.add("anchor");
+               h3s[i].classList.add("anchor-tag");
+               h3s[i].appendChild(newA);
+               h3s[i].insertBefore(anchorlinkA, h3s[i].childNodes[0]);
+           }
+
+           var toc = document.getElementById("content").querySelectorAll("h2, h3");
+           var toc_list = document.getElementById("table-of-content");
+
+           for (var i=0; i<toc.length; i++) {
+               proc_toc(toc[i], toc_list);
+           }
+
+           var toc_links = document.getElementsByClassName("toc-link");
+
+           for (var i=0; i<toc_links.length;i++) {
+               toc_links[i].addEventListener(even, function(e) {
+                   menu.classList.remove('show');
+                   mask.classList.remove('in');
+               });
+           }
+
+       } else {
+           document.getElementById("markdown-code").innerHTML = "Failed to fetch notes.";
+       }
+    };
+    xhttp.open("GET", "notes.md", true);
+    xhttp.send();
 
 
     Waves.init();
