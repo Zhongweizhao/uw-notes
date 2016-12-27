@@ -463,8 +463,8 @@ html {
   background: #FF4081;
 }
 #loading.active {
-  -webkit-animation: loading-anim 1s ease-in-out infinite;
-  animation: loading-anim 1s ease-in-out infinite;
+  -webkit-animation: loading-anim 2s ease-in-out infinite;
+  animation: loading-anim 2s ease-in-out infinite;
 }
 @-webkit-keyframes loading-anim {
   to {

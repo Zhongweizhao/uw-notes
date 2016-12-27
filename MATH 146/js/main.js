@@ -70,9 +70,6 @@
         Content.fixedHeader(top);
     }, false);
 
-    w.addEventListener('load', function() {
-        loading.classList.remove('active');
-    });
 
     for (var i=0; i<header_icon.length;i++) {
         header_icon[i].addEventListener("mouseenter", function() {
