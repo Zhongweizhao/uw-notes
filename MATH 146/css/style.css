@@ -600,7 +600,8 @@ main {
 .nav {
     padding: 12px 0;
     list-style: none;
-    overflow-y: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     line-height: 44px;
 }
 
@@ -659,6 +660,14 @@ main {
 
 .sub-nav li a {
     padding-left: 0;
+}
+
+
+@media screen and (max-width: 760px) {
+    .nav li.active,
+    .nav li:hover {
+        background: #FFF;
+    }
 }
 
 
