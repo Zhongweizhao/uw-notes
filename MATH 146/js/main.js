@@ -70,6 +70,11 @@
         Content.fixedHeader(top);
     }, false);
 
+    w.addEventListener('resize', function() {
+        menu.classList.remove('show');
+        mask.classList.remove('in');
+    });
+
 
     for (var i=0; i<header_icon.length;i++) {
         header_icon[i].addEventListener("mouseenter", function() {
