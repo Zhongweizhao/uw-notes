@@ -1404,5 +1404,6 @@ main {
 
 .MathJax_SVG_Display {
     overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
     overflow-y: hidden;
 }
