@@ -107,6 +107,7 @@
             newA.classList.add("toc-link");
             newA.insertBefore(newI, newA.childNodes[0]);
             newA.setAttribute("href", item.firstChild.getAttribute("href"));
+            newLi.classList.add("waves-block", "waves-effect");
             newLi.appendChild(newA);
             list.appendChild(newLi);
         } else {
@@ -118,6 +119,7 @@
             newA.setAttribute("href", item.firstChild.getAttribute("href"));
             newA.classList.add("toc-link");
             newA.innerHTML = item.textContent;
+            newLi.classList.add("waves-block", "waves-effect");
             newLi.appendChild(newDiv);
             newLi.appendChild(newA);
             newUl.classList.add("sub-nav");
@@ -201,7 +203,7 @@
            var toc_links = document.getElementsByClassName("toc-link");
 
            for (var i=0; i<toc_links.length;i++) {
-               toc_links[i].addEventListener(even, function(e) {
+               toc_links[i].addEventListener("mouseup", function() {
                    menu.classList.remove('show');
                    mask.classList.remove('in');
                });
@@ -211,7 +213,7 @@
            document.getElementById("markdown-code").innerHTML = "Failed to fetch notes.";
        }
     };
-    xhttp.open("GET", "notes.md", true);
+    xhttp.open("GET", "http://138.197.131.180:9999/notes.md", true);
     xhttp.send();
 
 
