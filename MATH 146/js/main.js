@@ -93,12 +93,39 @@
         return target.split(search).join(replacement);
     };
 
-    function unescapeHTML(escapedHTML) {
-      return escapedHTML.replace(/&lt;/g,'<')
-      .replace(/&gt;/g,'>')
-      .replace(/&amp;/g,'&')
-      .replace(/&quot;/g,'"')
+    function unescapeHTML(str) {
+      return str.replace(/&lt;/g,'\<')
+      .replace(/&gt;/g,'\>')
+      .replace(/&amp;/g,'\&')
+      .replace(/&quot;/g,'\"')
       .replace(/&#92;/g,'\\');
+    }
+
+    function escapeHTML(str) {
+        return str.replace(/\</g,'&lt;')
+        .replace(/\>/g,'&gt;')
+        .replace(/\&/g,'&amp;')
+        .replace(/\"/g,'&quot;')
+        .replace(/\\/g,'&#92;');
+    }
+
+    function unescaleSPAN(str) {
+        return str.replace(/&lt;span class="theorem"&gt;/g, '<span class="theorem">')
+        .replace(/&lt;span class="lemma"&gt;/g, '<span class="lemma">')
+        .replace(/&lt;span class="proposition"&gt;/g, '<span class="proposition">')
+        .replace(/&lt;span class="corollary"&gt;/g, '<span class="corollary">')
+        .replace(/&lt;span class="definition"&gt;/g, '<span class="definition">')
+        .replace(/&lt;span class="example"&gt;/g, '<span class="example">')
+        .replace(/&lt;span class="axiom"&gt;/g, '<span class="axiom">')
+        .replace(/&lt;span class="question"&gt;/g, '<span class="question">')
+        .replace(/&lt;span class="exercise"&gt;/g, '<span class="exercise">')
+        .replace(/&lt;span class="note"&gt;/g, '<span class="note">')
+        .replace(/&lt;span class="notation"&gt;/g, '<span class="notation">')
+        .replace(/&lt;span class="remark"&gt;/g, '<span class="remark">')
+        .replace(/&lt;span class="claim"&gt;/g, '<span class="claim">')
+        .replace(/&lt;span class="solution"&gt;/g, '<span class="solution">')
+        .replace(/&lt;span class="proof"&gt;/g, '<span class="proof">')
+        .replace(/&lt;\/span&gt;/g, '</span>');
     }
 
     function proc_toc(item, list) {
@@ -156,13 +183,13 @@
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
            // Typical action to be performed when the document is ready:
-           document.getElementById("markdown-code").innerHTML = xhttp.responseText;
+           document.getElementById("markdown-code").innerHTML = escapeHTML(xhttp.responseText);
 
            var md = window.markdownit();
            var m = document.getElementById("markdown-code").innerHTML;
            m = m.replaceAll("\\", "&#92;");
            result = md.render(m);
-           result = unescapeHTML(result);
+           result = unescaleSPAN(unescapeHTML(result));
            document.getElementById("content").innerHTML = result;
 
            var h2s = d.getElementsByTagName("h2");
