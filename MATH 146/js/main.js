@@ -182,7 +182,7 @@
            // Typical action to be performed when the document is ready:
            document.getElementById("markdown-code").innerHTML = xhttp.responseText;
 
-           var md = window.markdownit()({
+           var md = window.markdownit({
                 html: true
            });
            var m = document.getElementById("markdown-code").innerHTML
