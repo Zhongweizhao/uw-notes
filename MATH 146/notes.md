@@ -1,133 +1,185 @@
 ## Lecture 1
 
-### Increasing Function Theorem
-<span class="theorem">
-Assume that $f(x)$ is continuous on $[a,b]$ and differentiable on $(a,b)$ with $f'(x) \geq 0$ ($f'(x) > 0$) for all $x\in (a,b)$, then $f(x)$ is (strictly) increasing on $(a,b)$.
-</span>
+Major theme of 146 
 
-### Comparison Theorem
-<span class="theorem">
-Assume that $f$ and $g$ are differentiable on $(a,b)$ and continuous on $[a,b]$. If $f(a) = g(a)$ and if $f'(x)<g'(x)$ for all $x \in (a,b)$, then $f(x) < g(x)$ for all $x \in (a,b]$.
-</span>
+- side-effects ("impurity")
+- Proggrams that __do__ things
+- imperative programming
 
-### Classifying Critical Points
+Using
 
-### First Derivative Test
-<span class="theorem">
-Assume that $f'(c) = 0$
+- impure racket
+- C
+- low-level machine
 
-1. Assume that there exists an open interval $(a,b)$ containing $c$ with $f'(x) \geq 0$ for all $a<x<c$ and $f'(x) \leq 0$ for all $c<x<b$, then $x=c$ is a local maximum.
+### Why functional first? Why not imperative first?
 
-2. Assume that there exists an open interval $(a,b)$ containing $c$ with $f'(x) \leq 0$ for all $a<x<c$ and $f'(x) \geq 0$ for all $c<x<b$, then $x=c$ is a local minimum.
+Imperative programming is harder
 
+**Side-effects**
+
+- text is printed to the screan
+- keystrokes collected from keyboard
+- values of variables change
+
+all change the state of the world
+
+- the state ofthe world effects the program
+
+**Example:** `(define (f x) (+ x y))` depends on the current value of y
+
+Thus the semantics of imperative programs must ake into account the current state of the world, even while changing the state of the world.
+
+=> temporal component inherent in analysis of imperative programs (not "what does this do?" but "what does it do at this point of time")
+
+### Why study imperative programming
+
+"the world is imperative"
+- machines work by mutating memory
+- even functional programs are eventually executed imperatively
+
+"... or is it?"
+
+Is "the world" constantly mutating, or is it constantly being reinvented?
+
+- when a character appears on the screen, does that change the world, or create a new world?
+
+Either way, imperative programming matches up with real-world experience
+
+- but a functional world view may offer a unique tale on side-effects
+
+### Prereq:
+
+- review
+- proof
+- big O
+- analysis
+- full racket
+- C
+- No seashell, use student.cs linux account
+
+
+### Recall from CS 145
+
+#### Structural recursion 
+
+The structure of the program matches the structure of the data
+
+**Example:** 
+```Scheme
+(define (fact n)
+    (if (= n 0)
+        1
+        (* n (fact (- n 1)))))
+```
+
+```Scheme
+(define (length l)
+    (cond ((empty? l) 0)
+        (else (+ 1 (length (rest l))))))
+```
+
+- The cases in the function matches the cases in the data definition. 
+- The revursive call uses arguments that are either the same or get one step closer to the base of the data type.
+
+If the recursion is structural, the structure of the program matches the structure of its correctness proof by induction.
+
+<span class="claim">
+`(length l)` produces the length of the list `l`.
 </span>
 
 <span class="proof">
-Let $a < x_0 < c$. Then Mean Value Theorem holds on $[x_0,c]$. There exists $d_1 \in (x_0 ,c)$ with $$\frac{f(x_0) - f(c)}{x_0 - c} = f'(d_1) \geq 0.$$ Then $f(x_0) \leq f(c)$ since $x_0 - c < 0$. Similarly we prove the other parts of the theorem.
-</span>
+Stuructural induction on `l`.
 
-### Second Derivative Test
-<span class="theorem">
-Assume that $f'(c) = 0$ and that $f''(x)$ is continuous at $x=c$.
-1. If $f''(c) > 0$, then $x = c$ is a local minimum
-2. If $f''(c) < 0$, then $x= c$ is a local maximum
-</span>
+**Case 1:** `l` is empty, `(length l)` produces empty.
 
-<span class="proof">
-Assume that $f'(c) = 0$ and that $f''(x)$ is continuous at $x=c$.
-
-1. Assume $f''(x) > 0$. Since $f''(x)$ is continuous at $x=c$, there is an open interval $(c-\delta, c+\delta)$ on which $f''(x) > 0$. Hence $f'(x)$ is strictly increasing on $(c-\delta,c+\delta)$. But $f'(c) <0$, then $f'(x) < 0$ on $(c-\delta , c)$ and $f'(c) > 0$ on $(c,c+\delta)$. Then we apply the First Derivative Test.
+**Case 2:** `l` is `(cons x l')`, assume that `(length l')` produces n, which is the length of `l'`, Then `(length l)` produces `(+ 1 n)` which is the length of 'l'. 
 
 </span>
 
-### Concavity
-<span class="definition">
-We say that a function $f(x)$ which is continuous on an interval $I$ is concave up on $I$ if for every $a< b$, $a,b \in I$, we have
-$$h(x) = f(a) + \frac{f(b) - f(a)}{b-a} - f(x) \geq 0 \text{ on }(a,b)$$
-We say that a function $f(x)$ is concave down on $I$ if for every $a< b$, $a,b \in I$, we have
-$$h(x) = f(a) + \frac{f(b) - f(a)}{b-a} - f(x) \leq 0 \text{ on }(a,b)$$
-</span>
+Correctness proof is just a restatement of the program itself.
 
-### Concavity Theorem
-<span class="theorem">
-1. Assume that $f''(x) > 0$ for all $x\in I$ then $f(x)$ is concave up on $I$.
-2. Assume that $f''(x) < 0$ for all $x\in I$ then $f(x)$ is concave down on $I$.
-</span>
+#### Accumulative recutsion 
 
-## Lecture 2
+One or more extra parameters that grow while the other parameters shrink.
+
+```Scheme
+(define (sum-list l)
+    (define (sum-list-help l acc)
+        (if (empty? l)
+            acc
+            (sum-list-help (rest l) (+ (first l) acc))))
+    (sum-list-help l 0))
+```
+
+Proof method: induction on an **invariant**.
 
 <span class="example">
-Let
-$$f(x) = \begin{cases}
-\frac{\sin x}{x} & \text{ if }x\neq 0\\
-1 \text{ if } x=0
-\end{cases}
-$$
+To prove that `(sum-list l)` sums l, it suffies to prove `(sum-list-help l 0)` sums l.
 </span>
 
 
-<span class="solution">
-From Taylor's Theorem we get $$\abs{\sin h - h } \leq \frac{\abs{h^3}}{6}$$
-Then $$\abs{\frac{\sin h}{h} -1} \leq \frac{\abs{h^3}}{6}$$
-Then $$\abs{\frac{\frac{\sin h}{h}-1}{h} - 0}\leq \frac{\abs{h}}{6}$$
-By Squeeze Theorem
-$$\lim_{x\to 0} \frac{\frac{\sin h}{h}-1}{h} - 0 = f'(0) = 0$$
-</span>
+<span class="proof">
+Case 1: l is empty. Then `(sum-list-help l 0)` 
 
-### Approximation Theorem
-<span class="theorem">
-Assume that there exists a $\delta > 0$ such that $\abs{f^{(n+1)}(x)} \leq M$ for all $x\in (a-\delta, a+\delta)$, then for each $x\in (a-\delta,a+\delta)$ we have $$\abs{f(x) - P_{n,a} (x)} \leq \frac{M}{(n+1)!}\abs{(x-a)^{n+1}}$$
-</span>
+Case 2: l = `(cons x l')`, assume `(sum-list-help l' 0)` sums `l'`, then 
+```
+  (sum-list-help l 0)
+= (sum-list-help (cons x l') 0)
+= (sum-list-help l' x)
+```
 
+which does not match induction hypothesis, proof fails.
 
-### Big-O notation
-<span class="definition">
-Let $a\in \mathbb{R}$. Given $f,g$ we say that $f(x) = O(g(x))$ as x approaches $a$ if there exists $0<\delta \leq 1$ with
-$$\abs{f(x)}\leq M\abs{f(x)} \text{ for all } x\in(a-\delta,a+\delta)$$ except possibly at $x=a$.
-</span>
-
-<span class="theorem">
-If There exists a $0< \delta \leq 1$ such that $f^{(n+1)}(x)$ is continuous on $[-\delta,\delta]$, then $$f(x) - P_{n,a}(x) = O(x^{n+1})$$ and we write $f(x) = P_{n,a}(x) + O(x^{n+1})$.
+Need a stronger statement (invariant) about the relationship between L + acc that holds throughout the recursion.
 </span>
 
 <span class="proof">
-Since $f^{(n+1)}(x)$ is continuous on $[-\delta,\delta]$, the Extreme Value Theorem show that there exists $M$ with $\abs{f^{(n+1)}(x)} \leq M$ for all $x\in [-\delta, \delta]$. Hence by the Approximation Theorem,
-$$\abs{f(x) - P_{n,a}(x)}\leq \frac{M}{(n+1)!}\abs{x^{n+1}}$$ Then $f(x) = P_{n,a}(x) + O(x^{n+1})$.
+$\forall$ l, $\forall$ acc, `(sum-list-help l acc)` produces acc + $\sum$ l, by structural induction on l.
+
+Case 1: l is empty.
+Then
+```
+  (sum l acc)
+= acc  
+```
+
+Case 2: l = `(cons x l')`
+
+Assume `(sum-list-help)` = $\sum$ l.
+
+Then 
+```
+  (sum-list-help l acc)
+= (sum-list-help (cons x l') acc)
+= (sum-list-help l' (+ x acc))
+= $\sum$ l + acc
+```
+
+Then let $acc = 0$.
+```
+(sum-list-help l 0) = $\sum$ l
+```
 </span>
 
-### Arithmetic Rules for Big-O
-<span class="theorem">
-Assume that $f= O(x^n)$, $g = O(x^m)$.
-- $cf(x) = O(x^n)$
-- $f(x) + g(x) = O(x^{\operatorname{min} (m,n)})$
-- $f(x)\cdot g(x) = O(x^{m+n})$
-- $x^k\cdot f(x) = O(x^{n+k})$
-- $(f(x))^k = O(x^{nk})$
-</span>
+#### Generator recursion
 
-<span class="proof">
-On $[-\delta,\delta]$, $\abs{f(x)} \leq M_1\abs{x^n}$, $\abs{g(x)} \leq M_2 \abs{x^n}$
-Then $$\abs{f(x) + g(x)} \leq \abs{f(x)} + \abs{g(x)} \leq M_1 \abs{x^n} + M_2 \abs{x^m} \leq M_1 \abs{x^{\operatorname{min} (m,n)}} + M_2 \abs{x^{\operatorname{min} (m,n)}} = (M_1 + M_2) \abs{x^{\operatorname{min} (m,n)}}$$
-</span>
+Does not follow the structure of the data 
+
+- proofs require more creativity
+
+##### How do we reason about imperative programs?
+
+Recall: impure racket
+
+(begin exp1 exp2 ... expn)
+
+- evalutes all of exp in order left to right
+- produces the value of exp
 
 
-<span class="lemma">
-Let $p(x) = a_0 + a_1x+ \cdots a_nx^n$. Assume that $p(x) = O(x^{n+1})$, then $p(x) = 0$.
-</span>
 
-<span class="proof">
-Prove by induction.
-</span>
 
-<span class="theorem">
-Assume that $f^{(n+1)}(x)$ is continuous on $[-\delta,\delta]$. If $p(x) = a_0 + a_1x+\cdots a_nx^n$ is such that $f(x) = p(x) + O(x^{n+1})$, then $p(x) = P_{n,0}(x)$.
-</span>
 
-<span class="proof">
-\begin{align*}
-    p(x) - P_{n,a} (x) = & (p(x) - f(x)) + (f(x) - P_{n,0}(x))\\
-    = & O(x^{m+1}) + O(x^{m+1})\\
-    = & O(x^{m+1})
-\end{align*}
-Then by the lemma, we have $p(x) - P_{n,a} (x) = 0$.
-</span>
+
+

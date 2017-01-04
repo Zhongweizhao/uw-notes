@@ -389,7 +389,7 @@ html {
     float:right;
 }
 
-.proof + div {
+.proof + * {
     clear: both;
 }
 
@@ -1082,8 +1082,8 @@ main {
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  margin-top: 24px;
-  margin-bottom: 16px;
+  padding-top: 24px;
+  padding-bottom: 16px;
   font-weight: 600;
   line-height: 1.25;
 }
@@ -1127,6 +1127,7 @@ main {
   padding-bottom: 0.3em;
   font-size: 1.5em;
   border-bottom: 1px solid #eee;
+  margin-bottom: 27px;
 }
 
 .markdown-body h3 {

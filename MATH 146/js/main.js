@@ -77,14 +77,14 @@
 
 
     for (var i=0; i<header_icon.length;i++) {
-        header_icon[i].addEventListener("mouseenter", function() {
-            event.target.classList.add("waves-float");
+        header_icon[i].addEventListener("mouseenter", function(e) {
+            e.target.classList.add("waves-float");
         });
     }
 
     for (var i=0; i<header_icon.length;i++) {
-        header_icon[i].addEventListener("mouseleave", function() {
-            event.target.classList.remove("waves-float");
+        header_icon[i].addEventListener("mouseleave", function(e) {
+            e.target.classList.remove("waves-float");
         });
     }
 
@@ -92,37 +92,6 @@
         var target = this;
         return target.split(search).join(replacement);
     };
-
-    function escapeLaTeX(input) {
-        function escapeChar(c) {
-            switch (c) {
-                case '&': return '&amp;'
-                case '<': return '&lt;'
-                case '>': return '&gt;'
-                case '"': return '&quot;'
-                case "\\": return '&#92;'
-                case "'": return '&#39;'
-                default: return c
-            }
-        }
-
-        function scanner(input, bool) {
-            if (input.length == 0) {
-                return input
-            } else {
-                c = input.substr(0,2)
-                if (c.substr(0,1) == "$") {
-                    return "$" + escapeChar(c.substr(1,1))  + scanner(input.slice(2), !bool)
-                } else if (bool) {
-                    return escapeChar(c.substr(0,1)) + scanner(input.slice(1), bool)
-                } else {
-                    return c.substr(0,1) + scanner(input.slice(1), bool)
-                }
-            }
-        }
-
-        return scanner(input, false)
-    }
 
 
     function proc_toc(item, list) {
@@ -180,14 +149,7 @@
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
            // Typical action to be performed when the document is ready:
-           document.getElementById("markdown-code").innerHTML = xhttp.responseText;
-
-           var md = window.markdownit()({
-                html: true
-           });
-           var m = document.getElementById("markdown-code").innerHTML
-           result = md.render(escapeLaTeX(m));
-           document.getElementById("content").innerHTML = result;
+           document.getElementById("content").innerHTML = xhttp.responseText;
 
            var h2s = d.getElementsByTagName("h2");
            var h3s = d.getElementsByTagName("h3");
@@ -242,7 +204,7 @@
            document.getElementById("markdown-code").innerHTML = "Failed to fetch notes.";
        }
     };
-    xhttp.open("GET", "notes.md", true);
+    xhttp.open("GET", "http://138.197.131.180:2017/math146", true);
     xhttp.send();
 
 
